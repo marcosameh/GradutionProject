@@ -21,6 +21,7 @@ namespace App.Core.Models
         {
         }
 
+        public virtual DbSet<Authors> Authors { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<BookCategory> BookCategory { get; set; }
         public virtual DbSet<BookCategoryList> BookCategoryList { get; set; }
@@ -30,16 +31,27 @@ namespace App.Core.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
+            modelBuilder.Entity<Authors>(entity =>
+            {
+                entity.Property(e => e.DisplayOrder).HasDefaultValueSql("((99))");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NumberOfBooks).HasComputedColumnSql("([dbo].[GetNumberOfBooks]([Id]))", false);
+
+                entity.Property(e => e.Photo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Book>(entity =>
             {
                 entity.HasIndex(e => e.UrlName, "IX_Book")
                     .IsUnique();
 
                 entity.Property(e => e.AduioUrl).HasMaxLength(50);
-
-                entity.Property(e => e.Author)
-                    .IsRequired()
-                    .HasMaxLength(70);
 
                 entity.Property(e => e.BookPhoto)
                     .IsRequired()
@@ -78,6 +90,12 @@ namespace App.Core.Models
                 entity.Property(e => e.UserId)
                     .IsRequired()
                     .HasMaxLength(450);
+
+                entity.HasOne(d => d.Author)
+                    .WithMany(p => p.Book)
+                    .HasForeignKey(d => d.AuthorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Book_Authors");
             });
 
             modelBuilder.Entity<BookCategory>(entity =>

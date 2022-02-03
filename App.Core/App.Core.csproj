@@ -5,9 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\**" />
+    <EmbeddedResource Remove="ViewModels\**" />
+    <None Remove="ViewModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Repository\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
