@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\App.Admin\App.Admin.csproj" />
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
+    <ProjectReference Include="..\App.Customer\App.Customer.csproj" />
+    <ProjectReference Include="..\App.Librarian\App.Librarian.csproj" />
   </ItemGroup>
 
 </Project>
