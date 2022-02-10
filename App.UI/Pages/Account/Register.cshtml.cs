@@ -86,7 +86,7 @@ namespace App.UI.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
 
-                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/admin-photo/";
+                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/librarian/";
                 string photoname = Path.GetFileName(Input.Photo.FileName);
                 string finalpath = photopath + photoname;
                 using (var stream = System.IO.File.Create(finalpath))
@@ -99,7 +99,7 @@ namespace App.UI.Areas.Identity.Pages.Account
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 user.EmailConfirmed = true;
-                await _userManager.AddToRoleAsync(user, "Admin");
+                await _userManager.AddToRoleAsync(user, "Librarian");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
