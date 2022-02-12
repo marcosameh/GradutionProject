@@ -31,7 +31,7 @@ namespace App.Core.Models
         public bool ForExchange { get; set; }
         public string BooksToExchange { get; set; }
         public bool ForChildern { get; set; }
-        public int? Offer { get; set; }
+        public double? Offer { get; set; }
 
         public virtual Authors Author { get; set; }
         public virtual ICollection<BookCategoryList> BookCategoryList { get; set; }

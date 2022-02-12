@@ -34,12 +34,13 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "MARCO.Kitabi",
+   "UiHint": "DESKTOP-MQNIHEC.Kitabi",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
+   "UseHierarchyId": false,
    "UseInflector": false,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
