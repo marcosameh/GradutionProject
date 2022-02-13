@@ -12,7 +12,7 @@ namespace App.Core.Models
     public partial class KitabiContext : IdentityDbContext<ApplicationUser>
     {
         public override DbSet<ApplicationUser> Users { get; set; }
-
+   
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder)
         {
 
