@@ -347,56 +347,23 @@
 
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide box">
-                <img src="~/assets/images/PB1.png" alt="">
-                <h3>Jarir Bookstore</h3>
-                <p>Support our site by proving large amount of books</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+            @foreach (var item in await Model.Librarian.GetAll_Librarians())
+            {
+                <div class="swiper-slide box">
+                    <img src="~/Photos/librarian/@item.Photo" alt="">
+                    <h3>@item.UserName</h3>
+                    <p>Support our site by proving large amount of books</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
                 </div>
-            </div>
+            }
 
-            <div class="swiper-slide box">
-                <img src="~/assets/images/PB2.png" alt="">
-                <h3>Dar El-Shorouk</h3>
-                <p>Support our site by proving large amount of books</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
 
-            <div class="swiper-slide box">
-                <img src="~/assets/images/PB3.png" alt="">
-                <h3>tashkeell Bookstore</h3>
-                <p>Support our site by proving large amount of books</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
-            <div class="swiper-slide box">
-                <img src="~/assets/images/PB4.png" alt="">
-                <h3>kalemat bookstore</h3>
-                <p>Support our site by proving large amount of books</p>
-                <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-            </div>
 
 
         </div>
