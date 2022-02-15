@@ -1,18 +1,15 @@
 using App.Core.Domain;
 using App.Core.Models;
+using App.Librarian.AutoMapper;
+using App.UI.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace App.UI
 {
@@ -41,7 +38,9 @@ namespace App.UI
 
                 .AddEntityFrameworkStores<KitabiContext>().AddDefaultUI().AddDefaultTokenProviders();
 
-
+            services.AddRegisteredServices();
+            services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+            //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddRazorPages();
         }
 

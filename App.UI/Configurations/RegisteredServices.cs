@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using App.Librarian.Managers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace App.UI.Configurations
 {
@@ -14,8 +15,7 @@ namespace App.UI.Configurations
             /*use this pattern to register your serivces
              * services.AddScoped(s => new NameOfManager(s.GetService<NameOfContext>())
              */
-
-
+            services.AddScoped<AuthorManager>();
 
 
 

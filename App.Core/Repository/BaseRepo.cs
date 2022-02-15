@@ -14,9 +14,9 @@ namespace App.Core.Repositories
         private readonly KitabiContext DbContext;
 
         protected DbSet<TEntity> DbSet;
-        public BaseRepo(KitabiContext protein4AllContext)
+        public BaseRepo(KitabiContext context)
         {
-            DbContext = protein4AllContext;
+            DbContext = context;
             DbSet = DbContext.Set<TEntity>();
         }
         public IQueryable<TEntity> GetAll()
