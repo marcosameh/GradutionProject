@@ -100,7 +100,7 @@ namespace App.UI.Areas.Identity.Pages.Account
                     if (role.Contains("Customer"))
                     {
                         _logger.LogInformation("User logged in.");
-                        return Redirect("/customer/Welcome");
+                        return Redirect("/customer/index");
 
                     }
                     if (role.Contains("Librarian"))

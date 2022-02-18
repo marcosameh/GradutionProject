@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace App.Customer.ViewManger
 {
-    public class Offers
+    public class OffersView
     {
         private readonly KitabiContext context;
         private BaseRepo<Book> repo;
@@ -16,13 +16,13 @@ namespace App.Customer.ViewManger
          
 
         
-        public Offers(KitabiContext context)
+        public OffersView(KitabiContext context)
         {
             this.context = context;
             repo = new BaseRepo<Book>(context);
            
         }
-        public Offers(KitabiContext context, int BookPerPage)
+        public OffersView(KitabiContext context, int BookPerPage)
         {
             this.context = context;
             repo = new BaseRepo<Book>(context);
