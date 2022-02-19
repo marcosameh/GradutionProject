@@ -1,9 +1,13 @@
-﻿using App.Core.Models;
+﻿using App.Core.Manager;
+using App.Core.Models;
 using App.Core.Repositories;
 using App.Librarian.ViewModels;
 using AutoMapper;
+using LazZiya.ImageResize;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +31,7 @@ namespace App.Librarian.Managers
         }
         public void AddAuthor(AuthorsVM author)
         {
+            author.Photo = FileManager.UploadPhoto(author.PhotoFile, "/wwwroot/photos/author/", 150, 150);
             var Author = mapper.Map<Authors>(author);
             AuthorRepo.Add(Author);
         }

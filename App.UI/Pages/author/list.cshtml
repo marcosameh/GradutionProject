@@ -1,4 +1,51 @@
 ﻿@page
 @model App.UI.Pages.author.listModel
 @{
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
 }
+
+
+<!-- Hover table card start -->
+<div class="card">
+    <div class="card-header">
+        <h5>Authors</h5>
+    </div>
+    <div class="card-block table-border-style">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Display Order</th>
+                        <th>NumberOfBooks</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ int i = 1;}
+                    @foreach (var item in Model.Authors)
+                    {
+                        <tr>
+
+                            <th scope="row">@i</th>
+                            <td>@item.Name</td>
+                            <td><img src="@item.PhotoPath" alt="Author Photo" /></td>
+                            <td>@item.DisplayOrder</td>
+                            <td>@item.NumberOfBooks</td>
+                            <td><a asp-page="edit" asp-route-Id="@item.Id"><input type="button" class="btn btn-success" value="Edit" /></a></td>
+                            <td><a asp-page="delete" asp-route-Id="@item.Id"><input type="button" class="btn btn-danger" value="delete" /></a></td>
+
+
+                            @{i++;}
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

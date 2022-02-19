@@ -90,7 +90,12 @@ namespace App.UI.Areas.Identity.Pages.Account
                     // Get the roles for the user
                     
                     var role = await _userManager.GetRolesAsync(user);
-                   
+                    if (result.Succeeded&&returnUrl!="/")
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
+
                     if (role.Contains("Admin"))
                     {
                         _logger.LogInformation("User logged in.");
@@ -110,15 +115,7 @@ namespace App.UI.Areas.Identity.Pages.Account
 
                     }
                 }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
+              
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");

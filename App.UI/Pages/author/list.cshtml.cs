@@ -4,11 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace App.UI.Pages.author
 {
+     [Authorize(Roles = "Librarian")]
     public class listModel : PageModel
     {
         private readonly AuthorManager athorManager;

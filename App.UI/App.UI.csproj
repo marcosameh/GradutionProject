@@ -21,4 +21,8 @@
     <ProjectReference Include="..\App.Librarian\App.Librarian.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Photos\author\" />
+  </ItemGroup>
+
 </Project>

@@ -1,26 +1,29 @@
 ﻿using App.Core.Models;
 using AutoMapper;
-using System;
-using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Librarian.ViewModels
 {
     [AutoMap(typeof(Authors), ReverseMap = true)]
     public class AuthorsVM
     {
+        public int Id { get; set; }
+        [Required(ErrorMessage = "Author Name Required")]
+        [MinLength(3, ErrorMessage = "Invalid Name")]
+        [MaxLength(25, ErrorMessage = "Invalid Name")]
 
-        [Required(ErrorMessage ="Author Name Required")]
-        [MinLength(3,ErrorMessage = "Invalid Name")]
-        [MaxLength(25,ErrorMessage = "Invalid Name")]
-      
         public string Name { get; set; }
-        [Required(ErrorMessage = "Photo Is Required")]
+
+     
         public string Photo { get; set; }
         public int DisplayOrder { get; set; }
         public short? NumberOfBooks { get; set; }
+        [NotMapped]
+        [Required(ErrorMessage = "Photo Is Required")]
+        public IFormFile PhotoFile { get; set; }
+        [NotMapped]
+        public string PhotoPath { get {return "/photos/author/"+Photo; } }
     }
 }

@@ -31,16 +31,19 @@ namespace App.UI
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.SignIn.RequireConfirmedAccount = true; options.SignIn.RequireConfirmedAccount = true;
+             
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
+                
             })
 
                 .AddEntityFrameworkStores<KitabiContext>().AddDefaultUI().AddDefaultTokenProviders();
 
             services.AddRegisteredServices();
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
             services.AddRazorPages();
         }
 
