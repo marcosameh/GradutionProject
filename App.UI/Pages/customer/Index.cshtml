@@ -1,9 +1,18 @@
 ﻿@page
 @model App.UI.Pages.Customer.IndexModel
 @{
-    ViewData["Title"] = "Ktabi";
+    ViewBag.Title = "Ktabi";
+    ViewData["CurrentPage"] = "/Customer/Index";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
+<partial name="Partials/_Header" view-data="ViewData" />
+<div class="center-block">
+    @if(Model.SearchResult !=null)
+            {
+                <h1>Search result</h1>
+                <p>@Model.SearchResult</p>
+            }
+</div>
 <div class="header-2">
     <nav class="navbar">
         <a href="#home">home</a>

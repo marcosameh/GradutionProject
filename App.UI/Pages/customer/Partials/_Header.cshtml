@@ -1,0 +1,28 @@
+﻿ <!-- header section starts  -->
+@{
+    var PageName = ViewData["CurrentPage"];
+}
+<header class="header">
+
+    <div class="header-1">
+
+        <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+
+        <form action="@PageName" method="get" class="search-form">
+            <input type="search" name="SearchResult" placeholder="search here..." id="search-box">
+            <input type="submit" for="search-box" class="fas fa-search" />
+
+
+            @*<label for="search-box" class="fas fa-search"></label>*@
+        </form>
+
+        <div class="icons">
+            <div id="search-btn" class="fas fa-search"></div>
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart"></a>
+            <a asp-page="/Account/Login" class="fas fa-user"></a>
+            <!-- <div id="login-btn" class="fas fa-user"></div> -->
+            <div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>
+
+        </div>
+    </div>

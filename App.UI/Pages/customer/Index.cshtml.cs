@@ -18,6 +18,8 @@ namespace App.UI.Pages.Customer
         public OffersView Offers;
 
         public LibrarianView Librarian;
+        [BindProperty(SupportsGet =true)]
+        public string SearchResult{ get; set; }
         public IndexModel(KitabiContext context, UserManager<ApplicationUser> userManager)
         {
             Offers = new OffersView(context);
@@ -29,7 +31,7 @@ namespace App.UI.Pages.Customer
 
         public void OnGet()
         {
-
+           
         }
     }
 }
