@@ -33,13 +33,13 @@ namespace App.Core.Models
 
             modelBuilder.Entity<Authors>(entity =>
             {
+                entity.Property(e => e.Bio).HasMaxLength(300);
+
                 entity.Property(e => e.DisplayOrder).HasDefaultValueSql("((99))");
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(50);
-
-                entity.Property(e => e.NumberOfBooks).HasComputedColumnSql("([dbo].[GetNumberOfBooks]([Id]))", false);
 
                 entity.Property(e => e.Photo)
                     .IsRequired()

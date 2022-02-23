@@ -5,23 +5,38 @@
     ViewData["CurrentPage"] = "/Customer/Index";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
-<partial name="Partials/_Header" view-data="ViewData" />
-<div class="center-block">
-    @if(Model.SearchResult !=null)
-            {
-                <h1>Search result</h1>
-                <p>@Model.SearchResult</p>
-            }
+<link href="~/css/CustomerCssFiles/chome.css" rel="stylesheet" />
+<partial name="Partials/_HeaderPartial" view-data="ViewData" />
+<div>
+    @if (Model.SearchFor != null)
+    {
+        <h1 class="display-4">Search result</h1>
+        <p>@Model.SearchFor</p>
+    }
 </div>
 <div class="header-2">
     <nav class="navbar">
-        <a href="#home">home</a>
-        <a href="#featured">featured</a>
-        <a href="#arrivals">arrivals</a>
-        <a href="#sections">sections</a>
-        <a href="#authors">authors</a>
-        <a href="#books">books</a>
+
+        <ul>
+            <li><a asp-page="/customer/index">home</a></li>
+            <li><a href="#featured">featured</a></li>
+            <li><a href="#arrivals">arrivals</a></li>
+            <li>
+                <a href="book.html">books</a>
+                <ul>
+                    <li> <a href="#1">Download books</a></li>
+                    <li> <a href="#2">upload books</a></li>
+                    <li> <a href="#3">writen books</a></li>
+                    <li> <a href="#4">paper books</a></li>
+                    <li> <a href="#5"> books</a></li>
+                </ul>
+            </li>
+            <li><a href="section.html">sections</a></li>
+            <li><a asp-page="/customer/authors">authors</a></li>
+
+        </ul>
     </nav>
+
 </div>
 
 </header>
@@ -84,9 +99,12 @@
             {
                 <div class="swiper-slide box">
                     <div class="icons">
+                       
                         <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="fas fa-eye"></a>
+                        
+                        @*<a href="#" class="fas fa-heart"></a>
+                        <a href="#" class="fas fa-search"></a>
+                        <a href="#" class="fas fa-eye"></a>*@
                     </div>
                     <div class="image">
                         <img src="~/assets/images/@item.BookPhoto" alt="">
@@ -378,3 +396,7 @@
     </div>
 
 </section>
+<div class="loader-container">
+    <img src="~/assets/images/loader-imgb.gif" alt="" />
+
+</div>

@@ -13,40 +13,27 @@ namespace App.Customer.ViewManger
         private readonly KitabiContext context;
         private BaseRepo<Book> repo;
         private Paging page;
-         
 
-        
         public OffersView(KitabiContext context)
         {
             this.context = context;
             repo = new BaseRepo<Book>(context);
-           
-        }
-        public OffersView(KitabiContext context, int BookPerPage)
-        {
-            this.context = context;
-            repo = new BaseRepo<Book>(context);
-            page = new Paging(BookPerPage);
+            
+
         }
 
         public IQueryable<Book> GetOfferedBooks(int CurrentPage)
         {
-            int BooksCount = CountOfferedBooks();
-
-             int skip = page.SkipNumBooks(CurrentPage);
-            if (BooksCount == 0)
-                return null;
-            
+            page = new Paging(16);
+            int skip = page.SkipNumBooks(CurrentPage);                        
             return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true,book=>book.Author)
                 .Skip(skip).Take(page.ItemPerPage);
         }
+
+        
+        // get featured books in home page
         public IQueryable<Book> GetfeaturedBooks( int bookNumber)
         {
-            int BooksCount = CountOfferedBooks();
-
-           
-            if (BooksCount == 0)
-                return null;
 
             return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true, book => book.Author).Take(bookNumber);
                 
@@ -54,8 +41,7 @@ namespace App.Customer.ViewManger
 
         public  int CountOfferedBooks()
         {
-
-            return repo.GetAll().Count();
+            return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true, book => book.Author).Count();
         }
 
         public int GetNumOfPages()

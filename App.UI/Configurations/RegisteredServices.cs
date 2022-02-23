@@ -1,4 +1,5 @@
-﻿using App.Librarian.Managers;
+﻿using App.Customer.ViewManger;
+using App.Librarian.Managers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace App.UI.Configurations
@@ -16,9 +17,8 @@ namespace App.UI.Configurations
              * services.AddScoped(s => new NameOfManager(s.GetService<NameOfContext>())
              */
             services.AddScoped<AuthorManager>();
-
-
-
+            services.AddScoped<OffersView>();
+            services.AddScoped<LibrarianView>();
             return services;
 
         }

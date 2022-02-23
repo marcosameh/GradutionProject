@@ -6,14 +6,15 @@
 
     <div class="header-1">
 
-        <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+        <a asp-page="/customer/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
 
-        <form action="@PageName" method="get" class="search-form">
-            <input type="search" name="SearchResult" placeholder="search here..." id="search-box">
-            <input type="submit" for="search-box" class="fas fa-search" />
+        <form action="@PageName" class="search-form">
+            <input type="search" name="SearchFor" placeholder="search here..." id="search-box">
+            <button type="submit" class="search-button">
+                <span class="button-icon"><i class="fas fa-search"></i></span>
+            </button>
 
-
-            @*<label for="search-box" class="fas fa-search"></label>*@
+            <!-- <label for="search-box" class="fas fa-search"></label> -->
         </form>
 
         <div class="icons">

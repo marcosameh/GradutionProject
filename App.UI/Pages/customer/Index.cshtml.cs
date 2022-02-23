@@ -10,22 +10,25 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace App.UI.Pages.Customer
 {
-    [Authorize(Roles = "Customer")]
+    //[Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
-        private readonly KitabiContext context;
-        private readonly UserManager<ApplicationUser> userManager;
-        public OffersView Offers;
 
-        public LibrarianView Librarian;
+        private readonly UserManager<ApplicationUser> userManager;
+       
+ 
+
+
         [BindProperty(SupportsGet =true)]
-        public string SearchResult{ get; set; }
-        public IndexModel(KitabiContext context, UserManager<ApplicationUser> userManager)
+        public string SearchFor { get; set; }
+        public LibrarianView Librarian { get; }
+        public OffersView Offers { get; }
+
+        public IndexModel( LibrarianView librarian,OffersView offers)
         {
-            Offers = new OffersView(context);
-            this.context = context;
-            this.userManager = userManager;
-            Librarian = new LibrarianView(userManager);
+            Librarian = librarian;
+            Offers = offers;
+
         }
 
 
@@ -33,5 +36,6 @@ namespace App.UI.Pages.Customer
         {
            
         }
+      
     }
 }

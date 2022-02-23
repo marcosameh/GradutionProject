@@ -1,0 +1,109 @@
+﻿@page "/authors/{PageIndex:int:min(1)?}"
+@model App.UI.Pages.customer.AuthorsModel
+@{
+    ViewBag.Title = "Ktabi";
+    ViewData["CurrentPage"] = "/Authors";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+}
+
+<link href="~/css/CustomerCssFiles/cauthor.css" rel="stylesheet" />
+<link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+<style>
+    a:link {
+        text-decoration: none;
+    }
+</style>
+
+<partial name="Partials/_HeaderPartial" view-data="ViewData" />
+<div>
+    @if (Model.SearchFor != null)
+    {
+        <h1 class="display-4">Search result</h1>
+        <p>@Model.SearchFor</p>
+
+    }
+
+    <div class="header-2">
+        <nav class="navbar">
+
+            <ul>
+                <li><a asp-page="/customer/index">home</a></li>
+                <li><a href="#featured">featured</a></li>
+                <li><a href="#arrivals">arrivals</a></li>
+                <li>
+                    <a href="book.html">books</a>
+                    <ul>
+                        <li> <a href="#1">Download books</a></li>
+                        <li> <a href="#2">upload books</a></li>
+                        <li> <a href="#3">writen books</a></li>
+                        <li> <a href="#4">paper books</a></li>
+                        <li> <a href="#5"> books</a></li>
+                    </ul>
+                </li>
+                <li><a href="section.html">sections</a></li>
+                <li><a href="author.html">authors</a></li>
+
+            </ul>
+        </nav>
+
+    </div>
+
+
+
+
+
+
+    </header>
+    
+    <section id="team">
+        <div class="container my-3 py-5 text-center">
+            <div class="row">
+                @foreach (var Author in Model.Authors)
+                {
+                <partial name="Partials/_AuthorCardPartial" model="Author"/>
+                }
+                
+            </div>
+        </div>
+
+</section>
+    @{ 
+        int PageNext = Model.PageIndex + 1;
+        int PagePrev = Model.PageIndex - 1;
+        int PageCounter = Model.paging.GetNumOfPages();
+    }
+   
+        <div class="pagination">
+            <ul class="link">
+                @if (Model.PageIndex != 1)
+                {
+                    <li><a asp-route-PageIndex="@PagePrev" class="prev"> &lang; Prev </a></li>
+
+                }
+                @for (int PageNumber = 1; PageNumber < PageCounter + 1; PageNumber++)
+                {
+                    if (Model.PageIndex == PageNumber)
+                    {
+                        <li class="pageNumber active"><a asp-route-PageIndex="@PageNumber">@PageNumber</a></li>
+
+                    }
+                    else
+                    {
+                        <li class="pageNumber"><a asp-route-PageIndex="@PageNumber">@PageNumber</a></li>
+
+                    }
+                }
+                @*<li class="pageNumber active"><a href="#">1</a></li>
+        <li class="pageNumber"><a href="#">2</a></li>
+        <li class="pageNumber"><a href="#">3</a></li>
+        <li class="pageNumber"><a href="#">4</a></li>
+        <li class="pageNumber"><a href="#">5</a></li>
+        <li class="pageNumber"><a href="#">6</a></li>*@
+                @if (Model.PageIndex != PageCounter)
+                {
+                    <li><a asp-route-PageIndex="@PageNext" class="next">  Next &rang;</a></li>
+
+                }
+            </ul>
+        </div>
+

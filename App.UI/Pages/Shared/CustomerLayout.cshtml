@@ -13,7 +13,7 @@
 
     <!-- custom css file link  -->
 
-    <link href="~/css/CustomerLayoutCss.css" rel="stylesheet" />
+
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
 
@@ -52,11 +52,11 @@
 
             <div class="box">
                 <h3>quick links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> sections </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> authors </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> sections </a>
+                <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
                 <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
             </div>
 
@@ -94,16 +94,13 @@
     <!-- footer section ends -->
     <!-- loader  -->
 
-    @*<div class="loader-container">
-        <img src="~/assets/images/loader-imgb.gif" alt="" />
-      
-    </div>*@
+
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
     <!-- custom js file link  -->
 
-    <script src="~/js/CustomerLayoutScript.js"></script>
+    <script src="~/js/CustomerJsFiles/shome.js"></script>
 </body>
 </html>

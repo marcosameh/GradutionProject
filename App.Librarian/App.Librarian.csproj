@@ -12,4 +12,6 @@
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
   </ItemGroup>
 
+
+
 </Project>

@@ -5,6 +5,7 @@ using App.UI.Configurations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,6 +46,12 @@ namespace App.UI
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
             services.AddRazorPages();
+
+            //URL in lower case
+            services.Configure<RouteOptions>(option =>
+            {
+                option.LowercaseUrls=true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

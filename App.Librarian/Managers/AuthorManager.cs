@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace App.Librarian.Managers
 {
+
     public class AuthorManager
     {
         private readonly IMapper mapper;
@@ -29,11 +30,20 @@ namespace App.Librarian.Managers
            return mapper.Map<List<AuthorsVM>>(Authors);
             
         }
+
+        public int GetAuthorsCount()
+        {
+            var Authors = AuthorRepo.GetAll().Count();
+            return Authors;
+
+        }
+
         public void AddAuthor(AuthorsVM author)
         {
             author.Photo = FileManager.UploadPhoto(author.PhotoFile, "/wwwroot/photos/author/", 150, 150);
             var Author = mapper.Map<Authors>(author);
             AuthorRepo.Add(Author);
         }
+
     }
 }
