@@ -3,49 +3,59 @@
 @{
     Layout = "/Pages/Shared/LibrarianLayout.cshtml";
 }
+<link href="~/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
 
 
-<!-- Hover table card start -->
-<div class="card">
-    <div class="card-header">
-        <h5>Authors</h5>
-    </div>
-    <div class="card-block table-border-style">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Photo</th>
-                        <th>Display Order</th>
-                        <th>NumberOfBooks</th>
+<div class="container">
+    <br />
+    <div style="width:90%; margin:0 auto;">
+        <table id="customerDatatable" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Photo</th>
+                    <th>Display Order</th>
+                    <th>NumberOfBooks</th>
+                </tr>
+            </thead>
 
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @{ int i = 1;}
-                    @foreach (var item in Model.Authors)
-                    {
-                        <tr>
-
-                            <th scope="row">@i</th>
-                            <td>@item.Name</td>
-                            <td><img src="@item.PhotoPath" alt="Author Photo" /></td>
-                            <td>@item.DisplayOrder</td>
-                            <td>@item.NumberOfBooks</td>
-                            <td><a asp-page="edit" asp-route-Id="@item.Id"><input type="button" class="btn btn-success" value="Edit" /></a></td>
-                            <td><a asp-page="delete" asp-route-Id="@item.Id"><input type="button" class="btn btn-danger" value="delete" /></a></td>
-
-
-                            @{i++;}
-                        </tr>
-                    }
-
-
-                </tbody>
-            </table>
-        </div>
+        </table>
     </div>
 </div>
+@section scripts{
+    
+    <script src="~/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/datatables/js/dataTables.bootstrap4.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#customerDatatable").DataTable({
+                "processing": true,
+                "serverSide": true,
+                "filter": true,
+                "ajax": {
+                    "url": "/api/author",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columnDefs": [{
+                    "targets": [0],
+                    "visible": false,
+                    "searchable": false
+                }],
+                "columns": [
+                    { "data": "id", "name": "Id", "autoWidth": true },
+                    { "data": "name", "name": "Name", "autoWidth": true },
+                    { "data": "photoPath", "name": "Last Name", "autoWidth": true },
+                    { "data": "displayOrder", "name": "DisplayOrder", "autoWidth": true },
+                   /* { "data": "numberOfbooks", "name": "numberOfBooks", "autoWidth": true },*/
+
+                    {
+                        "render": function (data, row) { return "<a href='#' class='btn btn-danger' onclick=DeleteCustomer('" + row.id + "'); >Delete</a>"; }
+                    },
+                ]
+            });
+        });
+    </script>
+}
