@@ -12,15 +12,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-
+    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
 
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+    </style>
 
-   
+
+    <header class="header">
+
+        <div class="header-1">
+
+            <a asp-page="/customer/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+
+            <form action="" class="search-form">
+                <input type="search" name="SearchFor" placeholder="search here..." id="search-box">
+                <button type="submit" class="search-button">
+                    <span class="button-icon"><i class="fas fa-search"></i></span>
+                </button>
+
+                <!-- <label for="search-box" class="fas fa-search"></label> -->
+            </form>
+
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a asp-page="/Account/Login" class="fas fa-user"></a>
+                <!-- <div id="login-btn" class="fas fa-user"></div> -->
+                <div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>
+
+            </div>
+        </div>
+
+        <div class="header-2">
+            <nav class="navbar">
+
+                <ul>
+                    <li><a asp-page="/customer/index">home</a></li>
+                    <li><a href="#featured">featured</a></li>
+                    <li><a href="#arrivals">arrivals</a></li>
+                    <li>
+                        <a href="book.html">books</a>
+                        <ul>
+                            <li> <a href="#1">Download books</a></li>
+                            <li> <a href="#2">upload books</a></li>
+                            <li> <a href="#3">writen books</a></li>
+                            <li> <a href="#4">paper books</a></li>
+                            <li> <a href="#5"> books</a></li>
+                        </ul>
+                    </li>
+                    <li><a asp-page="/customer/section">sections</a></li>
+                    <li><a asp-page="/customer/authors">authors</a></li>
+
+                </ul>
+            </nav>
+
+        </div>
+
+    </header>
         <div>
             @RenderBody()
         </div>
@@ -28,79 +85,79 @@
 
 
 
-    <!-- header section ends -->
-   
+        <!-- header section ends -->
 
 
 
 
 
 
-    <section class="footer">
 
-        <div class="box-container">
+        <section class="footer">
 
-            <div class="box">
-                <h3>our locations</h3>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
-                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+            <div class="box-container">
+
+                <div class="box">
+                    <h3>our locations</h3>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
+                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+                </div>
+
+                <div class="box">
+                    <h3>quick links</h3>
+                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
+                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
+                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                    <a asp-page="/sections"> <i class="fas fa-arrow-right"></i> sections </a>
+                    <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+                </div>
+
+                <div class="box">
+                    <h3>extra links</h3>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
+                    <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
+                </div>
+
+                <div class="box">
+                    <h3>contact info</h3>
+                    <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                    <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                    <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
+                    <img src="~/assets/images/worldmap.png" class="map" alt="">
+                </div>
+
             </div>
 
-            <div class="box">
-                <h3>quick links</h3>
-                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
-                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
-                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
-                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> sections </a>
-                <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+                <a href="#" class="fab fa-pinterest"></a>
             </div>
 
-            <div class="box">
-                <h3>extra links</h3>
-                <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-                <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
-            </div>
+            <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
 
-            <div class="box">
-                <h3>contact info</h3>
-                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
-                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-                <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
-                <img src="~/assets/images/worldmap.png" class="map" alt="">
-            </div>
+        </section>
 
-        </div>
-
-        <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-            <a href="#" class="fab fa-pinterest"></a>
-        </div>
-
-        <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
-
-    </section>
-
-    <!-- footer section ends -->
-    <!-- loader  -->
+        <!-- footer section ends -->
+        <!-- loader  -->
 
 
 
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-    <!-- custom js file link  -->
+        <!-- custom js file link  -->
 
-    <script src="~/js/CustomerJsFiles/shome.js"></script>
+        <script src="~/js/CustomerJsFiles/shome.js"></script>
 </body>
 </html>

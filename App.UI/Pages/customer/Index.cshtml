@@ -1,62 +1,24 @@
 ﻿@page
 @model App.UI.Pages.Customer.IndexModel
 @{
-    ViewBag.Title = "Ktabi";
-    ViewData["CurrentPage"] = "/Customer/Index";
+    ViewBag.Title = "Home page";
+
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link href="~/css/CustomerCssFiles/chome.css" rel="stylesheet" />
-<partial name="Partials/_HeaderPartial" view-data="ViewData" />
-<div>
-    @if (Model.SearchFor != null)
-    {
-        <h1 class="display-4">Search result</h1>
-        <p>@Model.SearchFor</p>
-    }
-</div>
-<div class="header-2">
-    <nav class="navbar">
 
-        <ul>
-            <li><a asp-page="/customer/index">home</a></li>
-            <li><a href="#featured">featured</a></li>
-            <li><a href="#arrivals">arrivals</a></li>
-            <li>
-                <a href="book.html">books</a>
-                <ul>
-                    <li> <a href="#1">Download books</a></li>
-                    <li> <a href="#2">upload books</a></li>
-                    <li> <a href="#3">writen books</a></li>
-                    <li> <a href="#4">paper books</a></li>
-                    <li> <a href="#5"> books</a></li>
-                </ul>
-            </li>
-            <li><a href="section.html">sections</a></li>
-            <li><a asp-page="/customer/authors">authors</a></li>
 
-        </ul>
-    </nav>
+@if (Model.SearchFor != null)
+{
+    <div class="text-center">
+        <h1 class="display-1">Search result</h1>
+        <p class="display-6">@Model.SearchFor</p>
+    </div>
 
-</div>
-
-</header>
+}
 
 <!-- header section ends -->
 <!-- bottom navbar  -->
-
-
-<nav class="bottom-navbar">
-    <a href="#home" class="fas fa-home"></a>
-    <a href="#featured" class="fas fa-list"></a>
-    <a href="#arrivals" class="fas fa-tags"></a>
-    <a href="#sections"><i class="fa-solid fa-section"></i></a>
-    <a href="#authors"><i class="fa-solid fa-feather-pointed"></i></a>
-    <a href="#books"><i class="fa-solid fa-book"></i></a>
-
-</nav>
-
-
-
 <!-- home section starts  -->
 
 <section class="home" id="home">
@@ -99,12 +61,12 @@
             {
                 <div class="swiper-slide box">
                     <div class="icons">
-                       
+
                         <a href="#" class="fas fa-search"></a>
-                        
+
                         @*<a href="#" class="fas fa-heart"></a>
-                        <a href="#" class="fas fa-search"></a>
-                        <a href="#" class="fas fa-eye"></a>*@
+                            <a href="#" class="fas fa-search"></a>
+                            <a href="#" class="fas fa-eye"></a>*@
                     </div>
                     <div class="image">
                         <img src="~/assets/images/@item.BookPhoto" alt="">

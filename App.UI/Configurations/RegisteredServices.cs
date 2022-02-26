@@ -19,6 +19,7 @@ namespace App.UI.Configurations
             services.AddScoped<AuthorManager>();
             services.AddScoped<OffersView>();
             services.AddScoped<LibrarianView>();
+            services.AddScoped<SectionView>();
             return services;
 
         }
