@@ -19,16 +19,20 @@ namespace App.Librarian.ViewModels
      
         public string Photo { get; set; }
         public int DisplayOrder { get; set; }
-        public short? NumberOfBooks { get; set; }
+      
         [NotMapped]
         [Required(ErrorMessage = "Photo Is Required")]
         public IFormFile PhotoFile { get; set; }
         [NotMapped]
         public string PhotoPath { get {return "/photos/author/"+Photo; } }
 
-        //[Required(ErrorMessage = "Author Info Required")]
-        //[MinLength(170, ErrorMessage = "Author info must be at least 25 words")]
-        //[MaxLength(300, ErrorMessage = "Author info must be at most 50 words")]
+        [Required(ErrorMessage = "Author Info Required")]
+        [MinLength(20, ErrorMessage = "Author info must be at least 25 words")]
+        [MaxLength(300, ErrorMessage = "Author info must be at most 50 words")]
+
         public string Bio { get; set; }
+        [Required]
+        [Range(1,100,ErrorMessage ="Invalid Number")]
+        public int NumberOfBooks { get; set; }
     }
 }

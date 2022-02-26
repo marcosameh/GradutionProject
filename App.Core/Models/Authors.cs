@@ -17,7 +17,7 @@ namespace App.Core.Models
         public string Photo { get; set; }
         public int DisplayOrder { get; set; }
         public string Bio { get; set; }
-        public int? NumberOfBooks { get; set; }
+        public int NumberOfBooks { get; set; }
 
         public virtual ICollection<Book> Book { get; set; }
     }

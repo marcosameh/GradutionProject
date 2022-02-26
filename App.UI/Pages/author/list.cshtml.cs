@@ -24,5 +24,10 @@ namespace App.UI.Pages.author
         {
             Authors = athorManager.GetAuthors();
         }
+        public IActionResult OnGetDisplayAuthors()
+        {
+            Authors = athorManager.GetAuthors();
+            return new JsonResult(Authors);
+        }
     }
 }

@@ -5,18 +5,19 @@
 }
 <link href="~/datatables/css/dataTables.bootstrap4.css" rel="stylesheet" />
 
-
+<link href="~/datatables/css/jquery.dataTables.css" rel="stylesheet" />
 <div class="container">
     <br />
-    <div style="width:90%; margin:0 auto;">
+    <div>
         <table id="customerDatatable" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Photo</th>
                     <th>Display Order</th>
                     <th>NumberOfBooks</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
 
@@ -31,30 +32,68 @@
     <script>
         $(document).ready(function () {
             $("#customerDatatable").DataTable({
-                "processing": true,
-                "serverSide": true,
-                "filter": true,
+                //"processing": true,
+                //"serverSide": true,
+                //"filter": true,
+                /*pageLength:2,*/
                 "ajax": {
-                    "url": "/api/author",
-                    "type": "POST",
-                    "datatype": "json"
+                    url: "?handler=displayAuthors",
+                    dataSrc:""
                 },
-                "columnDefs": [{
-                    "targets": [0],
-                    "visible": false,
-                    "searchable": false
-                }],
-                "columns": [
-                    { "data": "id", "name": "Id", "autoWidth": true },
-                    { "data": "name", "name": "Name", "autoWidth": true },
-                    { "data": "photoPath", "name": "Last Name", "autoWidth": true },
-                    { "data": "displayOrder", "name": "DisplayOrder", "autoWidth": true },
-                   /* { "data": "numberOfbooks", "name": "numberOfBooks", "autoWidth": true },*/
+                //"columnDefs": [{
+                //    "targets": [0],
+                //    "visible": false,
+                //    "searchable": false
+                //}],
+                //"columns": [
+                //    { "data": "id", "name": "Id", "autoWidth": true },
+                //    { "data": "name", "name": "Name", "autoWidth": true },
+                //    { "data": "photoPath", "name": "Last Name", "autoWidth": true },
+                //    { "data": "displayOrder", "name": "DisplayOrder", "autoWidth": true },
+                //    { "data": "numberOfbooks", "name": "numberOfBooks", "autoWidth": true },
 
+                //    {
+                //        "render": function (data, row) { return "<a href='#' class='btn btn-danger' onclick=DeleteCustomer('" + row.id + "'); >Delete</a>"; }
+                //    },
+                //]
+                columns: [
+                    //{
+                    //    title:'Id',
+                    //    data:'id'
+                    //},
                     {
-                        "render": function (data, row) { return "<a href='#' class='btn btn-danger' onclick=DeleteCustomer('" + row.id + "'); >Delete</a>"; }
+                        title: 'name',
+                        data: 'name'
+                    },
+                    {
+                        title: 'Photo',
+                        data: 'photoPath',
+                        render: function (data) {
+                            return '<img src="' + data + '"/>'
+                        }
+                    },
+                    
+                    {
+                        title: 'Diplay Order',
+                        data: 'displayOrder'
+                    },
+                    {
+                        title: 'Number Of Books',
+                        data: 'numberOfBooks'
+                    },
+                    {
+                        title: 'Edit',
+                        data: 'id',
+                        "render": function (data) { return '<a href="/auther/edit/' + data + '" class="btn btn-success" >Edit</a>'; }
+                    },
+                   
+                    {
+                        title: 'Delete',
+                        data: 'id',
+                        "render": function (data) { return '<a href="/auther/Delete/' + data + '" class="btn btn-danger" >Delete</a>'; }
                     },
                 ]
+              
             });
         });
     </script>
