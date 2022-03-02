@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 0,
-   "ContextClassName": "KitabiContext",
+   "ContextClassName": "SharedtenantContext",
    "ContextNamespace": null,
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -8,29 +8,17 @@
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Models",
-   "ProjectRootNamespace": "App.Core",
+   "ProjectRootNamespace": "Shared_Tenant",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
    "Tables": [
       {
-         "Name": "[dbo].[Authors]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Book]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[BookCategory]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[BookCategoryList]",
+         "Name": "[dbo].[BookStores]",
          "ObjectType": 0
       }
    ],
-   "UiHint": "MARCO-SAMEH.Kitabi",
+   "UiHint": "MARCO-SAMEH.SharedTenant",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

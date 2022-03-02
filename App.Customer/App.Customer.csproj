@@ -11,6 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
     <ProjectReference Include="..\App.Librarian\App.Librarian.csproj" />
+    <ProjectReference Include="..\Shared-Tenant\SharedTenant.csproj" />
   </ItemGroup>
 
 </Project>

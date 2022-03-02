@@ -10,11 +10,9 @@ namespace App.Core.Models
         public Book()
         {
             BookCategoryList = new HashSet<BookCategoryList>();
-            Deals = new HashSet<Deals>();
         }
 
         public int Id { get; set; }
-        public string UserId { get; set; }
         public string UrlName { get; set; }
         public int AuthorId { get; set; }
         public string BookPhoto { get; set; }
@@ -35,6 +33,5 @@ namespace App.Core.Models
 
         public virtual Authors Author { get; set; }
         public virtual ICollection<BookCategoryList> BookCategoryList { get; set; }
-        public virtual ICollection<Deals> Deals { get; set; }
     }
 }

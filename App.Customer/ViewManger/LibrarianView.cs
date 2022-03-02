@@ -1,12 +1,7 @@
-﻿using App.Core.Models;
-using App.Core.Repositories;
-using System;
+﻿using Microsoft.AspNetCore.Identity;
+using SharedTenant.Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using App.Core.Domain;
 
 namespace App.Customer.ViewManger
 {

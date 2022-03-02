@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace App.Core.Domain
+namespace SharedTenant.Domain
 {
     public class ApplicationUser : IdentityUser
     {

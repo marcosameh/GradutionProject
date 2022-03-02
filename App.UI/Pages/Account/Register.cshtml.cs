@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
-using App.Core.Domain;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
-using System.IO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using SharedTenant.Domain;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace App.UI.Areas.Identity.Pages.Account
 {
@@ -103,10 +99,10 @@ namespace App.UI.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                      
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return RedirectToPage("Login");
-                    
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return RedirectToPage("Login");
+
 
                 }
                 foreach (var error in result.Errors)

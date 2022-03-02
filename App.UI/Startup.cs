@@ -1,4 +1,3 @@
-using App.Core.Domain;
 using App.Core.Models;
 using App.Librarian.AutoMapper;
 using App.UI.Configurations;
@@ -10,7 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Reflection;
+using SharedTenant.Domain;
+using SharedTenant.Manager;
+using SharedTenant.Models;
 
 namespace App.UI
 {
@@ -26,21 +27,27 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<KitabiContext>(options =>
+            services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-             
+
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                
+
             })
 
-                .AddEntityFrameworkStores<KitabiContext>().AddDefaultUI().AddDefaultTokenProviders();
-
+                .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
+            
             services.AddRegisteredServices();
+            services.AddScoped<CurrentTenantManager>();
+            services.AddScoped<BookStores>(serviceProvider => serviceProvider.GetService<CurrentTenantManager>().GetCurrentBookStore());
+            services.AddScoped(serviceProvider => new KitabiContext(new DbContextOptionsBuilder<KitabiContext>()
+                 .UseSqlServer(serviceProvider.GetService<BookStores>().ConnectionString,
+                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)).Options));
+
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
 
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -50,7 +57,7 @@ namespace App.UI
             //URL in lower case
             services.Configure<RouteOptions>(option =>
             {
-                option.LowercaseUrls=true;
+                option.LowercaseUrls = true;
             });
         }
 
