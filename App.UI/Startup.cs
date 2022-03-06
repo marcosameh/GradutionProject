@@ -42,6 +42,7 @@ namespace App.UI
                 .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
             
             services.AddRegisteredServices();
+
             services.AddScoped<CurrentTenantManager>();
             services.AddScoped<BookStores>(serviceProvider => serviceProvider.GetService<CurrentTenantManager>().GetCurrentBookStore());
             services.AddScoped(serviceProvider => new KitabiContext(new DbContextOptionsBuilder<KitabiContext>()

@@ -17,5 +17,12 @@ namespace App.Customer.ViewManger
         {
             return await user.GetUsersInRoleAsync("Librarian");
         }
+
+        public async Task<ApplicationUser> GetLibrarianById(string ID)
+        {
+            return await user.FindByIdAsync(ID);
+        }
+
+     
     }
 }

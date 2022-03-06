@@ -7,6 +7,7 @@ using App.Librarian.Managers;
 using App.Librarian.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SharedTenant.Manager;
 
 namespace App.UI.Pages.customer
 {
@@ -23,16 +24,21 @@ namespace App.UI.Pages.customer
        
 
         private readonly AuthorManager athorManager;
+        private readonly CurrentTenantManager connectionManger;
         public Paging paging;
         public List<AuthorsVM> Authors;
-        public AuthorsModel(AuthorManager athorManager)
+        public AuthorsModel(AuthorManager athorManager,CurrentTenantManager ConnectionManger)
         {
+            connectionManger = ConnectionManger;
             this.athorManager = athorManager;
             paging = new Paging(NumCardsPerPage);
             PageIndex = 1;
         }
+
+
         public void OnGet()
         {
+
             paging.ItemNum = athorManager.GetAuthorsCount();
             Authors = athorManager.GetAuthors().Skip(paging.SkipNumBooks(PageIndex)).Take(NumCardsPerPage).ToList();
             

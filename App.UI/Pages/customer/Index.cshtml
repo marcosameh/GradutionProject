@@ -336,8 +336,9 @@
 
             @foreach (var item in await Model.Librarian.GetAll_Librarians())
             {
+                
                 <div class="swiper-slide box">
-                    <img src="~/Photos/librarian/@item.Photo" alt="">
+                    <a asp-page="/customer/Authors" asp-route-library="@item.UserName"><img src="~/Photos/librarian/@item.Photo" alt=""></a>
                     <h3>@item.UserName</h3>
                     <p>Support our site by proving large amount of books</p>
                     <div class="stars">

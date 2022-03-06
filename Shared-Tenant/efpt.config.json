@@ -8,7 +8,7 @@
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "Models",
-   "ProjectRootNamespace": "Shared_Tenant",
+   "ProjectRootNamespace": "SharedTenant",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
@@ -18,7 +18,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "MARCO-SAMEH.SharedTenant",
+   "UiHint": "DESKTOP-MQNIHEC.SharedTenant",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

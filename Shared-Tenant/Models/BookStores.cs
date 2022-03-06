@@ -10,5 +10,6 @@ namespace SharedTenant.Models
         public int Id { get; set; }
         public string Domain { get; set; }
         public string ConnectionString { get; set; }
+        public string Urlname { get; set; }
     }
 }

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Customer", "App.Custome
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Librarian", "App.Librarian\App.Librarian.csproj", "{7C51DC28-5369-49B7-A836-8F36B37CDFC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTenant", "Shared-Tenant\SharedTenant.csproj", "{F581C49A-C8E1-445D-A977-72A1F618AB60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedTenant", "Shared-Tenant\SharedTenant.csproj", "{F581C49A-C8E1-445D-A977-72A1F618AB60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

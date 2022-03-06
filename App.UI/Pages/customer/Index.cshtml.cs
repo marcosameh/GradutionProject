@@ -11,6 +11,8 @@ namespace App.UI.Pages.Customer
     {
         [BindProperty(SupportsGet = true)]
         public string SearchFor { get; set; }
+
+
         public LibrarianView Librarian { get; }
         public OffersView Offers { get; }
 

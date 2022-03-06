@@ -3,6 +3,7 @@
 using System;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using SharedTenant.Domain;
 
 #nullable disable
@@ -35,6 +36,10 @@ namespace SharedTenant.Models
                 entity.Property(e => e.Domain)
                     .IsRequired()
                     .HasMaxLength(100);
+
+                entity.Property(e => e.Urlname)
+                    .HasMaxLength(150)
+                    .HasColumnName("urlname");
             });
 
             OnModelCreatingPartial(modelBuilder);

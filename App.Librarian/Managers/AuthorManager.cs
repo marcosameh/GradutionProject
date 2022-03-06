@@ -45,5 +45,12 @@ namespace App.Librarian.Managers
             AuthorRepo.Add(Author);
         }
 
+
+        public AuthorsVM GetAuthorById(int id)
+        {
+            var Authors = AuthorRepo.GetOne(author => author.Id == id);
+            return mapper.Map<AuthorsVM>(Authors);
+        }
+
     }
 }
