@@ -9,6 +9,8 @@ namespace App.Librarian.AutoMapper
         public DominProfile()
         {
             CreateMap<Authors, AuthorsVM>().ReverseMap();
+            CreateMap<Book, BookVM>().ReverseMap();
+
         }
     }
        

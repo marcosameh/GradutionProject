@@ -8,5 +8,6 @@ namespace App.Admin.Manager
 {
     public class Admin
     {
+        
     }
 }

@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SharedTenant.Manager;
 using SharedTenant.Models;
-
 namespace App.UI.Configurations
 {
     public static class RegisteredServices
@@ -19,11 +18,14 @@ namespace App.UI.Configurations
         {
 
 
-           
+
 
             /*use this pattern to register your serivces
              * services.AddScoped(s => new NameOfManager(s.GetService<NameOfContext>())
              */
+            services.AddScoped<BookManager>();
+            //services.AddScoped<AdminManager>();
+
             services.AddScoped<AuthorManager>();
             services.AddScoped<OffersView>();
             services.AddScoped<LibrarianView>();
