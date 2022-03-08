@@ -4,9 +4,10 @@
     ViewBag.Title = "Authors page";
 
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
+    var cauthorcss = "/css/CustomerCssFiles/cauthor.css";
 }
 
-<link href="~/css/CustomerCssFiles/cauthor.css" rel="stylesheet" />
+<link href="@cauthorcss" rel="stylesheet" />
 @if (Model.SearchFor != null)
 {
 <div class="text-center">

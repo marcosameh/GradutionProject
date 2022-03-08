@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
+    @{ 
+        var bootstrapcss = "/css/CustomerCssFiles/bootstrap.css";
+    }
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -12,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="@bootstrapcss" rel="stylesheet" />
 
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>

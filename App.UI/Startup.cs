@@ -27,6 +27,7 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOrchardCore().AddMvc().WithTenants();
             services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
@@ -53,7 +54,7 @@ namespace App.UI
 
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
-            services.AddRazorPages();
+
 
             //URL in lower case
             services.Configure<RouteOptions>(option =>
@@ -84,11 +85,11 @@ namespace App.UI
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+            app.UseOrchardCore();
         }
     }
 }

@@ -4,8 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - App.UI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @{ 
+        string BootsrapMin = "/lib/bootstrap/dist/css/bootstrap.min.css";
+        string Site = "/css/site.css";
+    }
+    <link rel="stylesheet" href="@BootsrapMin" />
+    <link rel="stylesheet" href="@Site" />
 </head>
 <body>
     <header>
