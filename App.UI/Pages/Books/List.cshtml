@@ -17,7 +17,6 @@
                     <th>Book Name</th>
                     <th>Photo</th>
                     <th>Display Order</th>
-                    <th>NumberOfBooks</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -39,7 +38,7 @@
                 //"filter": true,
                 /*pageLength:2,*/
                 "ajax": {
-                    url: "?handler=displayAuthors",
+                    url: "?handler=displayBooks",
                     dataSrc:""
                 },
                 //"columnDefs": [{
@@ -59,10 +58,7 @@
                 //    },
                 //]
                 columns: [
-                    //{
-                    //    title:'Id',
-                    //    data:'id'
-                    //},
+                   
                     {
                         title: 'name',
                         data: 'name'
@@ -75,13 +71,10 @@
                         }
                     },
                     
+                   
                     {
-                        title: 'Diplay Order',
-                        data: 'displayOrder'
-                    },
-                    {
-                        title: 'Number Of Books',
-                        data: 'numberOfBooks'
+                        title: 'Number Of Copies',
+                        data: 'numberOfCopies'
                     },
                     {
                         title: 'Edit',

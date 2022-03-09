@@ -21,7 +21,7 @@ namespace App.Librarian.ViewModels
 
         public string Name { get; set; }
 
-
+        public int NumberOfCopies { get; set; }
         public string Photo { get; set; }
         public int DisplayOrder { get; set; }
 
