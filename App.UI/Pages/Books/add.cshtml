@@ -21,6 +21,22 @@
                 </div>
 
             </div>
+            @*get author name from author Id*@
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" asp-for="Book.AuthorName">Author Name</label>
+                     <select asp-for="Book.AuthorName" asp-items="@(new SelectList(ModelState,"Authors","Name"))">
+                    <option>Choose Author</option>
+                    </select>
+
+            </div>
+                 <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Price</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.Price" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.Price"></span>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Book Bio</label>
@@ -28,7 +44,6 @@
                     <input type="text" asp-for="Book.Bio" class="form-control">
                     <span class="text-danger" asp-validation-for="Book.Bio"></span>
                 </div>
-
             </div>
 
 

@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Photos\author\" />
-    <Folder Include="wwwroot\Photos\Books\" />
     <Folder Include="wwwroot\Photos\Admin\" />
   </ItemGroup>
 

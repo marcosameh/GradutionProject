@@ -15,7 +15,8 @@
             <thead>
                 <tr>
                     <th>Book Name</th>
-                    <th>Photo</th>
+                    <th>Author Name</th>
+                    <th>Book Photo</th>
                     <th>Display Order</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -64,7 +65,11 @@
                         data: 'name'
                     },
                     {
-                        title: 'Photo',
+                        title: 'Author Name',
+                        data: 'authorName'
+                    },
+                    {
+                        title: 'Book Photo',
                         data: 'photoPath',
                         render: function (data) {
                             return '<img src="' + data + '"/>'

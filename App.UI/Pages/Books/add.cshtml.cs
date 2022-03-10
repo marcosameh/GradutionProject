@@ -3,6 +3,7 @@ using App.Librarian.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.UI.Pages.Books
 {
@@ -20,6 +21,8 @@ namespace App.UI.Pages.Books
         }
         public IActionResult OnGet()
         {
+
+            //ViewBag.DepartmentList = new SelectList(data, "Id", "DepartmentName");
             return Page();
         }
         public IActionResult OnPostAsync()

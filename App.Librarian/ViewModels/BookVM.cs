@@ -15,29 +15,34 @@ namespace App.Librarian.ViewModels
     public class BookVM
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "Author Name Required")]
+        [Required(ErrorMessage = "Book Name Required")]
         [MinLength(3, ErrorMessage = "Invalid Name")]
         [MaxLength(25, ErrorMessage = "Invalid Name")]
 
         public string Name { get; set; }
+        [Required(ErrorMessage ="Book Price Required")]
+        [Range(10,500,ErrorMessage ="price of book is from 10:500$")]
+        public float Price { get; set; }
 
+        [Required(ErrorMessage = "Number Of Copies is Required")]
+        [Range(1,100,ErrorMessage ="the range of copies from 1 to 100 only")]
         public int NumberOfCopies { get; set; }
-        public string Photo { get; set; }
-        public int DisplayOrder { get; set; }
+        [Required(ErrorMessage ="Book Photo Required")]
+
+        public string BookPhoto { get; set; }
+        public string AuthorName { get; set; }
 
         [NotMapped]
         [Required(ErrorMessage = "Photo Is Required")]
         public IFormFile PhotoFile { get; set; }
         [NotMapped]
-        public string PhotoPath { get { return "/photos/author/" + Photo; } }
+        public string PhotoPath { get { return "/photos/Books/" + BookPhoto; } }
 
         [Required(ErrorMessage = "Author Info Required")]
-        [MinLength(20, ErrorMessage = "Author info must be at least 25 words")]
-        [MaxLength(300, ErrorMessage = "Author info must be at most 50 words")]
+        [MinLength(20, ErrorMessage = "Book info must be at least 25 words")]
+        [MaxLength(300, ErrorMessage = "Book info must be at most 50 words")]
 
         public string Bio { get; set; }
-        [Required]
-        [Range(1, 100, ErrorMessage = "Invalid Number")]
-        public int NumberOfView { get; set; }
+ 
     }
 }

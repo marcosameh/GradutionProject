@@ -23,7 +23,7 @@ namespace App.Librarian.Managers
         }
         public List<BookVM> GetAllBooks()
         {
-            var book = BookRepo.GetAll().OrderBy(x => x.Id).ToList();
+            var book = BookRepo.GetMany(null,book=>book.Author).OrderBy(x => x.Id).ToList();
             return mapper.Map<List<BookVM>>(book);
         }
         public int GetBooksCount()
@@ -34,7 +34,7 @@ namespace App.Librarian.Managers
         }
         public void AddBook(BookVM book)
         {
-            book.Photo = FileManager.UploadPhoto(book.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
+            book.BookPhoto = FileManager.UploadPhoto(book.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
             var Book  = mapper.Map<Book>(book);
             BookRepo.Add(Book);
         }
