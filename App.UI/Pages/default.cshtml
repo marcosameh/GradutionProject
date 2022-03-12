@@ -1,0 +1,37 @@
+﻿@page
+@model App.UI.Pages.defaultModel
+@{
+}
+<section class="reviews" id="reviews">
+
+    <h1 class="heading"> <span>publishing Bookstores</span> </h1>
+
+    <div class="swiper reviews-slider">
+
+        <div class="swiper-wrapper">
+
+            @foreach (var bookstore in  Model.Bookstores)
+            {
+
+                <div class="swiper-slide box">
+                    <a href="/@bookstore.UrlName/customer/index"><img src="~/Photos/librarian/@bookstore.Logo" alt="@bookstore."></a>
+                    <h3>@bookstore.Name</h3>
+                    <p>Support our site by proving large amount of books</p>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            }
+
+
+
+
+        </div>
+
+    </div>
+
+</section>

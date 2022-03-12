@@ -27,6 +27,10 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddRazorPagesOptions(options =>
+            {
+                options.Conventions.AddPageRoute("/default", "");
+            });
             services.AddOrchardCore().AddMvc().WithTenants();
             services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(

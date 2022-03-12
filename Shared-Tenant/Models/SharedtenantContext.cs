@@ -37,9 +37,11 @@ namespace SharedTenant.Models
                     .IsRequired()
                     .HasMaxLength(100);
 
-                entity.Property(e => e.Urlname)
-                    .HasMaxLength(150)
-                    .HasColumnName("urlname");
+                entity.Property(e => e.Logo).HasMaxLength(50);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.UrlName).HasMaxLength(150);
             });
 
             OnModelCreatingPartial(modelBuilder);

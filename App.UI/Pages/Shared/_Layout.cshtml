@@ -1,58 +1,116 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - App.UI</title>
-    @{ 
-        string BootsrapMin = "/lib/bootstrap/dist/css/bootstrap.min.css";
-        string Site = "/css/site.css";
-    }
-    <link rel="stylesheet" href="@BootsrapMin" />
-    <link rel="stylesheet" href="@Site" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+
+    <!--fontawesome link -->
+    <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+    <link href="~/css/CustomerCssFiles/chome.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">App.UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Index">Customer-Home</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+    </style>
+
+
+    <header class="header">
+
+        <div class="header-1">
+
+            <a class="logo"> <i class="fas fa-book"></i> Kitabi </a>
+
+        
+        </div>
+
+        <div class="header-2">
+            <nav class="navbar">
+
+                <ul>
+                    <li><a href="/">BookStores</a></li>
+                    <li><a href="/booksforexchange">Books For Exchange</a></li>
+                   
+                   
+                </ul>
+            </nav>
+
+        </div>
+
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div>
+        @RenderBody()
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - App.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+
+
+
+    <!-- header section ends -->
+
+
+
+
+
+
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our locations</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+            </div>
+
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
+                <img src="~/assets/images/worldmap.png" class="map" alt="">
+            </div>
+
         </div>
-    </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
 
-    @await RenderSectionAsync("Scripts", required: false)
+        <div class="credit"> Created by  <span>FCAIH Team</span> @DateTime.Now.Year| all rights reserved! </div>
+
+    </section>
+
+    <!-- footer section ends -->
+    <!-- loader  -->
+
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+
+    <script src="~/js/CustomerJsFiles/shome.js"></script>
 </body>
 </html>
