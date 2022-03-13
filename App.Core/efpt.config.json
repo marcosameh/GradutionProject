@@ -30,7 +30,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "MARCO-SAMEH.Kitabi",
+   "UiHint": "MARCO-SAMEH.Tenant_DarEl-Shrouk",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

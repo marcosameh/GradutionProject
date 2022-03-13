@@ -56,17 +56,11 @@ namespace App.Core.Models
                     .IsRequired()
                     .HasMaxLength(70);
 
-                entity.Property(e => e.BooksToExchange).HasMaxLength(100);
-
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(1000);
 
                 entity.Property(e => e.IsActive)
-                    .IsRequired()
-                    .HasDefaultValueSql("((1))");
-
-                entity.Property(e => e.IsApproved)
                     .IsRequired()
                     .HasDefaultValueSql("((1))");
 

@@ -11,7 +11,9 @@ namespace App.UI.Configurations
 
 
 
-                //options.Conventions.AddPageRoute("/offer-details", "offer-details/{UrlName}");
+              
+                options.Conventions.AddPageRoute("/customer/Index", "/{UrlName}/Index");
+                options.Conventions.AddPageRoute("/customer/Authors", "/{UrlName}/Authors");
 
 
 

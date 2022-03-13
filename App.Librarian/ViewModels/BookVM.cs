@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace App.Librarian.ViewModels
 {
-    [AutoMap(typeof(Book), ReverseMap = true)]
+    
     public class BookVM
     {
         public int Id { get; set; }

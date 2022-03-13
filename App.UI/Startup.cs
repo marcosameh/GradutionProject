@@ -27,15 +27,12 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddRazorPagesOptions(options =>
-            {
-                options.Conventions.AddPageRoute("/default", "");
-            });
-            services.AddOrchardCore().AddMvc().WithTenants();
+            
             services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
+
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
 
@@ -46,15 +43,12 @@ namespace App.UI
 
                 .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
             
+            services.AddCustomizedRoutes();
             services.AddRegisteredServices();
-
-            services.AddScoped<CurrentTenantManager>();
-            services.AddScoped<BookStores>(serviceProvider => serviceProvider.GetService<CurrentTenantManager>().GetCurrentBookStore());
-            services.AddScoped(serviceProvider => new KitabiContext(new DbContextOptionsBuilder<KitabiContext>()
-                 .UseSqlServer(serviceProvider.GetService<BookStores>().ConnectionString,
-                o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)).Options));
-
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+
+          
+
 
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
@@ -83,9 +77,9 @@ namespace App.UI
             }
 
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -93,7 +87,7 @@ namespace App.UI
             {
                 endpoints.MapRazorPages();
             });
-            app.UseOrchardCore();
+         
         }
     }
 }

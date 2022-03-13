@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.UI.Configurations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SharedTenant.Manager;
@@ -21,6 +22,11 @@ namespace App.UI.Pages
         public void OnGet()
         {
             Bookstores = currentTenantManager.GetBookStores();
+        }
+        public void OnGetSetUrl(string UrlName)
+        {
+            Global.UrlName = UrlName;
+            //Bookstores = currentTenantManager.GetBookStores();
         }
     }
 }

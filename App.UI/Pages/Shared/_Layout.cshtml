@@ -1,10 +1,11 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewData["Title"]</title>
+    <title>Home Page</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -12,57 +13,105 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
-
+    <link href="/css/CustomerCssFiles/chome.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min (1).css">
+    <link rel="stylesheet" href="css/_bootswatch.scss">
+    <link rel="stylesheet" href="css/_variables.scss"> -->
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
-    <link href="~/css/CustomerCssFiles/chome.css" rel="stylesheet" />
+    <script src="~/js/CustomerJsFiles/shome.js"></script>
 </head>
 <body>
-    <style>
-        a:link {
-            text-decoration: none;
-        }
-    </style>
 
+    <!-- header section starts  -->
 
     <header class="header">
 
         <div class="header-1">
 
-            <a class="logo"> <i class="fas fa-book"></i> Kitabi </a>
+            <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+            <!-- <a href="#register" class="F1">Register</a>
+            <a href="#login" class="F1">Login</a> -->
 
-        
+
+
         </div>
 
         <div class="header-2">
             <nav class="navbar">
 
+
                 <ul>
-                    <li><a href="/">BookStores</a></li>
-                    <li><a href="/booksforexchange">Books For Exchange</a></li>
-                   
-                   
+                    <li><a href="/">Bookstores</a></li>
+                    <li><a href="/bookstoexchange">Books To Exchange</a></li>
+
+
                 </ul>
             </nav>
 
         </div>
 
     </header>
-    <div>
-        @RenderBody()
-    </div>
-
-
-
 
     <!-- header section ends -->
+    <!-- bottom navbar  -->
+
+
+    <nav class="bottom-navbar">
+        <a href="home.html" class="fas fa-home"></a>
+        <a href="#featured" class="fas fa-list"></a>
+        <a href="#arrivals" class="fas fa-tags"></a>
+        <a href="section.html"><i class="fa-solid fa-section"></i></a>
+        <a href="author.html"><i class="fa-solid fa-feather-pointed"></i></a>
+        <a href="book.html"><i class="fa-solid fa-book"></i></a>
+
+    </nav>
 
 
 
+    <!-- home section ense  -->
+    <!-- icons section starts  -->
+    <!-- <section class="icons-container">
+
+        <div class="icons">
+            <i class="fas fa-shipping-fast"></i>
+            <div class="content">
+                <h3>free shipping</h3>
+                <p>order over $100</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-lock"></i>
+            <div class="content">
+                <h3>secure payment</h3>
+                <p>100 secure payment</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-redo-alt"></i>
+            <div class="content">
+                <h3>easy returns</h3>
+                <p>10 days returns</p>
+            </div>
+        </div>
+
+        <div class="icons">
+            <i class="fas fa-headset"></i>
+            <div class="content">
+                <h3>24/7 support</h3>
+                <p>call us anytime</p>
+            </div>
+        </div>
+
+    </section> -->
 
 
 
+    @RenderBody()
+    <!-- footer section starts  -->
 
     <section class="footer">
 
@@ -78,13 +127,24 @@
                 <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
             </div>
 
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> sections </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> authors </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+            </div>
+
+
 
             <div class="box">
                 <h3>contact info</h3>
                 <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
                 <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
                 <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
-                <img src="~/assets/images/worldmap.png" class="map" alt="">
+                <img src="/assets/images/worldmap.png" class="map" alt="">
             </div>
 
         </div>
@@ -104,13 +164,16 @@
     <!-- footer section ends -->
     <!-- loader  -->
 
-
+    @*<div class="loader-container">
+        <img src="/assets/images/loader-imgb.gif" alt="">
+    </div>*@
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-    <!-- custom js file link  -->
-
-    <script src="~/js/CustomerJsFiles/shome.js"></script>
+    
+    <script src="/js/CustomerJsFiles/shome.js"></script>
+   
+    @RenderSection("Scripts", false)
 </body>
 </html>

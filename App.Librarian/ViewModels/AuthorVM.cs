@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Librarian.ViewModels
 {
-    [AutoMap(typeof(Authors), ReverseMap = true)]
+    
     public class AuthorsVM
     {
         public int Id { get; set; }

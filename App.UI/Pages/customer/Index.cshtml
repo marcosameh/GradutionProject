@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model App.UI.Pages.Customer.IndexModel
 @{
     ViewBag.Title = "Home page";
@@ -57,7 +57,7 @@
 
     <div class="swiper-wrapper">
         <div class="swiper featured-slider">
-            @foreach (var item in Model.Offers.GetfeaturedBooks(10))
+            @foreach (var item in Model.Offers.GetfeaturedBooks(3))
             {
                 <div class="swiper-slide box">
                     <div class="icons">

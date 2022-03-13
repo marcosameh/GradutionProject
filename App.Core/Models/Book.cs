@@ -19,16 +19,12 @@ namespace App.Core.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public int? NumberOfCopies { get; set; }
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         public string Photo { get; set; }
         public int CopyYear { get; set; }
         public bool? IsActive { get; set; }
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
-        public bool? IsApproved { get; set; }
-        public bool ForExchange { get; set; }
-        public string BooksToExchange { get; set; }
-        public bool ForChildern { get; set; }
         public double? Offer { get; set; }
 
         public virtual Authors Author { get; set; }

@@ -28,18 +28,6 @@ namespace App.UI.Models
 
         private void SetUrlName(PageHandlerExecutingContext context)
         {
-            string[] url = (HttpContext.Request.GetEncodedUrl().Split('/'));
-            if (url.Length >= 3)
-            {
-                if(url[3]!="Index"){
-                    Global.UrlName ="/"+ url[3];
-                }
-               
-            }
-            else
-            {
-                Global.UrlName = " ";
-            }
             UrlName = Global.UrlName;
         }
 

@@ -26,7 +26,7 @@ namespace App.Customer.ViewManger
         {
             page = new Paging(16);
             int skip = page.SkipNumBooks(CurrentPage);                        
-            return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true,book=>book.Author)
+            return repo.GetMany(book => book.Offer != null && book.IsActive == true,book=>book.Author)
                 .Skip(skip).Take(page.ItemPerPage);
         }
 
@@ -35,13 +35,13 @@ namespace App.Customer.ViewManger
         public IQueryable<Book> GetfeaturedBooks( int bookNumber)
         {
 
-            return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true, book => book.Author).Take(bookNumber);
+            return repo.GetMany(book => book.Offer != null  && book.IsActive == true, book => book.Author).Take(bookNumber);
                 
         }
 
         public  int CountOfferedBooks()
         {
-            return repo.GetMany(book => book.Offer != null && book.IsApproved == true && book.IsActive == true, book => book.Author).Count();
+            return repo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).Count();
         }
 
         public int GetNumOfPages()
