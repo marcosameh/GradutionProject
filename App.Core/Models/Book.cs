@@ -22,7 +22,7 @@ namespace App.Core.Models
         public decimal Price { get; set; }
         public string Photo { get; set; }
         public int CopyYear { get; set; }
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
         public double? Offer { get; set; }

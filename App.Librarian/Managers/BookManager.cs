@@ -35,8 +35,8 @@ namespace App.Librarian.Managers
         public void AddBook(BookVM book)
         {
             book.BookPhoto = FileManager.UploadPhoto(book.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
-            var Book  = mapper.Map<Book>(book);
-            BookRepo.Add(Book);
+            var Book1  = mapper.Map<Book>(book);
+            BookRepo.Add(Book1);
         }
         public BookVM GetBookById(int id)
         {

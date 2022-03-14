@@ -32,10 +32,10 @@ namespace App.UI.Pages.Books
         }
         public IActionResult OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return OnGet();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return OnGet();
+            //}
 
             bookManager.AddBook(Book);
             return Redirect("/Books/list");

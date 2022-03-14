@@ -39,11 +39,25 @@ namespace App.Librarian.ViewModels
         [NotMapped]
         public string PhotoPath { get { return "/photos/Books/" + BookPhoto; } }
 
-        [Required(ErrorMessage = "Author Info Required")]
+        [Required(ErrorMessage = "Book Info Required")]
         [MinLength(20, ErrorMessage = "Book info must be at least 25 words")]
         [MaxLength(300, ErrorMessage = "Book info must be at most 50 words")]
 
-        public string Bio { get; set; }
- 
+        public string Description { get; set; }
+        [Required]
+        [StringLength(50)]
+        [RegularExpression(@"^\S*$", ErrorMessage = "No white space allowed ,Enter Like This product-name")]
+        public string UrlName { get; set; }
+        [Required(ErrorMessage ="Copy Year Required")]
+        [Range(1900,2022,ErrorMessage ="enter copy year from 1900 to 2022")]
+        public int CopyYear { get; set; }
+        [Required (ErrorMessage ="Required")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public bool IsActive { get; set; }
+
+        public double? Offer { get; set; }
+        public string PdfUrl { get; set; }
+        public string AduioUrl { get; set; }
+
     }
 }
