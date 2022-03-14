@@ -31,6 +31,7 @@ namespace App.Librarian.ViewModels
 
         public string BookPhoto { get; set; }
         public string AuthorName { get; set; }
+        public int AuthorId { get; set; }
 
         [NotMapped]
         [Required(ErrorMessage = "Photo Is Required")]

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace App.UI.Pages.Books
 {
@@ -12,17 +13,21 @@ namespace App.UI.Pages.Books
     public class addModel : PageModel
     {
         private readonly BookManager bookManager;
+        private readonly AuthorManager authorManager;
 
         [BindProperty]
         public BookVM Book { get; set; }
-        public addModel(BookManager bookManager)
+
+        public List<AuthorsVM> Authors { get; set; }
+        public addModel(BookManager bookManager,AuthorManager authorManager )
         {
             this.bookManager = bookManager;
+            this.authorManager = authorManager;
         }
         public IActionResult OnGet()
         {
 
-            //ViewBag.DepartmentList = new SelectList(data, "Id", "DepartmentName");
+            Authors = authorManager.GetAuthors();
             return Page();
         }
         public IActionResult OnPostAsync()
