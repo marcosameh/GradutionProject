@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.Linq;
-
 namespace SharedTenant.Manager
 {
     public class CurrentTenantManager
@@ -22,6 +21,10 @@ namespace SharedTenant.Manager
         }
         public BookStores GetCurrentBookStore()
         {
+            
+            if(!string.IsNullOrEmpty(UrlName))
+                return SharedtenantContext.BookStores.Where(x => x.UrlName == UrlName).FirstOrDefault();
+
             var CurrentDomin = Accessor.HttpContext.Request.Host.Value;
             foreach (var domin in GetDomins())
             {

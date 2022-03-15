@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using App.Customer.ViewManger;
+using App.Customer.Views;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
 using Microsoft.AspNetCore.Mvc;

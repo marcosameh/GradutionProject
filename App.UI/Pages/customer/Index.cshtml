@@ -1,4 +1,4 @@
-﻿@page 
+﻿@page
 @model App.UI.Pages.Customer.IndexModel
 @{
     ViewBag.Title = "Home page";
@@ -8,14 +8,7 @@
 <link href="~/css/CustomerCssFiles/chome.css" rel="stylesheet" />
 
 
-@if (Model.SearchFor != null)
-{
-    <div class="text-center">
-        <h1 class="display-1">Search result</h1>
-        <p class="display-6">@Model.SearchFor</p>
-    </div>
 
-}
 
 <!-- header section ends -->
 <!-- bottom navbar  -->
@@ -54,22 +47,17 @@
     <h1 class="heading"> <span>featured books</span> </h1>
 
 
+    <div class="swiper featured-slider">
+        <div class="swiper-wrapper">
 
-    <div class="swiper-wrapper">
-        <div class="swiper featured-slider">
-            @foreach (var item in Model.Offers.GetfeaturedBooks(3))
+            @foreach (var item in Model.FeatureBooks)
             {
                 <div class="swiper-slide box">
                     <div class="icons">
-
                         <a href="#" class="fas fa-search"></a>
-
-                        @*<a href="#" class="fas fa-heart"></a>
-                            <a href="#" class="fas fa-search"></a>
-                            <a href="#" class="fas fa-eye"></a>*@
                     </div>
                     <div class="image">
-                        <img src="~/assets/images/@item.BookPhoto" alt="">
+                        <img src="~/Photos/Books/@item.BookPhoto" alt="">
                     </div>
                     <div class="content">
                         <h3>@item.Name</h3>
@@ -77,24 +65,11 @@
                         <a href="#" class="btn">add to cart</a>
                     </div>
                 </div>
-
             }
-
-
-
-
-
-
-
-
-
-
-
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-
         </div>
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
 </section>
 
 <!-- featured section ends -->
@@ -118,196 +93,56 @@
     <h1 class="heading"> <span>new arrivals</span> </h1>
 
     <div class="swiper arrivals-slider">
-
         <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-1.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+            @foreach (var Book in Model.NewArrivals.Take(8))
+            {
+                <a href="#" class="swiper-slide box">
+                    <div class="image">
+                        <img src="~/Photos/Books/@Book.BookPhoto" alt="">
                     </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-2.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <div class="content">
+                        <h3>@Book.Name</h3>
+                        <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-3.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-4.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-5.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
+                </a>
+            }
         </div>
-
     </div>
-
     <div class="swiper arrivals-slider">
-
         <div class="swiper-wrapper">
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-6.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+            @foreach (var Book in Model.NewArrivals.Skip(8).Take(8))
+            {
+                <a href="#" class="swiper-slide box">
+                    <div class="image">
+                        <img src="~/Photos/Books/@Book.BookPhoto" alt="">
                     </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-7.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                    <div class="content">
+                        <h3>@Book.Name</h3>
+                        <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-8.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-9.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="swiper-slide box">
-                <div class="image">
-                    <img src="~/assets/images/book-10.png" alt="">
-                </div>
-                <div class="content">
-                    <h3>new arrivals</h3>
-                    <div class="price">$15.99 <span>$20.99</span></div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </a>
-
+                </a>
+            }
         </div>
-
     </div>
-
 </section>
 
 <!-- arrivals section ends -->
-<!-- deal section starts  -->
 
+<!-- deal section starts  -->
 <section class="deal">
 
     <div class="content">
@@ -324,41 +159,9 @@
 </section>
 
 <!-- deal section ends -->
-<!-- reviews section starts  -->
-
-<section class="reviews" id="reviews">
-
-    <h1 class="heading"> <span>publishing Bookstores</span> </h1>
-
-    <div class="swiper reviews-slider">
-
-        <div class="swiper-wrapper">
-
-            @foreach (var item in await Model.Librarian.GetAll_Librarians())
-            {
-                
-                <div class="swiper-slide box">
-                    <a href="/@item.UserName/authors" ><img src="~/Photos/librarian/@item.Photo" alt=""></a>
-                    <h3>@item.UserName</h3>
-                    <p>Support our site by proving large amount of books</p>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            }
 
 
 
-
-        </div>
-
-    </div>
-
-</section>
 <div class="loader-container">
     <img src="~/assets/images/loader-imgb.gif" alt="" />
 

@@ -1,32 +1,32 @@
-using App.Customer.ViewManger;
+using App.Core.Models;
+using App.Customer.Managers;
+using App.Customer.Views;
 using App.UI.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SharedTenant.Domain;
+using System.Collections.Generic;
 
 namespace App.UI.Pages.Customer
 {
     //[Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public string SearchFor { get; set; }
+        private readonly BookMangers bookManger;
+        public List<Book> FeatureBooks;
+        public List<Book> NewArrivals;
 
-
-        public LibrarianView Librarian { get; }
-        public OffersView Offers { get; }
-
-        public IndexModel(LibrarianView librarian, OffersView offers)
+        public IndexModel(BookMangers bookManger)
         {
-            Librarian = librarian;
-            Offers = offers;
-
+            this.bookManger = bookManger;
         }
 
 
         public void OnGet()
         {
+            FeatureBooks = bookManger.GetfeaturedBooks(10);
+            NewArrivals = bookManger.GetNewArrivalls(16);
 
         }
 

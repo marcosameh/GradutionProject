@@ -1,6 +1,7 @@
 ﻿
 using App.Core.Models;
-using App.Customer.ViewManger;
+using App.Customer.Managers;
+using App.Customer.Views;
 using App.Librarian.Managers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -20,8 +21,7 @@ namespace App.UI.Configurations
             services 
             .AddScoped<BookManager>()
             .AddScoped<AuthorManager>()
-            .AddScoped<OffersView>()
-            .AddScoped<LibrarianView>()
+            .AddScoped<BookMangers>()
             .AddScoped<SectionView>()
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
             .AddScoped(s => new CurrentTenantManager(s.GetService<IHttpContextAccessor>(), s.GetService<SharedtenantContext>(), Global.UrlName))
