@@ -13,14 +13,14 @@
 
     <div class="swiper reviews-slider">
 
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper center">
 
 
             @foreach (var store in Model.Bookstores)
             {
 
 
-                <a href="@store.UrlName/index" class="link" target="_blank">
+                <a href="@store.UrlName/index" class="link">
                     <input type="hidden" value="@store.UrlName" />
                     <div class="swiper-slide box">
                         <img src="/Photos/librarian/@store.Logo" alt="">

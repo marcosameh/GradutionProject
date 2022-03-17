@@ -32,16 +32,37 @@ namespace App.Librarian.Managers
             return book;
 
         }
-        public void AddBook(BookVM book)
+        public void AddBook(BookVM BookVM)
         {
-            book.BookPhoto = FileManager.UploadPhoto(book.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
-            var Book1  = mapper.Map<Book>(book);
-            BookRepo.Add(Book1);
+            BookVM.Photo = FileManager.UploadPhoto(BookVM.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
+            var Book = mapper.Map<Book>(BookVM);
+            BookRepo.Add(Book);
         }
         public BookVM GetBookById(int id)
         {
             var book = BookRepo.GetOne(x => x.Id == id);
             return mapper.Map<BookVM>(book);
         }
+        public List<BookVM> GetOfferedBooks()
+        {
+            //int NumOfBookPerPage = 16;
+            //page = new Paging(NumOfBookPerPage);
+            //int skip = page.SkipNumBooks(CurrentPage);
+            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author);
+             return mapper.Map<List<BookVM>>(Book);
+        }
+        public List<BookVM> GetfeaturedBooks()
+        {
+
+            var Book =BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).ToList();
+            return mapper.Map<List<BookVM>>(Book);
+        }
+        public List<BookVM> GetNewArrivalls()
+        {
+            var Book= BookRepo.GetAll().ToList();
+            return mapper.Map<List<BookVM>>(Book);
+
+        }
+
     }
 }

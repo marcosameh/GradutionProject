@@ -1,11 +1,6 @@
-using App.Core.Models;
-using App.Customer.Managers;
-using App.Customer.Views;
-using App.UI.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+using App.Librarian.Managers;
+using App.Librarian.ViewModels;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SharedTenant.Domain;
 using System.Collections.Generic;
 
 namespace App.UI.Pages.Customer
@@ -13,11 +8,11 @@ namespace App.UI.Pages.Customer
     //[Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
-        private readonly BookMangers bookManger;
-        public List<Book> FeatureBooks;
-        public List<Book> NewArrivals;
+        private readonly BookManager bookManger;
+        public List<BookVM> FeatureBooks;
+        public List<BookVM> NewArrivals;
 
-        public IndexModel(BookMangers bookManger)
+        public IndexModel(BookManager bookManger)
         {
             this.bookManger = bookManger;
         }
@@ -25,10 +20,11 @@ namespace App.UI.Pages.Customer
 
         public void OnGet()
         {
-            FeatureBooks = bookManger.GetfeaturedBooks(10);
-            NewArrivals = bookManger.GetNewArrivalls(16);
+            FeatureBooks = bookManger.GetfeaturedBooks();
+            NewArrivals = bookManger.GetNewArrivalls();
 
         }
+       
 
     }
 }

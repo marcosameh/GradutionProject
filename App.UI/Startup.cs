@@ -43,9 +43,9 @@ namespace App.UI
 
                 .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
             
+            services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
             services.AddCustomizedRoutes();
             services.AddRegisteredServices();
-            services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
 
           
 

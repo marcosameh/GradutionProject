@@ -1,9 +1,8 @@
 ﻿@page
 @model App.UI.Pages.Books.addModel
 @{
-        Layout = "/Pages/Shared/LibrarianLayout.cshtml";
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
 }
-book
 
 <!-- Basic Form Inputs card start -->
 <div class="card">
@@ -11,8 +10,8 @@ book
         <h3>Add New Book</h3>
     </div>
     <div class="card-block">
-       
-        <form method="post" enctype="multipart/form-data">
+
+        <form method="post" enctype="multipart/form-data" id="form">
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Book Name</label>
                 <div class="col-sm-10">
@@ -21,23 +20,15 @@ book
                 </div>
 
             </div>
-            @*get author name from author Id*@
 
-            @*<div class="form-group row">
-                <label class="col-sm-2 col-form-label" asp-for="Book.AuthorName">Author Name</label>
-                 <select asp-for="Book.AuthorName" asp-items="@(new SelectList(ModelState,"Authors","Name"))">
-                <option>Choose Author</option>
-                </select>
-
-        </div>*@
-             <div class="form-group row">
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Book Url</label>
                 <div class="col-sm-10">
                     <input type="text" asp-for="Book.UrlName" class="form-control">
                     <span class="text-danger" asp-validation-for="Book.UrlName"></span>
                 </div>
             </div>
-                <div class="form-group row">
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Book Copy Year </label>
                 <div class="col-sm-10">
                     <input type="text" asp-for="Book.CopyYear" class="form-control">
@@ -65,7 +56,20 @@ book
                     <span class="text-danger" asp-validation-for="Book.Price"></span>
                 </div>
             </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Offer</label>
+                <div class="col-sm-5">
+                    <input type="text" id="offer" asp-for="Book.Offer" class="form-control">
+                </div>
+                <div class="col-sm-5">
+                    <select class=" dropdown dropdown-primary" id="Currency">
 
+                        <option value="EGP">EGP</option>
+                        <option value="%">%</option>
+
+                    </select>
+                </div>
+            </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Book Description</label>
                 <div class="col-sm-10">
@@ -80,18 +84,17 @@ book
                 <label class="col-sm-2 col-form-label">Book Photo</label>
                 <div class="col-sm-10">
                     <input type="file" class="form-control" asp-for="Book.PhotoFile" id="uploadedfile">
-                    <span class="text-danger" asp-validation-for="Book.PhotoFile"></span>
+                    <span class="text-danger" asp-validation-for="Book.Photo"></span>
                 </div>
 
             </div>
-            <div class="form-group row ">
-                <label class="custom-control-label" asp-for="Book.IsActive"> Is Active</label>
-                <div class="col-sm-10 ">
-  <input type="checkbox" class="custom-control custom-checkbox form-control" asp-for="Book.IsActive" >
-                <span class="text-danger" asp-validation-for="Book.IsActive"></span>
-         </div>
-    </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Is Active</label>
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="checkbox" asp-for="Book.IsActive" id="checkbox1" checked>
 
+                </div>
+            </div>
             <div class="text-right">
                 <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Add Book</button>
             </div>
@@ -102,24 +105,32 @@ book
 <!-- Basic Form Inputs card end -->
 
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+   
+
     <script>
         $(document).ready(function () {
-            
+
             $('#uploadedfile').change(function () {
-                if ($('#uploadedfile').val != null)
-                {
-                   
+                if ($('#uploadedfile').val != null) {
+
                     $("#photo").val("22203");
                 }
 
             });
+            $('#form').submit(function () {
+                var Curruncy = $("#Currency").val()
+                if (Curruncy == "%") {
+                    var offer = $("#offer").val()
+                    $("#offer").val(offer / 100)
+                    alert($("#offer").val())
+                }
+               
+            });
+            
 
         });
     </script>
 }
- <script src="~/jquery/jquery.min.js"></script>
-<script src="~/jquery-validate/jquery.validate.js"></script>
-<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
 

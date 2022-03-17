@@ -52,10 +52,6 @@ namespace App.Core.Models
 
                 entity.Property(e => e.AduioUrl).HasMaxLength(50);
 
-                entity.Property(e => e.BookPhoto)
-                    .IsRequired()
-                    .HasMaxLength(70);
-
                 entity.Property(e => e.Description)
                     .IsRequired()
                     .HasMaxLength(1000);

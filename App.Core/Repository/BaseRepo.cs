@@ -46,9 +46,18 @@ namespace App.Core.Repositories
         }
         public void Add(TEntity entity)
         {
-            DbContext.Set<TEntity>().Add(entity);
+            try
+            {
+                DbContext.Set<TEntity>().Add(entity);
 
-            Save();
+                Save();
+            }
+            catch (Exception e)
+            {
+                var s = e.Message;
+                throw;
+            }
+           
         }
         public void Delete(int  Id)
         {
