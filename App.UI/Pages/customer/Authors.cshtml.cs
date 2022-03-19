@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using App.Customer.Views;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
+using App.UI.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SharedTenant.Manager;
@@ -14,34 +15,30 @@ namespace App.UI.Pages.customer
     //[Authorize(Roles = "Customer")]
     public class AuthorsModel : PageModel
     { 
-        [BindProperty(SupportsGet =true)]
-        public string SearchFor { get; set; }
+      
 
-        [BindProperty(SupportsGet =true)]
-        public int PageIndex{ get; set; }
-        private int NumCardsPerPage=16;
- 
        
 
         private readonly AuthorManager athorManager;
         private readonly CurrentTenantManager connectionManger;
-        public Paging paging;
         public List<AuthorsVM> Authors;
+        public PagedList<AuthorsVM> PagingAuthors { get; set; }
         public AuthorsModel(AuthorManager athorManager,CurrentTenantManager ConnectionManger)
         {
             connectionManger = ConnectionManger;
             this.athorManager = athorManager;
-            paging = new Paging(NumCardsPerPage);
-            PageIndex = 1;
+          
         }
 
 
-        public void OnGet()
+        public void OnGet([FromQuery]int Page=1)
         {
 
-            paging.ItemNum = athorManager.GetAuthorsCount();
-            Authors = athorManager.GetAuthors().Skip(paging.SkipNumBooks(PageIndex)).Take(NumCardsPerPage).ToList();
-            
+           
+            Authors = athorManager.GetAuthors();
+            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), Page, 5);
+
+
         }
     }
 }

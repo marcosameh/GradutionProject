@@ -8,18 +8,16 @@
 }
 
 <link href="@cauthorcss" rel="stylesheet" />
-@if (Model.SearchFor != null)
-{
+
 <div class="text-center">
     <h1 class="display-1">Search result</h1>
-    <p class="display-6">@Model.SearchFor</p>
+    <p class="display-6"></p>
 </div>
 
-}
 <section id="team">
     <div class="container my-3 py-5 text-center">
         <div class="row">
-            @foreach (var Author in Model.Authors)
+            @foreach (var Author in Model.PagingAuthors)
             {
                 <partial name="Partials/_AuthorCardPartial" model="Author" />
             }
@@ -28,43 +26,10 @@
     </div>
 
 </section>
-@{
-    int PageNext = Model.PageIndex + 1;
-    int PagePrev = Model.PageIndex - 1;
-    int PageCounter = Model.paging.GetNumOfPages();
-}
 
-<div class="pagination">
-    <ul class="link">
-        @if (Model.PageIndex != 1)
-        {
-            <li><a asp-route-PageIndex="@PagePrev" class="prev"> &lang; Prev </a></li>
+  
+    <partial name="_Pager" model="@Model.PagingAuthors.PagingData" />
 
-        }
-        @for (int PageNumber = 1; PageNumber < PageCounter + 1; PageNumber++)
-        {
-            if (Model.PageIndex == PageNumber)
-            {
-                <li class="pageNumber active"><a asp-route-PageIndex="@PageNumber">@PageNumber</a></li>
 
-            }
-            else
-            {
-                <li class="pageNumber"><a asp-route-PageIndex="@PageNumber">@PageNumber</a></li>
 
-            }
-        }
-        @*<li class="pageNumber active"><a href="#">1</a></li>
-            <li class="pageNumber"><a href="#">2</a></li>
-            <li class="pageNumber"><a href="#">3</a></li>
-            <li class="pageNumber"><a href="#">4</a></li>
-            <li class="pageNumber"><a href="#">5</a></li>
-            <li class="pageNumber"><a href="#">6</a></li>*@
-        @if (Model.PageIndex != PageCounter)
-        {
-            <li><a asp-route-PageIndex="@PageNext" class="next">  Next &rang;</a></li>
-
-        }
-    </ul>
-</div>
 
