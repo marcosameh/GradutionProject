@@ -51,6 +51,12 @@ namespace App.Librarian.Managers
             var Authors = AuthorRepo.GetOne(author => author.Id == id);
             return mapper.Map<AuthorsVM>(Authors);
         }
+        public void DeleteAuthor(int Id)
+        {
+            AuthorRepo.Delete(Id);
+
+
+        }
 
     }
 }

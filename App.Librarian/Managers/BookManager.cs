@@ -15,7 +15,7 @@ namespace App.Librarian.Managers
     {
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
-        public BookManager(KitabiContext context , IMapper mapper)
+        public BookManager(KitabiContext context, IMapper mapper)
         {
             BookRepo = new BaseRepo<Book>(context);
 
@@ -23,7 +23,7 @@ namespace App.Librarian.Managers
         }
         public List<BookVM> GetAllBooks()
         {
-            var book = BookRepo.GetMany(null,book=>book.Author).OrderBy(x => x.Id).ToList();
+            var book = BookRepo.GetMany(null, book => book.Author).OrderBy(x => x.Id).ToList();
             return mapper.Map<List<BookVM>>(book);
         }
         public int GetBooksCount()
@@ -40,7 +40,7 @@ namespace App.Librarian.Managers
         }
         public BookVM GetBookById(int id)
         {
-            var book = BookRepo.GetOne(x => x.Id == id);
+            var book = BookRepo.GetOne(x => x.Id == id,x=>x.Author);
             return mapper.Map<BookVM>(book);
         }
         public List<BookVM> GetOfferedBooks()
@@ -49,18 +49,24 @@ namespace App.Librarian.Managers
             //page = new Paging(NumOfBookPerPage);
             //int skip = page.SkipNumBooks(CurrentPage);
             var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author);
-             return mapper.Map<List<BookVM>>(Book);
+            return mapper.Map<List<BookVM>>(Book);
         }
         public List<BookVM> GetfeaturedBooks()
         {
 
-            var Book =BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).ToList();
+            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).ToList();
             return mapper.Map<List<BookVM>>(Book);
         }
         public List<BookVM> GetNewArrivalls()
         {
-            var Book= BookRepo.GetAll().ToList();
+            var Book = BookRepo.GetAll().ToList();
             return mapper.Map<List<BookVM>>(Book);
+
+        }
+        public void DeleteBook(int Id )
+        {
+            BookRepo.Delete(Id);    
+ 
 
         }
 
