@@ -79,7 +79,6 @@ namespace App.Core.Models
                 entity.HasOne(d => d.Author)
                     .WithMany(p => p.Book)
                     .HasForeignKey(d => d.AuthorId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Book_Authors");
             });
 
@@ -97,13 +96,11 @@ namespace App.Core.Models
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.BookCategoryList)
                     .HasForeignKey(d => d.BookId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_BookCategoryList_Book");
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.BookCategoryList)
                     .HasForeignKey(d => d.CategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_BookCategoryList_BookCategory");
             });
 

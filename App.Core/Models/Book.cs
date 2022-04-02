@@ -2,7 +2,6 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace App.Core.Models
 {
@@ -16,8 +15,6 @@ namespace App.Core.Models
         public int Id { get; set; }
         public string UrlName { get; set; }
         public int AuthorId { get; set; }
-        [NotMapped]
-        public string AuthorName { get{ return Author.Name; } }
         public string Name { get; set; }
         public string Description { get; set; }
         public int? NumberOfCopies { get; set; }
