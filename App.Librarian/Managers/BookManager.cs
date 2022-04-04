@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 
 namespace App.Librarian.Managers
 {
-    public class BookManager
+    public class 
+
     {
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
