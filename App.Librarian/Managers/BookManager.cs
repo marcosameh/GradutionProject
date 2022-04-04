@@ -15,6 +15,7 @@ namespace App.Librarian.Managers
     {
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
+        private int take=10;
         public BookManager(KitabiContext context, IMapper mapper)
         {
             BookRepo = new BaseRepo<Book>(context);
@@ -44,15 +45,25 @@ namespace App.Librarian.Managers
             //   var Book = mapper.Map<Book>(BookVM);
             var book = new Book
             {
+<<<<<<< HEAD
                 Name = BookVM.Name,
+=======
+                Name=BookVM.Name,
+>>>>>>> 04ff7dca33038c341d40ea4e6b1ca31ce9274273
                 UrlName = BookVM.UrlName,
                 AuthorId = BookVM.AuthorId,
                 Description = BookVM.Description,
                 NumberOfCopies = BookVM.NumberOfCopies,
                 Price = BookVM.Price,
+<<<<<<< HEAD
                 Offer = BookVM.Offer,
                 PdfUrl = BookVM.PdfUrl,
                 AduioUrl = BookVM.AduioUrl,
+=======
+                Offer=BookVM.Offer,
+                PdfUrl=BookVM.PdfUrl,
+                AduioUrl=BookVM.AduioUrl,
+>>>>>>> 04ff7dca33038c341d40ea4e6b1ca31ce9274273
                 Photo = BookVM.Photo,
                 CopyYear = BookVM.CopyYear,
                 IsActive = BookVM.IsActive,
@@ -62,33 +73,32 @@ namespace App.Librarian.Managers
         }
         public BookVM GetBookById(int id)
         {
-            var book = BookRepo.GetOne(x => x.Id == id,x=>x.Author);
+            var book = BookRepo.GetOne(x => x.Id == id, x => x.Author);
             return mapper.Map<BookVM>(book);
-        }
-        public List<BookVM> GetOfferedBooks()
-        {
-            //int NumOfBookPerPage = 16;
-            //page = new Paging(NumOfBookPerPage);
-            //int skip = page.SkipNumBooks(CurrentPage);
-            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author);
-            return mapper.Map<List<BookVM>>(Book);
+             
         }
         public List<BookVM> GetfeaturedBooks()
         {
 
-            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).ToList();
+            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).Take(take).ToList();
+            return mapper.Map<List<BookVM>>(Book);
+        }
+        public List<BookVM> GetMostSellingBook()
+        {
+
+            var Book = BookRepo.GetAll().OrderByDescending(book=>book.NumSells).Take(take).ToList();
             return mapper.Map<List<BookVM>>(Book);
         }
         public List<BookVM> GetNewArrivalls()
         {
-            var Book = BookRepo.GetAll().ToList();
+            var Book = BookRepo.GetAll().OrderByDescending(book=>book.Id).ToList();
             return mapper.Map<List<BookVM>>(Book);
 
         }
-        public void DeleteBook(int Id )
+        public void DeleteBook(int Id)
         {
-            BookRepo.Delete(Id);    
- 
+            BookRepo.Delete(Id);
+
 
         }
         public void UpdateBook(BookVM book)

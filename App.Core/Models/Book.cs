@@ -25,6 +25,7 @@ namespace App.Core.Models
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
         public double? Offer { get; set; }
+        public int? NumSells { get; set; }
 
         public virtual Authors Author { get; set; }
         public virtual ICollection<BookCategoryList> BookCategoryList { get; set; }

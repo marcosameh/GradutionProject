@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace App.Customer.AutoMapper
 {
-    class DomainProfile : Profile
+    class DomainProfile2 : Profile
     {
     }
 }
