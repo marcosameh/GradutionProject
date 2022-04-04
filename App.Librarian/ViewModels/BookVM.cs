@@ -49,7 +49,10 @@ namespace App.Librarian.ViewModels
         public string PhotoPath { get { return "/photos/books/" + Photo; } }
         public string AuthorPhoto { get; set; }
         public string AuthorPhotoPath { get { return "/photos/author/" + AuthorPhoto; } }
-
+        public IFormFile AudioFile { get; set; }
+        public IFormFile PdfFile { get; set; }
+   
+      
 
     }
 }
