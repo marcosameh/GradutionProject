@@ -26,7 +26,7 @@
 
         <div class="swiper books-slider">
             <div class="swiper-wrapper">
-                <a href="#" class="swiper-slide"><img src="~/assets/images/book-1.png" alt=""></a>
+                <a href="#" class="swiper-slide"><img src="~/assets/images/book3.png" alt=""></a>
                 <a href="#" class="swiper-slide"><img src="~/assets/images/book-2.png" alt=""></a>
                 <a href="#" class="swiper-slide"><img src="~/assets/images/book-3.png" alt=""></a>
                 <a href="#" class="swiper-slide"><img src="~/assets/images/book-4.png" alt=""></a>
@@ -57,7 +57,7 @@
                         <a href="#" class="fas fa-search"></a>
                     </div>
                     <div class="image">
-                        <img src="~/Photos/Books/@item.Photo" alt="">
+                        <img src="@item.PhotoPath" alt="">
                     </div>
                     <div class="content">
                         <h3>@item.Name</h3>
@@ -94,11 +94,11 @@
 
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
-            @foreach (var Book in Model.NewArrivals.Take(8))
+            @foreach (var Book in Model.NewArrivals.Take(10))
             {
                 <a href="#" class="swiper-slide box">
                     <div class="image">
-                        <img src="~/Photos/Books/@Book.Photo" alt="">
+                        <img src="@Book.PhotoPath" alt="">
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
@@ -117,11 +117,11 @@
     </div>
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
-            @foreach (var Book in Model.NewArrivals.Skip(8).Take(8))
+            @foreach (var Book in Model.NewArrivals.Skip(10).Take(10))
             {
                 <a href="#" class="swiper-slide box">
                     <div class="image">
-                        <img src="~/Photos/Books/@Book.Photo" alt="">
+                        <img src="@Book.PhotoPath" alt="">
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
