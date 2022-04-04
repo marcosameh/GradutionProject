@@ -1,3 +1,4 @@
+using App.Core.Manager;
 using App.Core.Models;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
@@ -38,6 +39,14 @@ namespace App.UI.Pages.Books
             //{
             //    return OnGet();
             //}
+            if (Book.AudioFile != null)
+            {
+                Book.AduioUrl = FileManager.UploadFile(Book.AudioFile, "/wwwroot/audio/books/");
+            }
+            if (Book.PdfFile != null)
+            {
+                Book.AduioUrl = FileManager.UploadFile(Book.AudioFile, "/wwwroot/pdf/books/");
+            }
             bookManager.AddBook(Book);
             return Redirect("/Books/list");
         }

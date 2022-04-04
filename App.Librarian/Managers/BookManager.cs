@@ -34,15 +34,43 @@ namespace App.Librarian.Managers
             return book;
 
         }
+        //public void AddBook(BookVM BookVM)
+        //{
+        //    BookVM.Photo = FileManager.UploadPhoto(BookVM.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
+        //    var Book = mapper.Map<Book>(BookVM);
+        //    BookRepo.Add(Book);
+        //}
         public void AddBook(BookVM BookVM)
         {
             BookVM.Photo = FileManager.UploadPhoto(BookVM.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
-            var Book = mapper.Map<Book>(BookVM);
-            BookRepo.Add(Book);
+            //   var Book = mapper.Map<Book>(BookVM);
+            var book = new Book
+            {
+
+                Name = BookVM.Name,
+
+   
+                UrlName = BookVM.UrlName,
+                AuthorId = BookVM.AuthorId,
+                Description = BookVM.Description,
+                NumberOfCopies = BookVM.NumberOfCopies,
+                Price = BookVM.Price,
+
+                Offer = BookVM.Offer,
+                PdfUrl = BookVM.PdfUrl,
+                AduioUrl = BookVM.AduioUrl,
+
+              
+                Photo = BookVM.Photo,
+                CopyYear = BookVM.CopyYear,
+                IsActive = BookVM.IsActive,
+
+            };
+            BookRepo.Add(book);
         }
         public BookVM GetBookById(int id)
         {
-            var book = BookRepo.GetOne(x => x.Id == id,x=>x.Author);
+            var book = BookRepo.GetOne(x => x.Id == id, x => x.Author);
             return mapper.Map<BookVM>(book);
              
         }
@@ -52,22 +80,29 @@ namespace App.Librarian.Managers
             var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).Take(take).ToList();
             return mapper.Map<List<BookVM>>(Book);
         }
-        public List<BookVM> GetMostSellingBook()
-        {
+        //public List<BookVM> GetMostSellingBook()
+        //{
 
-            var Book = BookRepo.GetAll().OrderByDescending(book=>book.NumSells).Take(take).ToList();
-            return mapper.Map<List<BookVM>>(Book);
-        }
+        //    var Book = BookRepo.GetAll().OrderByDescending(book=>book.NumSells).Take(take).ToList();
+        //    return mapper.Map<List<BookVM>>(Book);
+        //}
         public List<BookVM> GetNewArrivalls()
         {
             var Book = BookRepo.GetAll().OrderByDescending(book=>book.Id).ToList();
             return mapper.Map<List<BookVM>>(Book);
 
         }
-        public void DeleteBook(int Id )
+        public void DeleteBook(int Id)
         {
-            BookRepo.Delete(Id);    
- 
+            BookRepo.Delete(Id);
+
+
+        }
+        public void UpdateBook(BookVM book)
+        {
+            var b = mapper.Map<Book>(book);   
+            BookRepo.Edit(b);
+
 
         }
 

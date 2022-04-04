@@ -57,6 +57,13 @@ namespace App.Librarian.Managers
 
 
         }
+        public void UpdateAuthor(AuthorsVM author)
+        {
+            var A = mapper.Map<Authors>(author);
+            AuthorRepo.Edit(A);
+
+
+        }
 
     }
 }
