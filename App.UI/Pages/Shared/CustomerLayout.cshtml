@@ -1,4 +1,8 @@
 ﻿@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-   
+
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <!-- font awesome cdn link  -->
@@ -14,7 +18,7 @@
 
     <!-- custom css file link  -->
     <link href="/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="/css/CustomerCssFiles/bootstrap.min (1).css">
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
 
@@ -31,7 +35,7 @@
 
         <div class="header-1">
 
-            <a href="/@Global.UrlName/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+            <a href="/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
 
             <form action="" class="search-form">
                 <input type="search" name="SearchFor" placeholder="search here..." id="search-box">
@@ -46,10 +50,21 @@
                 <div id="search-btn" class="fas fa-search"></div>
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-shopping-cart"></a>
-                <a asp-page="/Account/Login" class="fas fa-user"></a>
-                <!-- <div id="login-btn" class="fas fa-user"></div> -->
-                <div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>
 
+                <!-- <div id="login-btn" class="fas fa-user"></div> -->
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                         
+                        <button type="submit"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+                        
+                    </form>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" class="fas fa-user"></a>
+                }
             </div>
         </div>
 
@@ -57,11 +72,11 @@
             <nav class="navbar">
 
                 <ul>
-                    <li><a asp-page="/customer/index">home</a></li>
+                    <li><a href="/@Global.UrlName/index">home</a></li>
                     <li><a href="#featured">featured</a></li>
                     <li><a href="#arrivals">arrivals</a></li>
                     <li>
-                        <a href="book.html">books</a>
+                        <a href="/@Global.UrlName/books">books</a>
                         <ul>
                             <li> <a href="#1">Download books</a></li>
                             <li> <a href="#2">upload books</a></li>
@@ -79,86 +94,86 @@
         </div>
 
     </header>
-        <div>
-            @RenderBody()
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+    <!-- header section ends -->
+
+
+
+
+
+
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our locations</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                <a asp-page="/sections"> <i class="fas fa-arrow-right"></i> sections </a>
+                <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
+                <img src="~/assets/images/worldmap.png" class="map" alt="">
+            </div>
+
         </div>
 
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
 
+        <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
 
+    </section>
 
-        <!-- header section ends -->
-
-
-
-
-
-
-
-        <section class="footer">
-
-            <div class="box-container">
-
-                <div class="box">
-                    <h3>our locations</h3>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
-                </div>
-
-                <div class="box">
-                    <h3>quick links</h3>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
-                    <a asp-page="/sections"> <i class="fas fa-arrow-right"></i> sections </a>
-                    <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
-                </div>
-
-                <div class="box">
-                    <h3>extra links</h3>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
-                </div>
-
-                <div class="box">
-                    <h3>contact info</h3>
-                    <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
-                    <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-                    <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
-                    <img src="~/assets/images/worldmap.png" class="map" alt="">
-                </div>
-
-            </div>
-
-            <div class="share">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-instagram"></a>
-                <a href="#" class="fab fa-linkedin"></a>
-                <a href="#" class="fab fa-pinterest"></a>
-            </div>
-
-            <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
-
-        </section>
-
-        <!-- footer section ends -->
-        <!-- loader  -->
+    <!-- footer section ends -->
+    <!-- loader  -->
 
 
 
 
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-        <!-- custom js file link  -->
+    <!-- custom js file link  -->
 
-        <script src="~/js/CustomerJsFiles/shome.js"></script>
+    <script src="~/js/CustomerJsFiles/shome.js"></script>
 </body>
 </html>

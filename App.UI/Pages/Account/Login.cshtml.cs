@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using App.UI.Configurations;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -105,7 +106,7 @@ namespace App.UI.Areas.Identity.Pages.Account
                     if (role.Contains("Customer"))
                     {
                         _logger.LogInformation("User logged in.");
-                        return Redirect("/customer/index");
+                        return Redirect("/"+ Global.UrlName+"/index");
 
                     }
                     if (role.Contains("Librarian"))
