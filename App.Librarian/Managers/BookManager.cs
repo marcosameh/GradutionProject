@@ -35,12 +35,28 @@ namespace App.Librarian.Managers
         public void AddBook(BookVM BookVM)
         {
             BookVM.Photo = FileManager.UploadPhoto(BookVM.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
-            var Book = mapper.Map<Book>(BookVM);
-            BookRepo.Add(Book);
+            //   var Book = mapper.Map<Book>(BookVM);
+            var book = new Book
+            {
+                Name=BookVM.Name,
+                UrlName = BookVM.UrlName,
+                AuthorId = BookVM.AuthorId,
+                Description = BookVM.Description,
+                NumberOfCopies = BookVM.NumberOfCopies,
+                Price = BookVM.Price,
+                Offer=BookVM.Offer,
+                PdfUrl=BookVM.PdfUrl,
+                AduioUrl=BookVM.AduioUrl,
+                Photo = BookVM.Photo,
+                CopyYear = BookVM.CopyYear,
+                IsActive = BookVM.IsActive,
+
+            };
+            BookRepo.Add(book);
         }
         public BookVM GetBookById(int id)
         {
-            var book = BookRepo.GetOne(x => x.Id == id,x=>x.Author);
+            var book = BookRepo.GetOne(x => x.Id == id, x => x.Author);
             return mapper.Map<BookVM>(book);
         }
         public List<BookVM> GetOfferedBooks()
@@ -63,10 +79,10 @@ namespace App.Librarian.Managers
             return mapper.Map<List<BookVM>>(Book);
 
         }
-        public void DeleteBook(int Id )
+        public void DeleteBook(int Id)
         {
-            BookRepo.Delete(Id);    
- 
+            BookRepo.Delete(Id);
+
 
         }
 
