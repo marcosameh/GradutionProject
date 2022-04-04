@@ -1,3 +1,4 @@
+using App.Core.Manager;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,10 @@ namespace App.UI.Pages.author
         }
         public void OnPost()
         {
+            if (Authors.PhotoFile != null)
+            {
+                Authors.Photo = FileManager.UploadPhoto(Authors.PhotoFile, "/wwwroot/photos/author/", 150, 150);
+            }
             author.UpdateAuthor(Authors);
         }
     }

@@ -21,7 +21,7 @@ namespace App.UI.Pages.customer
         public void OnGet(int Id)
         {
             BookDetails = manger.GetBookById(Id);
-            MostSellingBooks = manger.GetMostSellingBook();
+            //MostSellingBooks = manger.GetMostSellingBook();
         }
     }
 }
