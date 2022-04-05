@@ -23,6 +23,8 @@ namespace App.Librarian.ViewModels
         [Required]
         [StringLength(1000)]
         public string Description { get; set; }
+        [Range(1, 100, ErrorMessage = "Invalid Number of Copies")]
+
         public int? NumberOfCopies { get; set; }
          [Range(20,1000,ErrorMessage ="Invalid Price")]
         public decimal Price { get; set; }

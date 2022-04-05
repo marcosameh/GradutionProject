@@ -20,6 +20,8 @@ namespace App.UI.Configurations
             services
             .AddScoped<BookManager>()
             .AddScoped<AuthorManager>()
+            .AddScoped<BookCategoryManager>()
+
             .AddScoped<SectionView>()
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
             .AddScoped(s => new CurrentTenantManager(s.GetService<IHttpContextAccessor>(), s.GetService<SharedtenantContext>(), Global.UrlName))

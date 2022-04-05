@@ -10,6 +10,8 @@ namespace App.Librarian.AutoMapper
         {
             CreateMap<Book, BookVM>().ReverseMap();
             CreateMap<Authors, AuthorsVM>().ReverseMap();
+            CreateMap<BookCategory, BookCategoryVM>().ReverseMap();
+
 
         }
     }
