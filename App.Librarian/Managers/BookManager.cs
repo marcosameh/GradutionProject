@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 namespace App.Librarian.Managers
 {
     public class BookManager
+
     {
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
@@ -79,12 +80,12 @@ namespace App.Librarian.Managers
             var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).Take(take).ToList();
             return mapper.Map<List<BookVM>>(Book);
         }
-        //public List<BookVM> GetMostSellingBook()
-        //{
+        public List<BookVM> GetMostSellingBook()
+        {
 
-        //    var Book = BookRepo.GetAll().OrderByDescending(book=>book.NumSells).Take(take).ToList();
-        //    return mapper.Map<List<BookVM>>(Book);
-        //}
+            var Book = BookRepo.GetAll().OrderByDescending(book => book.NumSells).Take(take).ToList();
+            return mapper.Map<List<BookVM>>(Book);
+        }
         public List<BookVM> GetNewArrivalls()
         {
             var Book = BookRepo.GetAll().OrderByDescending(book=>book.Id).ToList();

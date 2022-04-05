@@ -1,4 +1,6 @@
 ﻿@page "{Id:int:min(1)}"
+@using App.UI.Configurations
+
 @model App.UI.Pages.customer.book_detailsModel
 @{
     ViewBag.Title = "Book-Details page";
@@ -111,8 +113,8 @@
             {
                 <div class="swiper-slide box">
                     <div class="icons">
-                        <a href="#" class="fas fa-search"></a>
-                 
+                        <a href="/@Global.UrlName/book-details/@Book.Id" class="fas fa-search"></a>
+
                     </div>
                     <div class="image">
                         <img src="@Book.PhotoPath" alt="">
