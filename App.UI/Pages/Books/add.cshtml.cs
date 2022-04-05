@@ -17,19 +17,23 @@ namespace App.UI.Pages.Books
     {
         private readonly BookManager bookManager;
         private readonly AuthorManager authorManager;
+        private readonly BookCategoryManager bookCategoryManager;
 
         [BindProperty]
         public BookVM Book { get; set; }
-
+        [BindProperty]
+        public List<int> CategoryIds { get; set; }
+        public List<BookCategoryVM> BookCategories { get; set; }
         public List<AuthorsVM> Authors { get; set; }
-        public addModel(BookManager bookManager,AuthorManager authorManager)
+        public addModel(BookManager bookManager,AuthorManager authorManager , BookCategoryManager bookCategoryManager)
         {
             this.bookManager = bookManager;
             this.authorManager = authorManager;
+            this.bookCategoryManager = bookCategoryManager;
         }
         public IActionResult OnGet()
         {
-
+            BookCategories = bookCategoryManager.GetAllCategories();
             Authors = authorManager.GetAuthors();
             return Page();
         }
@@ -47,7 +51,7 @@ namespace App.UI.Pages.Books
             {
                 Book.AduioUrl = FileManager.UploadFile(Book.AudioFile, "/wwwroot/pdf/books/");
             }
-            bookManager.AddBook(Book);
+            bookManager.AddBook(Book,CategoryIds);
             return Redirect("/Books/list");
         }
     }

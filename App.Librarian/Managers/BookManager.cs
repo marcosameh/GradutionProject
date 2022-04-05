@@ -16,16 +16,18 @@ namespace App.Librarian.Managers
     {
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
+        BaseRepo<BookCategoryList> CategoryListRepo;
         private int take=10;
         public BookManager(KitabiContext context, IMapper mapper)
         {
             BookRepo = new BaseRepo<Book>(context);
-
+            CategoryListRepo = new BaseRepo<BookCategoryList>(context);
             this.mapper = mapper;
         }
         public List<BookVM> GetAllBooks()
         {
             var book = BookRepo.GetMany(null, book => book.Author).OrderBy(x => x.Id).ToList();
+
             return mapper.Map<List<BookVM>>(book);
         }
         public int GetBooksCount()
@@ -40,13 +42,19 @@ namespace App.Librarian.Managers
         //    var Book = mapper.Map<Book>(BookVM);
         //    BookRepo.Add(Book);
         //}
-        public void AddBook(BookVM BookVM)
+
+        public int GetBookId(string UrlName)
+        {
+           var book = BookRepo.GetOne(x => x.UrlName == UrlName);
+            return book.Id;
+        }
+        public void AddBook(BookVM BookVM,List<int> CategoryIds)
         {
             BookVM.Photo = FileManager.UploadPhoto(BookVM.PhotoFile, "/wwwroot/photos/Books/", 150, 150);
             //   var Book = mapper.Map<Book>(BookVM);
             var book = new Book
             {
-
+                
                 Name = BookVM.Name,
 
    
@@ -67,6 +75,15 @@ namespace App.Librarian.Managers
 
             };
             BookRepo.Add(book);
+            BookVM.Id = GetBookId(BookVM.UrlName);
+            foreach (var item in CategoryIds)
+            {
+                var category = new BookCategoryList { BookId = BookVM.Id, CategoryId = item };
+
+                CategoryListRepo.Add(category);
+            }
+          
+            
         }
         public BookVM GetBookById(int id)
         {
