@@ -32,6 +32,7 @@
     <Folder Include="wwwroot\pdf\books\" />
     <Folder Include="wwwroot\Photos\author\" />
     <Folder Include="wwwroot\Photos\Admin\" />
+    <Folder Include="wwwroot\Photos\customer\" />
   </ItemGroup>
 
 </Project>
