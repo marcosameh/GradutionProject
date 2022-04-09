@@ -20,12 +20,10 @@ namespace App.UI.Pages.customer
        
 
         private readonly AuthorManager athorManager;
-        private readonly CurrentTenantManager connectionManger;
         public List<AuthorsVM> Authors;
         public PagedList<AuthorsVM> PagingAuthors { get; set; }
-        public AuthorsModel(AuthorManager athorManager,CurrentTenantManager ConnectionManger)
+        public AuthorsModel(AuthorManager athorManager)
         {
-            connectionManger = ConnectionManger;
             this.athorManager = athorManager;
           
         }
@@ -36,7 +34,7 @@ namespace App.UI.Pages.customer
 
            
             Authors = athorManager.GetAuthors();
-            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), Page, 5);
+            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), Page, 12);
 
 
         }

@@ -7,6 +7,7 @@
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+
 <section class="bookdesc">
 
     <div class="container ">
@@ -23,7 +24,11 @@
 
 
 
-                <div class="price">@Model.BookDetails.BookPriceAfterDiscount <span>@Model.BookDetails.Price</span></div>
+                @if (Model.BookDetails.Price == Model.BookDetails.BookPriceAfterDiscount)
+                {<div class="price">$@Model.BookDetails.Price</div>
+            }
+            else
+            { <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price</span></div>}
 
 
                 <div class="stars">
@@ -55,7 +60,7 @@
 
         <div class="butns">
 
-            <a href="#" class="btnt">add to cart</a>
+            <a href="#" class="btnt cart-btn">add to cart</a>
             <a href="#" class="btnt">Read Sample</a>
             <a href="#" class="icon"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
 
@@ -78,7 +83,7 @@
     </div>
 
     <div class="cont">
-        <a class="card" href="">
+        <a class="card" href="/@Global.UrlName/author-details/@Model.BookDetails.AuthorId">
             <div class="row">
                 <div class="icon-container">
                     <div class="loading-icon">
@@ -121,7 +126,11 @@
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
-                        <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>
+                        @if (Book.Price == Book.BookPriceAfterDiscount)
+                        {<div class="price">$@Book.Price</div>
+                    }
+                    else
+                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
                         <a href="#" class="btnt">add to cart</a>
                     </div>
                 </div>

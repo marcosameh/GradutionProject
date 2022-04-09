@@ -117,6 +117,7 @@ section{
     font-size: 2.5rem;
     font-weight: bolder;
     color:var(--black);
+    text-decoration: none;
 }
 
 .header .header-1 .F1{
@@ -202,12 +203,57 @@ section{
     margin-left: 1.5rem;
     color:var(--black);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .header .header-1 .icons div:hover,
 .header .header-1 .icons a:hover{
     color:var(--blue);
 }
+
+
+.header .header-1 .icons .cart .count{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    top: 0;
+    left: 100%;
+    transform: translate(-50% , -50%);
+    background-color: var(--blue);
+    justify-content: center;
+    align-items: center;
+    color: rgb(233, 233, 233);
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: all ease 1s;
+    z-index: 1;
+}
+
+
+.header .header-1 .icons .cart .count{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    top: 20px;
+    
+    left: 1290px;
+    transform: translate(50% , -50%);
+    background-color: var(--blue);  
+    justify-content: center;
+    align-items: center;
+    color: rgb(227, 227, 227);
+    font-size: 1rem;
+    border-radius: 50%;
+    transition: all ease 1s;
+    z-index: 1;
+}
+
+
+
+
+
 
 #search-btn{
     display: none;
@@ -251,6 +297,7 @@ section{
     display: inline-block;
     padding: 1.8rem;
     font-size: 1.7rem;
+    text-decoration: none;
 }
 
 .header .header-2 .navbar ul li a:hover{

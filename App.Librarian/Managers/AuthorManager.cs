@@ -19,9 +19,11 @@ namespace App.Librarian.Managers
     {
         private readonly IMapper mapper;
         BaseRepo<Authors> AuthorRepo;
+        BaseRepo<Book> AuthorBooksRepo;
         public AuthorManager(KitabiContext context, IMapper mapper)
         {
             AuthorRepo = new BaseRepo<Authors>(context);
+            AuthorBooksRepo = new BaseRepo<Book>(context);
             this.mapper = mapper;
         }
         public List<AuthorsVM> GetAuthors()
@@ -54,16 +56,19 @@ namespace App.Librarian.Managers
         public void DeleteAuthor(int Id)
         {
             AuthorRepo.Delete(Id);
-
-
         }
         public void UpdateAuthor(AuthorsVM author)
         {
             var A = mapper.Map<Authors>(author);
             AuthorRepo.Edit(A);
-
-
         }
+        public List<BookVM> GetAuthorBooks(int authorid)
+        {
+            List<Book> authorBook = AuthorBooksRepo.GetMany(author => author.AuthorId == authorid).ToList();
+            return mapper.Map<List<BookVM>>(authorBook);
+            
+        }
+        
 
     }
 }

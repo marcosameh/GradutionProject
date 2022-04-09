@@ -19,6 +19,7 @@ namespace App.UI.Configurations
                 options.Conventions.AddPageRoute("/Books/Delete", "/books/delete/{Id}");
                 options.Conventions.AddPageRoute("/author/Delete", "/author/delete/{Id}");
                 options.Conventions.AddPageRoute("/customer/book-details", "/{UrlName}/book-details/{Id}");
+                options.Conventions.AddPageRoute("/customer/author-details", "/{UrlName}/author-details/{Id}");
 
                 
 

@@ -103,7 +103,11 @@
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
-                        <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>
+                        @if (Book.Price == Book.BookPriceAfterDiscount)
+                        {<div class="price">$@Book.Price</div>
+                    }
+                    else
+                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -126,7 +130,11 @@
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
-                        <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>
+                        @if (Book.Price == Book.BookPriceAfterDiscount)
+                        {<div class="price">$@Book.Price</div>
+                    }
+                    else
+                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
