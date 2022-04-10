@@ -55,6 +55,11 @@ namespace App.UI.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
+            [Required]
+            
+            [Display(Name = "UserName")]          
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            public string UserName { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -91,7 +96,7 @@ namespace App.UI.Areas.Identity.Pages.Account
                 }
                 //var roleresult = RoleManager.Create(new IdentityRole(roleName));
                 //await _userManager.AddToRoleAsync(""); 
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Photo = photoname };
+                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, Photo = photoname };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 user.EmailConfirmed = true;
