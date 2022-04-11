@@ -3,11 +3,11 @@
 
 @model App.UI.Pages.customer.book_detailsModel
 @{
-    ViewBag.Title = "Book-Details page";
+    ViewBag.Title = Model.BookDetails.Name +" Book Details";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
-
+<input type="hidden" value="@Model.BookDetails.Id" id='bookId' >
 <section class="bookdesc">
 
     <div class="container ">
@@ -59,14 +59,18 @@
         </div>
 
         <div class="butns">
-
-            <a href="#" class="btnt cart-btn">add to cart</a>
+            <a href="#" class="btnt cart-btn" id="btn">add to cart</a>
             <a href="#" class="btnt">Read Sample</a>
             <a href="#" class="icon"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
 
 
 
+
+
+
+
         </div>
+      
 
 
 
@@ -185,5 +189,18 @@
     </div>
 
 </section>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            var Id = $('#bookId').val();
+            $.ajax({
 
+                url: '?handler=AddToCart',
+                data: { Id:Id},
+               
+
+            });
+        });
+    });
+</script>
 <!-- Trend section ends -->
