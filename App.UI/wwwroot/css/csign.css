@@ -265,9 +265,6 @@ form.sign-in-form {
   font-weight: 500;
 }
 
-
-
-
 .social-text {
   padding: 0.7rem 0;
   font-size: 1rem;
@@ -395,40 +392,12 @@ form.sign-in-form {
   font-size: 0.8rem;
 }
 
-
-.left-panel a{
-  width: 130px;
-  height: 41px;
-  text-decoration: none;
-  padding: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-.right-panel a{
-  width: 130px;
-  height: 41px;
-  text-decoration: none;
-  padding: 10px;
-  padding-left: 25px;
-  padding-right: 25px;
-}
-
-
-
 .right-panel .image,
 .right-panel .content {
   transform: translateX(800px);
 }
 
-
-
-
 /* ANIMATION */
-
-
-
-
 
 .container.sign-up-mode:before {
   transform: translate(100%, -50%);
@@ -466,11 +435,6 @@ form.sign-in-form {
 .container.sign-up-mode .right-panel {
   pointer-events: all;
 }
-
-
-
-
-
 
 @media (max-width: 870px) {
   .container {

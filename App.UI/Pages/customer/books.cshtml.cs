@@ -23,7 +23,7 @@ namespace App.UI.Pages.customer
         public void OnGet([FromQuery] int Page = 1)
         {
             allBooks = manager.GetAllBooks();
-            PagingAuthors = PagedList<BookVM>.Create(allBooks.AsQueryable(), Page, 5);
+            PagingAuthors = PagedList<BookVM>.Create(allBooks.AsQueryable(), Page, 24);
 
         }
     }

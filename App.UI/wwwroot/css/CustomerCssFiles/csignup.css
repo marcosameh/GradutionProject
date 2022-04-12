@@ -51,33 +51,33 @@ form {
   grid-row: 1 / 2;
 }
 
-.container .forms-container .signin-signup .sign-up-form .form-step .input-field{
+.container .forms-container .signin-signup .sign-in-form .form-step .input-field{
   width: 380px;
 }
 
 
-.container .forms-container .signin-signup .sign-up-form .form-step{
+.container .forms-container .signin-signup .sign-in-form .form-step{
   text-align: center;
   display: none;
 
 }
 
 
-.container .forms-container .signin-signup .sign-up-form .form-step h2{
+.container .forms-container .signin-signup .sign-in-form .form-step h2{
   color: rgb(71, 67, 67);
 }
 
-.container .forms-container .signin-signup .sign-up-form .form-step-active{
+.container .forms-container .signin-signup .sign-in-form .form-step-active{
   display: block;
 }
 
-.container .forms-container .signin-signup .sign-up-form .form-step .btns-group{
+.container .forms-container .signin-signup .sign-in-form .form-step .btns-group{
   padding: 20px;
   text-align: center;
   
 }
 
-.container .forms-container .signin-signup .sign-up-form .form-step a{
+.container .forms-container .signin-signup .sign-in-form .form-step a{
   padding: 1rem;
   padding-right: 50px;
   padding-left: 50px;
@@ -89,6 +89,9 @@ form {
 
 
 /* upload image */
+
+
+
 
 .upload{
   height: 350px;
@@ -264,9 +267,6 @@ form.sign-in-form {
   color: #aaa;
   font-weight: 500;
 }
-
-
-
 
 .social-text {
   padding: 0.7rem 0;

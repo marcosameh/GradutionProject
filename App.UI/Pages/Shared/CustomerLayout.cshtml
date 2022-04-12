@@ -22,6 +22,9 @@
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
 
+    <!-- custom jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <style>
@@ -47,19 +50,19 @@
             </form>
 
             <div class="icons">
+
                 <div id="search-btn" class="fas fa-search"></div>
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-shopping-cart"></a>
 
                 <!-- <div id="login-btn" class="fas fa-user"></div> -->
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                         
-                        <button type="submit"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
-                        
-                    </form>
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="/@Global.UrlName/cart" class="fas fa-shopping-cart cart">  <span class="count"> 10 </span> </a>                 
+                <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+
+            </form>
                 }
                 else
                 {

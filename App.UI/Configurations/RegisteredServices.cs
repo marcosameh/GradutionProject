@@ -1,5 +1,6 @@
 ﻿
 using App.Core.Models;
+using App.Customer.CartManager;
 using App.Customer.Views;
 using App.Librarian.Managers;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +22,7 @@ namespace App.UI.Configurations
             .AddScoped<BookManager>()
             .AddScoped<AuthorManager>()
             .AddScoped<BookCategoryManager>()
+            .AddScoped<GetBook>()
 
             .AddScoped<SectionView>()
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()

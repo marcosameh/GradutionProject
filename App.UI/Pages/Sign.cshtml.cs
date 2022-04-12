@@ -1,5 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using App.UI.Areas.Identity.Pages.Account;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -8,16 +14,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SharedTenant.Domain;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace App.UI.Areas.Identity.Pages.Account
+namespace App.UI.Pages
 {
-    [AllowAnonymous]
-    public class RegisterModel : PageModel
+    public class SignModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -26,7 +26,7 @@ namespace App.UI.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _config;
 
-        public RegisterModel(
+        public SignModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
@@ -55,11 +55,6 @@ namespace App.UI.Areas.Identity.Pages.Account
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
-            [Required]
-            
-            [Display(Name = "UserName")]          
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-            public string UserName { get; set; }
 
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
@@ -73,13 +68,6 @@ namespace App.UI.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
             public IFormFile Photo { get; set; }
         }
-
-        public async Task OnGetAsync(string returnUrl = null)
-        {
-            ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-        }
-
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -87,7 +75,7 @@ namespace App.UI.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
 
-                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/librarian/";
+                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/customer/";
                 string photoname = Path.GetFileName(Input.Photo.FileName);
                 string finalpath = photopath + photoname;
                 using (var stream = System.IO.File.Create(finalpath))
@@ -96,11 +84,11 @@ namespace App.UI.Areas.Identity.Pages.Account
                 }
                 //var roleresult = RoleManager.Create(new IdentityRole(roleName));
                 //await _userManager.AddToRoleAsync(""); 
-                var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, Photo = photoname };
+                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Photo = photoname };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 user.EmailConfirmed = true;
-                await _userManager.AddToRoleAsync(user, "Librarian");
+                await _userManager.AddToRoleAsync(user, "Customer");
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
