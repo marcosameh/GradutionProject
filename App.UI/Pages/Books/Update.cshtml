@@ -129,15 +129,31 @@
                 <div class="form-group row">
                     @foreach (var item in Model.BookCategories)
                     {
+                        foreach (var item2 in Model.SelectedCategory)
+                        {
+                            if (item.Id == item2.CategoryId)
+                            {
+                                <div class="col">
 
-                        <div class="col-sm-10">
+                                    <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1" checked>
+                                    <span>
+                                        @item.CategoryName
+                                    </span>
+                                </div>
+                                continue;
+                            }
+
+
+
+                        }
+                        <div class="col">
 
                             <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1">
-
+                            <span>
+                                @item.CategoryName
+                            </span>
                         </div>
-                        <span>
-                            @item.CategoryName
-                        </span>
+
                     }
 
                 </div>

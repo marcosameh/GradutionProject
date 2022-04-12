@@ -20,6 +20,7 @@ namespace App.UI.Configurations
 
             services
             .AddScoped<BookManager>()
+            .AddScoped<BookCategoryListManager>()
             .AddScoped<AuthorManager>()
             .AddScoped<BookCategoryManager>()
             .AddScoped<GetBook>()

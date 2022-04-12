@@ -14,6 +14,7 @@ namespace App.UI.Pages.Books
         private readonly BookManager bookManager;
         private readonly AuthorManager authorManager;
         private readonly BookCategoryManager bookCategoryManager;
+        private readonly BookCategoryListManager bookCategoryListManager;
 
         [BindProperty(SupportsGet =true)]
         public BookVM Book { get; set; }
@@ -22,19 +23,23 @@ namespace App.UI.Pages.Books
         public List<AuthorsVM> Authors { get; set; }
         [BindProperty]
         public List<int> CategoryIds { get; set; }
+        public IQueryable<BookCategoryList> SelectedCategory { get; set; }
         public List<BookCategoryVM> BookCategories { get; set; }
 
-        public UpdateModel(BookManager bookManager ,AuthorManager authorManager, BookCategoryManager bookCategoryManager)
+        public UpdateModel(BookManager bookManager ,AuthorManager authorManager,
+            BookCategoryManager bookCategoryManager,BookCategoryListManager bookCategoryListManager)
         {
             this.bookManager = bookManager;
             this.authorManager = authorManager;
             this.bookCategoryManager = bookCategoryManager;
+            this.bookCategoryListManager = bookCategoryListManager;
         }
         public void OnGet(int id )
         {
             Authors = authorManager.GetAuthors();
             Book = bookManager.GetBookById(id);
             BookCategories = bookCategoryManager.GetAllCategories();
+            SelectedCategory = bookCategoryListManager.GetSlectedCategoriesIds(id);
 
         }
         public IActionResult OnPost()

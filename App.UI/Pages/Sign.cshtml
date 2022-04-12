@@ -4,6 +4,7 @@
     Layout = null;
 }
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,47 +39,30 @@
 
                     <input type="submit" value="Login" class="btn solid" />
 
-                    <p class="social-text">Or Sign in with social platforms</p>
-                    <div class="social-media">
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-icon">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
                 </form>
 
 
-                <form method="post" asp-route-returnUrl="@Model.ReturnUrl" class="sign-up-form" enctype="multipart/form-data">
+                <form action="#" class="sign-up-form">
                     <h2 class="title">Sign up</h2>
-                    <hr />
-                    <div asp-validation-summary="All" class="text-danger"></div>
+
                     <div class="form-step form-step-active">
 
-                        <h2> Account Setup </h2>
+                        <h2> Step 1 : Account Setup </h2>
+
+
+                        <div class="input-field">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" />
+                        </div>
 
                         <div class="input-field">
                             <i class="fas fa-envelope"></i>
-                            <input type="email" asp-for="Input.Email" placeholder="Email" />
-                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            <input type="email" placeholder="Email" />
                         </div>
 
                         <div class="input-field">
                             <i class="fas fa-lock"></i>
-                            <input type="password" asp-for="Input.Password" placeholder="Password" />
-                            <span asp-validation-for="Input.Password" class="text-danger"></span>
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" asp-for="Input.ConfirmPassword" placeholder="Confirm Password" />
-                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            <input type="password" placeholder="Password" />
                         </div>
                         <div class="upload">
                             <div class="wrapper">
@@ -107,20 +91,28 @@
                             </div>
 
                             <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-                            <input id="default-btn" asp-for="Input.Photo" type="file" hidden>
-                            <span asp-validation-for="Input.Photo" class="text-danger"></span>
+                            <input id="default-btn" type="file" hidden>
                         </div>
+                        <div class="btns-group">
+                            <a class="btn btn-next" id="submit"> Sign Up </a>
+                        </div>
+
 
 
                     </div>
 
 
 
-                        <input type="submit" value="Register" class="btn solid" />
+
+
+
+
+
+
+
+
 
                 </form>
-
-
 
             </div>
         </div>
@@ -154,9 +146,23 @@
         </div>
     </div>
 
-    @section Scripts {
     <script src="/js/ssign.js"></script>
-        <partial name="_ValidationScriptsPartial" />
-    }
+    <script src="~/jquery/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            $('#submit').click(function (evt) {
+                
+                evt.preventDefault();
+
+            });
+
+
+        });
+
+
+    </script>
 </body>
 </html>
+

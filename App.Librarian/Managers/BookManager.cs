@@ -119,7 +119,7 @@ namespace App.Librarian.Managers
         {
             var b = mapper.Map<Book>(book);   
             BookRepo.Edit(b);
-            book.Id = GetBookId(book.UrlName);
+           
 
             foreach (var item in CategoryIds)
             {
