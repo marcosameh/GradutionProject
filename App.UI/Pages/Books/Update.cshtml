@@ -114,6 +114,7 @@
             <input type="hidden" asp-for="Book.Photo" />
             <input type="hidden" asp-for="Book.PdfUrl" />
             <input type="hidden" asp-for="Book.AduioUrl" />
+            <input type="hidden" asp-for="Book.UrlName" />
 
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Is Active</label>
@@ -122,6 +123,43 @@
 
                 </div>
             </div>
+            <div class="formform-group row">
+                <label class="col-sm-2 col-form-label">Book Categories</label><br /><br />
+
+                <div class="form-group row">
+                    @foreach (var item in Model.BookCategories)
+                    {
+                        foreach (var item2 in Model.SelectedCategory)
+                        {
+                            if (item.Id == item2.CategoryId)
+                            {
+                                <div class="col">
+
+                                    <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1" checked>
+                                    <span>
+                                        @item.CategoryName
+                                    </span>
+                                </div>
+                                continue;
+                            }
+
+
+
+                        }
+                        <div class="col">
+
+                            <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1">
+                            <span>
+                                @item.CategoryName
+                            </span>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+
             <div class="text-right">
                 <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Update Book</button>
             </div>

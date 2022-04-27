@@ -115,10 +115,18 @@ namespace App.Librarian.Managers
 
 
         }
-        public void UpdateBook(BookVM book)
+        public void UpdateBook(BookVM book, List<int> CategoryIds)
         {
             var b = mapper.Map<Book>(book);   
             BookRepo.Edit(b);
+           
+
+            foreach (var item in CategoryIds)
+            {
+                var category = new BookCategoryList { BookId = book.Id, CategoryId = item };
+
+                CategoryListRepo.Edit(category);
+            }
 
 
         }
