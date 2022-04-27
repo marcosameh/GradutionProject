@@ -22,10 +22,10 @@ namespace SharedTenant.Manager
         public BookStores GetCurrentBookStore()
         {
             
-            if(!string.IsNullOrEmpty(UrlName))
-                return SharedtenantContext.BookStores.Where(x => x.UrlName == UrlName).FirstOrDefault();
-
-            var CurrentDomin = Accessor.HttpContext.Request.Host.Value;
+            var result= SharedtenantContext.BookStores.Where(x => x.UrlName == UrlName).FirstOrDefault();
+            if(result==null)
+            {
+            var CurrentDomin = Accessor.HttpContext.Request.Host.Value;          
             foreach (var domin in GetDomins())
             {
                 if (domin == CurrentDomin /*&& CurrentDomin != "localhost:44381"*/)
@@ -34,7 +34,9 @@ namespace SharedTenant.Manager
                 }
 
             }
-            return SharedtenantContext.BookStores.Where(x => x.UrlName == UrlName).FirstOrDefault();
+            }
+
+            return result;
 
 
         }

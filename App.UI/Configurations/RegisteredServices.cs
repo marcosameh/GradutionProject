@@ -23,10 +23,11 @@ namespace App.UI.Configurations
             .AddScoped<AuthorManager>()
             .AddScoped<BookCategoryManager>()
             .AddScoped<GetBook>()
-
             .AddScoped<SectionView>()
+
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
-            .AddScoped(s => new CurrentTenantManager(s.GetService<IHttpContextAccessor>(), s.GetService<SharedtenantContext>(), Global.UrlName))
+            .AddScoped(s => new GlobalManger(s.GetService<IHttpContextAccessor>()))
+            .AddScoped(s => new CurrentTenantManager(s.GetService<IHttpContextAccessor>(), s.GetService<SharedtenantContext>(), s.GetService<GlobalManger>().SetGlobalVariable()))
             .AddScoped<BookStores>(serviceProvider => serviceProvider.GetService<CurrentTenantManager>().GetCurrentBookStore())
             .AddScoped(serviceProvider => new KitabiContext(new DbContextOptionsBuilder<KitabiContext>()
                   .UseSqlServer(serviceProvider.GetService<BookStores>().ConnectionString,
