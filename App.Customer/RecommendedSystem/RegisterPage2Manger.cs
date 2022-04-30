@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace App.Customer.RecommendedSystem
@@ -64,7 +65,6 @@ namespace App.Customer.RecommendedSystem
             var user =await userManager.FindByIdAsync(Customerid);
             if(user!= null)
             {
-                ManegeFavouriteCategoryList();
                 for (int i = 0; i < CategoryList.FavouriteCategoryList.Count; i++)
                 {
                     var love = new CustomerLoveCategory()
@@ -86,6 +86,17 @@ namespace App.Customer.RecommendedSystem
             }
 
 
+        }
+        public string ReturnCategoryList()
+        {
+            ManegeFavouriteCategoryList();
+            string result = "";
+            foreach (var item in CategoryList.FavouriteCategoryList)
+            {
+                var category = bookCategoryRepo.GetOne(category => category.CategoryId == item);
+                result += category.CategoryName + " \\ ";
+            }
+            return result ;
         }
     }
 
