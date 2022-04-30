@@ -1,6 +1,7 @@
 ﻿
 using App.Core.Models;
 using App.Customer.CartManager;
+using App.Customer.RecommendedSystem;
 using App.Customer.Views;
 using App.Librarian.Managers;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +26,7 @@ namespace App.UI.Configurations
             .AddScoped<BookCategoryManager>()
             .AddScoped<GetBook>()
             .AddScoped<SectionView>()
+            .AddScoped<RegisterPage2Manger>()
 
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
             .AddScoped(s => new GlobalManger(s.GetService<IHttpContextAccessor>()))

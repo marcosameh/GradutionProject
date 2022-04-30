@@ -15,6 +15,7 @@ namespace SharedTenant.Models
 
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public string CategoryPhoto { get; set; }
 
         public virtual ICollection<CustomerLoveCategory> CustomerLoveCategory { get; set; }
         public virtual ICollection<ExchangeBookCategoryList> ExchangeBookCategoryList { get; set; }

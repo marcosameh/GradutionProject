@@ -1,5 +1,6 @@
-﻿using App.Core.Models;
+﻿
 using Microsoft.EntityFrameworkCore;
+using SharedTenant.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +8,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App.Core.Repositories
+namespace SharedTenant.SharedtenantReposatory
 {
-    public class BaseRepo<TEntity> where TEntity : class
+    public class SharedtenantBaseRebo<TEntity> where TEntity : class
     {
-        private readonly KitabiContext DbContext;
+        private readonly SharedtenantContext DbContext;
         protected DbSet<TEntity> DbSet;
-        public BaseRepo(KitabiContext context)
+        public SharedtenantBaseRebo(SharedtenantContext context)
         {
             DbContext = context;
             DbSet = DbContext.Set<TEntity>();
@@ -36,7 +37,7 @@ namespace App.Core.Repositories
                 : DbSet.Where(where);
             var entities = includeProperties.Aggregate(query, (current, includeProperty) =>
                 current.Include(includeProperty));
-            
+
 
             return entities;
         }
@@ -57,16 +58,16 @@ namespace App.Core.Repositories
                 var s = e.Message;
                 throw;
             }
-           
+
         }
-        public void Delete(int  Id)
+        public void Delete(int Id)
         {
 
             DbContext.Remove(DbSet.Find(Id));
 
             Save();
         }
-       
+
         public void Save()
         {
             DbContext.SaveChanges();

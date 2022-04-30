@@ -1,0 +1,177 @@
+﻿@page "/Account/Register/recommended-categories/{id}"
+@using App.Customer.RecommendedSystem;
+@model App.UI.Pages.Account.RegisterPage2Model
+@{
+    Layout = null;
+}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"></script>
+
+    <!--fontawesome link -->
+    <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+    <link href="~/css/CustomerCssFiles/csignup.css" rel="stylesheet" />
+    <title>register recommended categories</title>
+</head>
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+
+
+                <form class="sign-in-form" method="post">
+                    <br />
+                    <br />
+
+                    <h2 class="title">Sign up</h2>
+
+
+
+
+                    <div class="form-step form-step-active ">
+
+                        <h2> Step 4 : Select your favourite categries  </h2>
+                        <br />
+                        <div asp-validation-summary="All" style="color:red"></div>
+
+
+                        <section class="space">
+
+                            <div class="container1">
+                                @foreach (var bookcategory in Model.bookCategories)
+                                {
+
+                                    <label class="card" id="label" for="@bookcategory.CategoryId">
+                                        <input type="checkbox" name="category" class="check1">
+
+                                        <div class="card-content">
+                                            <img src="@bookcategory.PhotoPath" alt="">
+
+                                        </div>
+
+                                        <h4>@bookcategory.CategoryName</h4>
+
+                                    </label>
+
+                                }
+
+
+
+
+                            </div>
+
+
+
+                        </section>
+
+
+                        <div class="btns-group">
+                            <a asp-page="/Account/Register" class="btn btn-prev"> previous </a>
+                            <button type="submit" class="btn btn-next"> Next </button>
+                        </div>
+
+
+                    </div>
+
+
+
+                    @if(CategoryList.FavouriteCategoryList.Count>2)
+            {
+                <div class="form-step ">
+
+                    <h5> Your account has been successful </h5>
+
+
+
+                </div>
+            }
+
+                    
+
+
+
+
+
+
+
+                </form>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="panels-container">
+
+
+
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>One of us ?</h3>
+
+                    <p>
+                        If you are a member of our website, click on the sign in button.
+                    </p>
+
+
+                    <a asp-page="/Account/Login" class="btn transparent" id="sign-up-btn">Sign in</a>
+                </div>
+
+                <img src="~/image/register.svg" class="image" alt="" />
+            </div>
+
+
+
+
+        </div>
+    </div>
+    <script src="~/js/CustomerJsFiles/ssign.js"></script>
+    <script src="~/assets/js/jquery/jquery-3.5.1.js"></script>
+
+    <script>
+
+        var labelID;
+
+        $('label').click(function () {
+            labelID = $(this).attr('for');
+            $('#' + labelID).trigger('click');
+            console.log(labelID);
+
+            $.ajax({
+
+                url: '?handler=SetCategoryList',
+                data: { labelID: labelID },
+
+
+            
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

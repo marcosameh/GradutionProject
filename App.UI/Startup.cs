@@ -1,4 +1,5 @@
 using App.Core.Models;
+using App.Customer.CustomerAutoMapper;
 using App.Librarian.AutoMapper;
 using App.UI.Configurations;
 using Microsoft.AspNetCore.Builder;
@@ -44,6 +45,8 @@ namespace App.UI
                 .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
             
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+            services.AddAutoMapper(x => x.AddProfile(new CustomerDomainProfile()));
+
             services.AddCustomizedRoutes();
             services.AddRegisteredServices();
 
