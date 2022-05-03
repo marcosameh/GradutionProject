@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Customer.RecommendedSystem;
 using App.UI.Configurations;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SharedTenant.Domain;
 using SharedTenant.Manager;
 using SharedTenant.Models;
 
@@ -22,6 +25,8 @@ namespace App.UI.Pages
         public void OnGet()
         {
             Bookstores = currentTenantManager.GetBookStores();
+           // var userid = userManger.GetUserId(HttpContext.User);
+            
         }
         public void OnGetSetUrl(string UrlName)
         {

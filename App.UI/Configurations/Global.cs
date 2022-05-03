@@ -23,7 +23,7 @@ namespace App.UI.Configurations
 
                 string URL = Accessor.HttpContext.Request.GetEncodedUrl();
                 string[] URLSplit = URL.Split("/");
-                Global.UrlName = URLSplit[1];
+                Global.UrlName = URLSplit[3];
            
 
             }

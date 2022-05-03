@@ -23,6 +23,7 @@ namespace SharedTenant.Models
 
         public virtual DbSet<BookStores> BookStores { get; set; }
         public virtual DbSet<BooksForExchange> BooksForExchange { get; set; }
+        public virtual DbSet<CustomerCategoryBookRate> CustomerCategoryBookRate { get; set; }
         public virtual DbSet<CustomerLoveCategory> CustomerLoveCategory { get; set; }
         public virtual DbSet<CustomerRecomendedBook> CustomerRecomendedBook { get; set; }
         public virtual DbSet<ExchangBookCategory> ExchangBookCategory { get; set; }
@@ -66,6 +67,33 @@ namespace SharedTenant.Models
                 entity.Property(e => e.Photo).HasMaxLength(70);
 
                 entity.Property(e => e.UrlName).HasMaxLength(70);
+            });
+
+            modelBuilder.Entity<CustomerCategoryBookRate>(entity =>
+            {
+                entity.HasKey(e => e.TableId);
+
+                entity.ToTable("Customer_Category_Book_Rate");
+
+                entity.Property(e => e.TableId).HasColumnName("TableID");
+
+                entity.Property(e => e.BookId).HasColumnName("BookID");
+
+                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
+
+                entity.Property(e => e.CustomerId)
+                    .HasMaxLength(450)
+                    .HasColumnName("CustomerID");
+
+                entity.HasOne(d => d.Book)
+                    .WithMany(p => p.CustomerCategoryBookRate)
+                    .HasForeignKey(d => d.BookId)
+                    .HasConstraintName("FK_Customer_Category_Book_Rate_BooksForExchange");
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.CustomerCategoryBookRate)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("FK_Customer_Category_Book_Rate_ExchangBookCategory");
             });
 
             modelBuilder.Entity<CustomerLoveCategory>(entity =>

@@ -20,7 +20,7 @@ namespace App.UI.Configurations
                 options.Conventions.AddPageRoute("/author/Delete", "/author/delete/{Id}");
                 options.Conventions.AddPageRoute("/customer/book-details", "/{UrlName}/book-details/{Id}");
                 options.Conventions.AddPageRoute("/customer/author-details", "/{UrlName}/author-details/{Id}");
-                options.Conventions.AddPageRoute("/customer/cart", "/{UrlName}/cart");
+                options.Conventions.AddPageRoute("/customer/cart", "/{UrlName}/cart/{Id?}");
 
                 
 

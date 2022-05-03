@@ -22,6 +22,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Customer_Category_Book_Rate]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[CustomerLoveCategory]",
          "ObjectType": 0
       },

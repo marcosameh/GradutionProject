@@ -1,4 +1,5 @@
-﻿using App.UI.Configurations;
+﻿using App.Customer.RecommendedSystem;
+using App.UI.Configurations;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -18,15 +19,18 @@ namespace App.UI.Areas.Identity.Pages.Account
     public class LoginModel : PageModel
     {
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RecommenedBooksManger recommenedBooksManger;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
         public LoginModel(SignInManager<ApplicationUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager
+            UserManager<ApplicationUser> userManager,
+            RecommenedBooksManger recommenedBooksManger
             )
         {
             _userManager = userManager;
+            this.recommenedBooksManger = recommenedBooksManger;
             _signInManager = signInManager;
             _logger = logger;
         }
@@ -106,7 +110,8 @@ namespace App.UI.Areas.Identity.Pages.Account
                     if (role.Contains("Customer"))
                     {
                         _logger.LogInformation("User logged in.");
-                        if(string.IsNullOrEmpty( Global.UrlName))
+                        recommenedBooksManger.SetRecommenedBooks(user.Id);
+                        if (string.IsNullOrEmpty( Global.UrlName))
                         {
                             return Redirect("/index");
                         }

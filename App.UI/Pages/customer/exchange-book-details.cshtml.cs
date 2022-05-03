@@ -2,12 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using App.Customer.CartManager;
 using App.Customer.RecommendedSystem;
-using App.Librarian.Managers;
-using App.Librarian.ViewModels;
-using App.UI.Configurations;
-using Microsoft.AspNetCore.Authorization;
+using App.Customer.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -16,16 +12,15 @@ using SharedTenant.Models;
 
 namespace App.UI.Pages.customer
 {
-    [Authorize(Roles = "Customer")]
-    public class book_detailsModel : PageModel
+    public class exchange_book_detailsModel : PageModel
     {
-        private readonly BookManager bookManger;
+        private readonly ExchangeBookManger bookManger;
         private readonly RecommenedBooksManger recommenedBooksManger;
         private readonly UserManager<ApplicationUser> userManger;
-        public BookVM BookDetails;
-        public List<BookVM >MostSellingBooks;
+        public BookForExchangeVM BookDetails;
         public List<CustomerRecomendedBook> recomendedBooks;
-        public book_detailsModel(BookManager bookManger ,
+
+        public exchange_book_detailsModel(ExchangeBookManger bookManger,
             RecommenedBooksManger recommenedBooksManger,
             UserManager<ApplicationUser> userManger)
         {
@@ -33,23 +28,11 @@ namespace App.UI.Pages.customer
             this.recommenedBooksManger = recommenedBooksManger;
             this.userManger = userManger;
         }
-        public void OnGet(int Id)
+        public void OnGet(int id)
         {
-            BookDetails = bookManger.GetBookById(Id);
-            MostSellingBooks = bookManger.GetMostSellingBook();
+            BookDetails = bookManger.GetBookByID(id);
             var userid = userManger.GetUserId(HttpContext.User);
             recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
-        }
-       public void OnGetAddToCart(int Id)
-        {
-            BookDetails = bookManger.GetBookById(Id);
-            Cart cart = Cart.GetInstance();
-            cart.AddToCart(Id,
-                BookDetails.Name,
-                BookDetails.PhotoPath,
-                BookDetails.BookPriceAfterDiscount,
-                Global.UrlName
-             );
         }
     }
 }

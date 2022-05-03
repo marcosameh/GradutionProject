@@ -1,13 +1,11 @@
 ﻿@page "{Id:int:min(1)}"
-@using App.UI.Configurations
-
-@model App.UI.Pages.customer.book_detailsModel
+@model App.UI.Pages.customer.exchange_book_detailsModel
 @{
     ViewBag.Title = Model.BookDetails.Name + " Book Details";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
-<input type="hidden" value="@Model.BookDetails.Id" id='bookId'>
+<input type="hidden" value="@Model.BookDetails.ExchageBookId" id='bookId'>
 <section class="bookdesc">
 
     <div class="container ">
@@ -24,13 +22,7 @@
 
 
 
-                @if (Model.BookDetails.Price == Model.BookDetails.BookPriceAfterDiscount)
-                {<div class="price">$@Model.BookDetails.Price</div>
-            }
-            else
-            { <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price</span></div>}
-
-
+              
                 <div class="stars">
                     <span class="rate"> Rate of book : </span>
                     <i class="fas fa-star"></i>
@@ -87,11 +79,10 @@
     </div>
 
     <div class="cont">
-        <a class="card" href="/@Global.UrlName/author-details/@Model.BookDetails.AuthorId">
+        <a class="card" >
             <div class="row">
                 <div class="icon-container">
                     <div class="loading-icon">
-                        <img src="@Model.BookDetails.AuthorPhotoPath" alt="">
                     </div>
                 </div>
                 <div class="description">
@@ -117,14 +108,15 @@
             {
                 <div class="swiper-slide box">
                     <div class="icons">
-                        <a href="/customer/exchange-book-details/@book.BookId" class="fas fa-search"></a>
+                        <a href="#" class="fas fa-search"></a>
 
                     </div>
                     <div class="image">
-                        <img src="/photos/books/@book.Book.Photo" alt="">
+                        <img src="~/assets/images/book3.png" alt="">
                     </div>
                     <div class="content">
                         <h3>@book.Book.Name</h3>
+                        <div class="price">$15.99 <span>$20.99</span></div>
                         <a href="#" class="btnt">add to cart</a>
                     </div>
                 </div>
@@ -142,68 +134,3 @@
     </div>
 
 </section>
-
-
-<!-- similar section starts  -->
-<section class="Trend" id="Trend">
-
-    <h1 class="heading"> <span>Most Selling Books</span> </h1>
-
-    <div class="swiper Trend-slider">
-
-        <div class="swiper-wrapper">
-            @foreach (var Book in Model.MostSellingBooks)
-            {
-                <div class="swiper-slide box">
-                    <div class="icons">
-                        <a href="/@Global.UrlName/book-details/@Book.Id" class="fas fa-search"></a>
-
-                    </div>
-                    <div class="image">
-                        <img src="@Book.PhotoPath" alt="">
-                    </div>
-                    <div class="content">
-                        <h3>@Book.Name</h3>
-                        @if (Book.Price == Book.BookPriceAfterDiscount)
-                        {<div class="price">$@Book.Price</div>
-                    }
-                    else
-                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
-                        <a href="#" class="btnt">add to cart</a>
-                    </div>
-                </div>
-            }
-
-
-
-
-
-        </div>
-
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-
-    </div>
-
-</section>
-
-
-<!-- similar section ends -->
-
-
-
-<script>
-    $(function () {
-        $("#btn").click(function () {
-            var Id = $('#bookId').val();
-            $.ajax({
-
-                url: '?handler=AddToCart',
-                data: { Id: Id },
-
-
-            });
-        });
-    });
-</script>
-<!-- Trend section ends -->

@@ -33,12 +33,11 @@ namespace App.UI.Pages.Account
             }
 
             await manger.AddCustomerLoveCategory(id);
-            CategoryList.FavouriteCategoryList.Clear();
             return Redirect("/Account/Login");
         }
         public void OnGetSetCategoryList(int labelID)
         {
-            CategoryList.FavouriteCategoryList.Add(labelID);
+            manger.AddCustomerLoveCategory(labelID);
         }
         public JsonResult OnGetReturnCategoryList()
         {

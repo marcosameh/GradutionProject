@@ -9,6 +9,7 @@ namespace SharedTenant.Models
     {
         public ExchangBookCategory()
         {
+            CustomerCategoryBookRate = new HashSet<CustomerCategoryBookRate>();
             CustomerLoveCategory = new HashSet<CustomerLoveCategory>();
             ExchangeBookCategoryList = new HashSet<ExchangeBookCategoryList>();
         }
@@ -17,6 +18,7 @@ namespace SharedTenant.Models
         public string CategoryName { get; set; }
         public string CategoryPhoto { get; set; }
 
+        public virtual ICollection<CustomerCategoryBookRate> CustomerCategoryBookRate { get; set; }
         public virtual ICollection<CustomerLoveCategory> CustomerLoveCategory { get; set; }
         public virtual ICollection<ExchangeBookCategoryList> ExchangeBookCategoryList { get; set; }
     }

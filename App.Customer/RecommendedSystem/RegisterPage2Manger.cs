@@ -7,15 +7,18 @@ using SharedTenant.SharedtenantReposatory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace App.Customer.RecommendedSystem
 {
+    public class CategoryListItems
+    {
+        public int CategoryID { get; set; }
+        public int LoveRate { get; set; }
+    }
     public class CategoryList
     {
-        public static List<int> FavouriteCategoryList =new List<int>();
+        public static List<CategoryListItems> FavouriteCategoryList =new List<CategoryListItems>();
     }
     public class RegisterPage2Manger
     {
@@ -23,11 +26,16 @@ namespace App.Customer.RecommendedSystem
         private readonly UserManager<ApplicationUser> userManager;
         private SharedtenantBaseRebo<ExchangBookCategory> bookCategoryRepo;
         private SharedtenantBaseRebo<CustomerLoveCategory> customerLoveCategoryRepo;
+        private SharedtenantBaseRebo<ExchangeBookCategoryList> CategoryListRepo;
+        private SharedtenantBaseRebo<CustomerCategoryBookRate> CustomerCategoryBookRateRepo;
 
         public RegisterPage2Manger(SharedtenantContext context, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             bookCategoryRepo = new SharedtenantBaseRebo<ExchangBookCategory>(context);
             customerLoveCategoryRepo = new SharedtenantBaseRebo<CustomerLoveCategory>(context);
+            CategoryListRepo = new SharedtenantBaseRebo<ExchangeBookCategoryList>(context);
+            CustomerCategoryBookRateRepo = new SharedtenantBaseRebo<CustomerCategoryBookRate>(context);
+
             this.mapper = mapper;
             this.userManager = userManager;
         }
@@ -40,25 +48,28 @@ namespace App.Customer.RecommendedSystem
         {
             int occurance = 0;
             int categoryItem = 0;
-            List<int> temp = new List<int>();
+            List<CategoryListItems> temp = new List<CategoryListItems>();
             temp.AddRange(CategoryList.FavouriteCategoryList);
             for (int i = 0; i < temp.Count; i++)
            {
-                categoryItem = temp[i];
-                foreach (var itemm in CategoryList.FavouriteCategoryList.Where(item=>item.Equals(categoryItem)))
+                categoryItem = temp[i].CategoryID;
+                foreach (var itemm in CategoryList.FavouriteCategoryList.Where(item=>item.CategoryID ==categoryItem))
                 {
                     occurance++;
                 }
                 if(occurance %2==0)
-                    CategoryList.FavouriteCategoryList.RemoveAll(item => item.Equals(categoryItem));
+                    CategoryList.FavouriteCategoryList.RemoveAll(item => item.CategoryID == categoryItem);
                 else if(occurance % 2 == 1 && occurance > 1 )
                 {
-                    CategoryList.FavouriteCategoryList.RemoveAll(item => item.Equals(categoryItem));
-                    CategoryList.FavouriteCategoryList.Insert(i, categoryItem) ;
+                    CategoryList.FavouriteCategoryList.RemoveAll(item => item.CategoryID == categoryItem);
+                    CategoryList.FavouriteCategoryList.Insert(i, new CategoryListItems { CategoryID= categoryItem }) ;
 
                 }
                 occurance = 0;
             }
+        }
+        public void AddCustomerLoveCategory(int categoryID)
+        { CategoryList.FavouriteCategoryList.Add(new CategoryListItems { CategoryID=categoryID});
         }
         public async Task AddCustomerLoveCategory(string Customerid)
         {
@@ -67,33 +78,43 @@ namespace App.Customer.RecommendedSystem
             {
                 for (int i = 0; i < CategoryList.FavouriteCategoryList.Count; i++)
                 {
-                    var love = new CustomerLoveCategory()
-                    {
-                        CategoryId = CategoryList.FavouriteCategoryList[i],
-                        CutomerId = Customerid
-                    };
-                    if (i < 1)
-                        love.LoveRate = 4;
-                    else if (i >= 1 && i < 2)
-                        love.LoveRate = 3;
-                    else if (i >= 2 && i < 4)
-                        love.LoveRate = 2;
-                    else
-                        love.LoveRate = 1;
-                    customerLoveCategoryRepo.Add(love);
 
+                    int CategoryId = CategoryList.FavouriteCategoryList[i].CategoryID;
+                    
+                    
+                    if (i < 1)
+                        CategoryList.FavouriteCategoryList[i].LoveRate = 4;
+                    else if (i >= 1 && i < 2)
+                        CategoryList.FavouriteCategoryList[i].LoveRate = 3;
+                    else if (i >= 2 && i < 4)
+                        CategoryList.FavouriteCategoryList[i].LoveRate = 2;
+                    else
+                        CategoryList.FavouriteCategoryList[i].LoveRate = 1;
+                    int LoveRate = CategoryList.FavouriteCategoryList[i].LoveRate;
+                    customerLoveCategoryRepo.Add(new CustomerLoveCategory { CutomerId= Customerid ,CategoryId= CategoryId ,LoveRate= LoveRate });
+                    DeployCustomer_Category__Book_Rate(CategoryId, Customerid, LoveRate);
                 }
+                CategoryList.FavouriteCategoryList.Clear();
             }
 
-
         }
+        // this function is responsble for deploying Customer_Category__Book_Rate table in the database 
+        private void DeployCustomer_Category__Book_Rate(int CategryID, String customerID,int LoveRate)
+        {
+            var BookIDs = CategoryListRepo.GetMany(ID => ID.CategroyId == CategryID).Select(item => item.BookId).ToList();
+            foreach (var bookid in BookIDs)
+            {
+                CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = bookid, CustomerId = customerID, CategoryId = CategryID, LoveRate = LoveRate * 4 });
+            }
+        }
+
         public string ReturnCategoryList()
         {
             ManegeFavouriteCategoryList();
             string result = "";
             foreach (var item in CategoryList.FavouriteCategoryList)
             {
-                var category = bookCategoryRepo.GetOne(category => category.CategoryId == item);
+                var category = bookCategoryRepo.GetOne(category => category.CategoryId == item.CategoryID);
                 result += category.CategoryName + " \\ ";
             }
             return result ;

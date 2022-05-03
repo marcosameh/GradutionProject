@@ -27,8 +27,12 @@ namespace App.UI.Configurations
             .AddScoped<GetBook>()
             .AddScoped<SectionView>()
             .AddScoped<RegisterPage2Manger>()
+            .AddScoped<RecommenedBooksManger>()
+            .AddScoped<ExchangeBookManger>()
 
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+
+
             .AddScoped(s => new GlobalManger(s.GetService<IHttpContextAccessor>()))
             .AddScoped(s => new CurrentTenantManager(s.GetService<IHttpContextAccessor>(), s.GetService<SharedtenantContext>(), s.GetService<GlobalManger>().SetGlobalVariable()))
             .AddScoped<BookStores>(serviceProvider => serviceProvider.GetService<CurrentTenantManager>().GetCurrentBookStore())

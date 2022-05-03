@@ -14,6 +14,8 @@ namespace App.Customer.CustomerAutoMapper
         public CustomerDomainProfile()
         {
         CreateMap<ExchangBookCategory, ExchangeBookCategoryVM>().ReverseMap();
+            CreateMap<BooksForExchange, BookForExchangeVM>().ReverseMap();
+
 
         }
 

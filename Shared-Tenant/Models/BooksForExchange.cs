@@ -9,6 +9,7 @@ namespace SharedTenant.Models
     {
         public BooksForExchange()
         {
+            CustomerCategoryBookRate = new HashSet<CustomerCategoryBookRate>();
             CustomerRecomendedBook = new HashSet<CustomerRecomendedBook>();
             ExchangeBookCategoryList = new HashSet<ExchangeBookCategoryList>();
         }
@@ -25,6 +26,7 @@ namespace SharedTenant.Models
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
 
+        public virtual ICollection<CustomerCategoryBookRate> CustomerCategoryBookRate { get; set; }
         public virtual ICollection<CustomerRecomendedBook> CustomerRecomendedBook { get; set; }
         public virtual ICollection<ExchangeBookCategoryList> ExchangeBookCategoryList { get; set; }
     }
