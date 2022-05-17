@@ -1,0 +1,12 @@
+D:\Clients\GraduationProject\Code\Shared-Tenant\bin\Release\net5.0\SharedTenant.deps.json
+D:\Clients\GraduationProject\Code\Shared-Tenant\bin\Release\net5.0\SharedTenant.dll
+D:\Clients\GraduationProject\Code\Shared-Tenant\bin\Release\net5.0\ref\SharedTenant.dll
+D:\Clients\GraduationProject\Code\Shared-Tenant\bin\Release\net5.0\SharedTenant.pdb
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.csproj.AssemblyReference.cache
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.AssemblyInfoInputs.cache
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.AssemblyInfo.cs
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.csproj.CoreCompileInputs.cache
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.dll
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\ref\SharedTenant.dll
+D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Release\net5.0\SharedTenant.pdb

@@ -11,6 +11,9 @@ namespace SharedTenant.Models
             var entity = modelBuilder.Entity<ApplicationUser>();
             entity.Property(e => e.Photo)
            .IsRequired(false);
+
+            entity.Property(e => e.Address)
+           .IsRequired(false);
             base.OnModelCreating(modelBuilder);
 
 

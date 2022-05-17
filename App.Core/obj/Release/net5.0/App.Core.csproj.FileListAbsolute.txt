@@ -1,0 +1,12 @@
+D:\Clients\GraduationProject\Code\App.Core\bin\Release\net5.0\App.Core.deps.json
+D:\Clients\GraduationProject\Code\App.Core\bin\Release\net5.0\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Core\bin\Release\net5.0\ref\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Core\bin\Release\net5.0\App.Core.pdb
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.csproj.AssemblyReference.cache
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.AssemblyInfoInputs.cache
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.AssemblyInfo.cs
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.csproj.CoreCompileInputs.cache
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\ref\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Core\obj\Release\net5.0\App.Core.pdb

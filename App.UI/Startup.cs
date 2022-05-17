@@ -1,4 +1,3 @@
-using App.Core.Models;
 using App.Customer.CustomerAutoMapper;
 using App.Librarian.AutoMapper;
 using App.UI.Configurations;
@@ -11,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SharedTenant.Domain;
-using SharedTenant.Manager;
 using SharedTenant.Models;
+using X.Paymob.CashIn;
 
 namespace App.UI
 {
@@ -28,7 +27,8 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
+
             services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
@@ -43,14 +43,23 @@ namespace App.UI
             })
 
                 .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
-            
+
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
             services.AddAutoMapper(x => x.AddProfile(new CustomerDomainProfile()));
 
-            services.AddCustomizedRoutes();
-            services.AddRegisteredServices();
 
-          
+
+            services.AddRegisteredServices();
+            services.AddPaymobCashIn(config =>
+            {
+                config.ApiKey = Configuration.GetValue<string>("PaymobConfiguration:ApiKey");
+                config.Hmac = Configuration.GetValue<string>("PaymobConfiguration:Hmac");
+
+                //config.IframeBaseUrl
+            });
+            services.AddCustomizedRoutes();
+
+
 
 
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -90,7 +99,7 @@ namespace App.UI
             {
                 endpoints.MapRazorPages();
             });
-         
+
         }
     }
 }

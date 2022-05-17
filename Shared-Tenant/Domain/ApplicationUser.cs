@@ -10,5 +10,9 @@ namespace SharedTenant.Domain
         [PersonalData]
 
         public string Photo { get; set; }
+
+        [PersonalData]
+
+        public string Address { get; set; }
     }
 }

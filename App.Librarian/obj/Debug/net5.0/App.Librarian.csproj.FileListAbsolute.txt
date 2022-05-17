@@ -15,3 +15,20 @@ D:\1- Project\final\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Libraria
 D:\1- Project\final\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.dll
 D:\1- Project\final\GradutionProject\App.Librarian\obj\Debug\net5.0\ref\App.Librarian.dll
 D:\1- Project\final\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\App.Librarian.deps.json
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\SharedTenant.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\App.Core.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Debug\net5.0\SharedTenant.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.AssemblyReference.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.AssemblyInfoInputs.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.AssemblyInfo.cs
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.CoreCompileInputs.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.CopyComplete
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\refint\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Debug\net5.0\ref\App.Librarian.dll

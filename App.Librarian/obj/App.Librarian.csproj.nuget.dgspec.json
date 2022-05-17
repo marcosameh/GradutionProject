@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\1- Project\\final\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {}
+    "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {}
   },
   "projects": {
-    "D:\\1- Project\\final\\GradutionProject\\App.Core\\App.Core.csproj": {
+    "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1- Project\\final\\GradutionProject\\App.Core\\App.Core.csproj",
+        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
         "projectName": "App.Core",
-        "projectPath": "D:\\1- Project\\final\\GradutionProject\\App.Core\\App.Core.csproj",
-        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "D:\\1- Project\\final\\GradutionProject\\App.Core\\obj\\",
+        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
+        "packagesPath": "C:\\Users\\win 10\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\win 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
-                "projectPath": "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
+              "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
+                "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
               }
             }
           }
@@ -72,21 +72,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1- Project\\final\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {
+    "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1- Project\\final\\GradutionProject\\App.Librarian\\App.Librarian.csproj",
+        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj",
         "projectName": "App.Librarian",
-        "projectPath": "D:\\1- Project\\final\\GradutionProject\\App.Librarian\\App.Librarian.csproj",
-        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "D:\\1- Project\\final\\GradutionProject\\App.Librarian\\obj\\",
+        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj",
+        "packagesPath": "C:\\Users\\win 10\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\win 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,8 +100,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\1- Project\\final\\GradutionProject\\App.Core\\App.Core.csproj": {
-                "projectPath": "D:\\1- Project\\final\\GradutionProject\\App.Core\\App.Core.csproj"
+              "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
+                "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj"
               }
             }
           }
@@ -136,21 +136,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
+    "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj",
+        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj",
         "projectName": "SharedTenant",
-        "projectPath": "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj",
-        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-        "outputPath": "D:\\1- Project\\final\\GradutionProject\\Shared-Tenant\\obj\\",
+        "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj",
+        "packagesPath": "C:\\Users\\win 10\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\win 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -212,7 +212,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

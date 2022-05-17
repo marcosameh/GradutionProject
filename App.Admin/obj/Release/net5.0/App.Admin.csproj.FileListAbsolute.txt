@@ -1,0 +1,12 @@
+D:\Clients\GraduationProject\Code\App.Admin\bin\Release\net5.0\App.Admin.deps.json
+D:\Clients\GraduationProject\Code\App.Admin\bin\Release\net5.0\App.Admin.dll
+D:\Clients\GraduationProject\Code\App.Admin\bin\Release\net5.0\ref\App.Admin.dll
+D:\Clients\GraduationProject\Code\App.Admin\bin\Release\net5.0\App.Admin.pdb
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.csproj.AssemblyReference.cache
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.AssemblyInfoInputs.cache
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.AssemblyInfo.cs
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.csproj.CoreCompileInputs.cache
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.dll
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\ref\App.Admin.dll
+D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.pdb
