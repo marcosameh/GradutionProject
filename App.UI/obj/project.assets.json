@@ -8996,19 +8996,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\win 10\\.nuget\\packages\\": {}
+    "C:\\Users\\Peter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.UI\\App.UI.csproj",
+      "projectUniqueName": "D:\\1- Project\\GradutionProject\\App.UI\\App.UI.csproj",
       "projectName": "App.UI",
-      "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.UI\\App.UI.csproj",
-      "packagesPath": "C:\\Users\\win 10\\.nuget\\packages\\",
-      "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.UI\\obj\\",
+      "projectPath": "D:\\1- Project\\GradutionProject\\App.UI\\App.UI.csproj",
+      "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
+      "outputPath": "D:\\1- Project\\GradutionProject\\App.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\win 10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9022,20 +9022,20 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj": {
-              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj"
+            "D:\\1- Project\\GradutionProject\\App.Admin\\App.Admin.csproj": {
+              "projectPath": "D:\\1- Project\\GradutionProject\\App.Admin\\App.Admin.csproj"
             },
-            "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
-              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj"
+            "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj": {
+              "projectPath": "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj"
             },
-            "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj": {
-              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj"
+            "D:\\1- Project\\GradutionProject\\App.Customer\\App.Customer.csproj": {
+              "projectPath": "D:\\1- Project\\GradutionProject\\App.Customer\\App.Customer.csproj"
             },
-            "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {
-              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj"
+            "D:\\1- Project\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {
+              "projectPath": "D:\\1- Project\\GradutionProject\\App.Librarian\\App.Librarian.csproj"
             },
-            "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
-              "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
+            "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
+              "projectPath": "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
             }
           }
         }
@@ -9107,7 +9107,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
       }
     }
   }

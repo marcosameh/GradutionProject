@@ -36,3 +36,22 @@ D:\Clients\GraduationProject\Code\App.Customer\obj\Debug\net5.0\App.Customer.dll
 D:\Clients\GraduationProject\Code\App.Customer\obj\Debug\net5.0\refint\App.Customer.dll
 D:\Clients\GraduationProject\Code\App.Customer\obj\Debug\net5.0\App.Customer.pdb
 D:\Clients\GraduationProject\Code\App.Customer\obj\Debug\net5.0\ref\App.Customer.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Customer.deps.json
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Customer.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\ref\App.Customer.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Customer.pdb
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Core.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Librarian.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\SharedTenant.dll
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Core.pdb
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\App.Librarian.pdb
+D:\1- Project\GradutionProject\App.Customer\bin\Debug\net5.0\SharedTenant.pdb
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.csproj.AssemblyReference.cache
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.GeneratedMSBuildEditorConfig.editorconfig
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.AssemblyInfoInputs.cache
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.AssemblyInfo.cs
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.csproj.CoreCompileInputs.cache
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.csproj.CopyComplete
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.dll
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\ref\App.Customer.dll
+D:\1- Project\GradutionProject\App.Customer\obj\Debug\net5.0\App.Customer.pdb

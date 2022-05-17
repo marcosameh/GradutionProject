@@ -28,3 +28,18 @@ D:\Clients\GraduationProject\Code\App.Core\obj\Debug\net5.0\App.Core.dll
 D:\Clients\GraduationProject\Code\App.Core\obj\Debug\net5.0\refint\App.Core.dll
 D:\Clients\GraduationProject\Code\App.Core\obj\Debug\net5.0\App.Core.pdb
 D:\Clients\GraduationProject\Code\App.Core\obj\Debug\net5.0\ref\App.Core.dll
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\App.Core.deps.json
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\App.Core.dll
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\ref\App.Core.dll
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\App.Core.pdb
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\SharedTenant.dll
+D:\1- Project\GradutionProject\App.Core\bin\Debug\net5.0\SharedTenant.pdb
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.csproj.AssemblyReference.cache
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.AssemblyInfoInputs.cache
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.AssemblyInfo.cs
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.csproj.CoreCompileInputs.cache
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.csproj.CopyComplete
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.dll
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\ref\App.Core.dll
+D:\1- Project\GradutionProject\App.Core\obj\Debug\net5.0\App.Core.pdb

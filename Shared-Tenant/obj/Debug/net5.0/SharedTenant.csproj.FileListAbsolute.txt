@@ -22,3 +22,15 @@ D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Debug\net5.0\SharedTenant.dl
 D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Debug\net5.0\refint\SharedTenant.dll
 D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Debug\net5.0\SharedTenant.pdb
 D:\Clients\GraduationProject\Code\Shared-Tenant\obj\Debug\net5.0\ref\SharedTenant.dll
+D:\1- Project\GradutionProject\Shared-Tenant\bin\Debug\net5.0\SharedTenant.deps.json
+D:\1- Project\GradutionProject\Shared-Tenant\bin\Debug\net5.0\SharedTenant.dll
+D:\1- Project\GradutionProject\Shared-Tenant\bin\Debug\net5.0\ref\SharedTenant.dll
+D:\1- Project\GradutionProject\Shared-Tenant\bin\Debug\net5.0\SharedTenant.pdb
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.csproj.AssemblyReference.cache
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.GeneratedMSBuildEditorConfig.editorconfig
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.AssemblyInfoInputs.cache
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.AssemblyInfo.cs
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.csproj.CoreCompileInputs.cache
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.dll
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\ref\SharedTenant.dll
+D:\1- Project\GradutionProject\Shared-Tenant\obj\Debug\net5.0\SharedTenant.pdb
