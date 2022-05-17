@@ -21,6 +21,7 @@ namespace App.UI.Pages.customer
         private readonly IConfiguration configuration;
         private readonly UserManager<ApplicationUser> userManager;
         public Cart cart;
+        public string userid; 
         public int IntegrationId;
         ApplicationUser applicationUser;
         private readonly IPaymobCashInBroker _broker;
@@ -37,10 +38,15 @@ namespace App.UI.Pages.customer
             _broker = broker;
         }
         public void OnGet(int Id = 0)
-        {
+        {              
+            userid = userManager.GetUserId(HttpContext.User);
+
             if (Id != 0)
             {
-                cart.DeleteItem(Id);
+                if (!string.IsNullOrEmpty(userid))
+                {
+                    cart.DeleteItem(Id, userid);
+                }
             }
         }
         public async Task OnPost(int TotalPrice)

@@ -1,67 +1,44 @@
 ﻿@page
 @model App.UI.Pages.defaultModel
-@using App.UI.Configurations;
+@using App.UI.Configurations; 
+@{
+
+ }
 
 <!-- reviews section starts  -->
-
-
 <!-- reviews section starts  -->
-
 <section class="reviews" id="reviews">
 
-    <h1 class="heading"> <span>publishing Bookstores</span> </h1>
+        <h1 class="heading"> <span>publishing Bookstores</span> </h1>
 
-    <div class="swiper reviews-slider">
+        <div class="swiper reviews-slider">
+            <div class="swiper-wrapper">
+                @foreach (var store in Model.Bookstores)
+                {
 
-        <div class="swiper-wrapper center">
+                    <a href="@store.UrlName/index" class="link">
+                        <div class="swiper-slide box">
+                            <img src="/Photos/librarian/@store.Logo" alt="">
+                            <h3>@store.Name</h3>
 
-
-            @foreach (var store in Model.Bookstores)
-            {
-
-
-                <a href="@store.UrlName/index" class="link">
-                    <input type="hidden" value="@store.UrlName" />
-                    <div class="swiper-slide box">
-                        <img src="/Photos/librarian/@store.Logo" alt="">
-                        <h3>@store.Name</h3>
-
-                        <p>Support our site by proving large amount of books</p>
-                        <div class="stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
+                            <p>Support our site by proving large amount of books</p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
 
-             }
 
+                }
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
 
 <!-- reviews section ends -->
 <!-- reviews section ends -->
-
-@section Scripts{
-    <script src="~/jquery/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $(".link").click(function () {
-             
-                var UrlName = ($(this).children("input").val());
-               
-                $.ajax({
-                 
-                    url: "?handler=SetUrl",
-                    data: { UrlName: UrlName }
-                });
-
-
-            })
-        });
-    </script>
-}

@@ -22,7 +22,7 @@ namespace App.Customer.CartManager
             BookRepo.Edit(book);
         }
        
-        public void IncreamentAllBookSellsInTheCart(string BookStore)
+        public void IncreamentAllBookSellsInTheCart(string BookStore,string userid)
         {
             Cart cart = Cart.GetInstance();
             foreach (var item in cart.CartList.Where(book=>book.BookStore.Equals(BookStore)))
@@ -30,7 +30,7 @@ namespace App.Customer.CartManager
                 IncreamentBookSells(item.ItemID);
 
             }
-            cart.DeleteCartItemInSameBookStore(BookStore);
+            cart.DeleteCartItemInSameBookStore(BookStore,userid);
         }
 
     }

@@ -62,7 +62,7 @@
                     </div>
                     <div class="content">
                         <h3>@item.Name</h3>
-                        <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price</span></div>
+                        <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
                         <a href="#" class="btn">add to cart</a>
                     </div>
                 </div>
@@ -103,11 +103,11 @@
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
-                        @if (Book.Price == Book.BookPriceAfterDiscount)
-                        {<div class="price">$@Book.Price</div>
+                        @if (Book.Price.ToString("####").Equals(Book.BookPriceAfterDiscount))
+                        {<div class="price">$@Book.Price.ToString("####")</div>
                     }
                     else
-                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
+                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price.ToString("####")</span></div>}
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -130,11 +130,11 @@
                     </div>
                     <div class="content">
                         <h3>@Book.Name</h3>
-                        @if (Book.Price == Book.BookPriceAfterDiscount)
-                        {<div class="price">$@Book.Price</div>
+                        @if (Book.Price.ToString("####").Equals(Book.BookPriceAfterDiscount))
+                        {<div class="price">$@Book.Price.ToString("####")</div>
                     }
                     else
-                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
+                    { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price.ToString("####")</span></div>}
                         <div class="stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>

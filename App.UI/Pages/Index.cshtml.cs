@@ -28,10 +28,6 @@ namespace App.UI.Pages
            // var userid = userManger.GetUserId(HttpContext.User);
             
         }
-        public void OnGetSetUrl(string UrlName)
-        {
-            Global.UrlName = UrlName;
-            //Bookstores = currentTenantManager.GetBookStores();
-        }
+
     }
 }

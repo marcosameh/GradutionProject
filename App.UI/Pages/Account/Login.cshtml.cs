@@ -111,11 +111,11 @@ namespace App.UI.Areas.Identity.Pages.Account
                     {
                         _logger.LogInformation("User logged in.");
                         recommenedBooksManger.SetRecommenedBooks(user.Id);
-                        if (string.IsNullOrEmpty( Global.UrlName))
+                        if(string.IsNullOrEmpty(Global.UrlName))
                         {
                             return Redirect("/index");
                         }
-                        return Redirect("/"+ Global.UrlName+"/index");
+                        return Redirect(Global.ReturnUrl);
 
                     }
                     if (role.Contains("Librarian"))

@@ -8,6 +8,7 @@ namespace App.Customer.CartManager
 {
     public class CartItem
     {
+        public string userid { get; set; }
         public int ItemID { get; set; }
         public string BookPhoto { get; set; }
         public string BookName { get; set; }

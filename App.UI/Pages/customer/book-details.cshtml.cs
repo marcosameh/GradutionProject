@@ -16,7 +16,6 @@ using SharedTenant.Models;
 
 namespace App.UI.Pages.customer
 {
-    [Authorize(Roles = "Customer")]
     public class book_detailsModel : PageModel
     {
         private readonly BookManager bookManger;
@@ -38,18 +37,29 @@ namespace App.UI.Pages.customer
             BookDetails = bookManger.GetBookById(Id);
             MostSellingBooks = bookManger.GetMostSellingBook();
             var userid = userManger.GetUserId(HttpContext.User);
-            recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+            if(!string.IsNullOrEmpty( userid))
+                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+
+
         }
-       public void OnGetAddToCart(int Id)
+        public void OnGetAddToCart(int Id)
         {
-            BookDetails = bookManger.GetBookById(Id);
+            var userid = userManger.GetUserId(HttpContext.User);
+
+            if (!string.IsNullOrEmpty(userid))
+            {
+                BookDetails = bookManger.GetBookById(Id);
             Cart cart = Cart.GetInstance();
-            cart.AddToCart(Id,
+            cart.AddToCart(
+                userid,
+                Id,
                 BookDetails.Name,
                 BookDetails.PhotoPath,
-                BookDetails.BookPriceAfterDiscount,
+                Convert.ToDecimal(BookDetails.BookPriceAfterDiscount),
                 Global.UrlName
              );
+            }
+
         }
     }
 }

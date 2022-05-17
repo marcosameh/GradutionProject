@@ -14,7 +14,7 @@
     <hr>
 
 </section>
-@if (Model.cart.CountListItems() != 0)
+@if (Model.cart.CountListItems(Global.UrlName, Model.userid) != 0)
 {
     <section id="cart-container" class="container my-5">
 
@@ -66,7 +66,7 @@
 
                     <div class="d-flex justify-content-between">
                         <h6>Subtotal</h6>
-                        <p>$@Model.cart.GetTotalPrice().ToString("####")</p>
+                        <p>$@Model.cart.GetTotalPrice(Global.UrlName,Model.userid).ToString("####")</p>
                     </div>
 
                     <div class="d-flex justify-content-between">
@@ -79,7 +79,7 @@
                     <div class="d-flex justify-content-between">
                         <h6>Total</h6>
                         @{
-                            int priceAfterDelivery = (int)Model.cart.GetTotalPrice() + 40;
+                            int priceAfterDelivery = (int)Model.cart.GetTotalPrice(Global.UrlName, Model.userid) + 40;
                         }
                         <p>$@priceAfterDelivery.ToString("####")</p>
                     </div>

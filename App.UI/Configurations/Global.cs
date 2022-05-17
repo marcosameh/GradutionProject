@@ -6,6 +6,7 @@ namespace App.UI.Configurations
     {
 
         public static string UrlName;
+        public static string ReturnUrl;
 
     }
     public class GlobalManger
@@ -18,15 +19,17 @@ namespace App.UI.Configurations
         }
         public string SetGlobalVariable()
         {
-            if(string.IsNullOrEmpty(Global.UrlName))
-            {
 
-                string URL = Accessor.HttpContext.Request.GetEncodedUrl();
-                string[] URLSplit = URL.Split("/");
+            //removes any handler from the url
+            string[] url= Accessor.HttpContext.Request.GetEncodedUrl().Split("?handler");
+            Global.ReturnUrl = url[0];
+            
+
+                string[] URLSplit = Global.ReturnUrl.Split("/");
                 Global.UrlName = URLSplit[3];
-           
 
-            }
+
+          
             return Global.UrlName;
         }
     }

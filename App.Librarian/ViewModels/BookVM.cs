@@ -40,11 +40,13 @@ namespace App.Librarian.ViewModels
         public string AduioUrl { get; set; }
         public double? Offer { get; set; }
         
-        public decimal BookPriceAfterDiscount
+        public string BookPriceAfterDiscount
         {
             get
             {
-                return (decimal)(Offer < 1 ? Price - (Price * Convert.ToDecimal(Offer)) : Price - Convert.ToDecimal(Offer));
+                decimal price1 = Price - (Price * Convert.ToDecimal(Offer));
+                decimal price0 = Price - Convert.ToDecimal(Offer);
+                return Offer < 1 ? price1.ToString("####") :price0.ToString("####") ;
             }
         }
         public IFormFile PhotoFile { get; set; }

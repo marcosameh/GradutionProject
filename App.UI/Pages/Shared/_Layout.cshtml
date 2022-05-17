@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -14,17 +19,13 @@
 
     <!-- custom css file link  -->
     <link href="/css/CustomerCssFiles/chome.css" rel="stylesheet" />
-    @RenderSection("Styles",false)
-    <link rel="stylesheet" href="/css/csign.css" />
-    <!-- <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min (1).css">
-    <link rel="stylesheet" href="css/_bootswatch.scss">
-    <link rel="stylesheet" href="css/_variables.scss"> -->
+    @RenderSection("Styles", false)
+
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
-    <script src="~/js/CustomerJsFiles/shome.js"></script>
 </head>
 <body>
+
 
     <!-- header section starts  -->
 
@@ -36,8 +37,21 @@
             <!-- <a href="#register" class="F1">Register</a>
             <a href="#login" class="F1">Login</a> -->
 
+            <div class="icons">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
 
+                    </form>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" class="fas fa-user"></a>
+                }
 
+            </div>
         </div>
 
         <div class="header-2">
@@ -50,8 +64,11 @@
 
 
                 </ul>
-            </nav>
 
+
+
+
+            </nav>
         </div>
 
     </header>
@@ -72,43 +89,7 @@
 
 
 
-    <!-- home section ense  -->
-    <!-- icons section starts  -->
-    <!-- <section class="icons-container">
-
-        <div class="icons">
-            <i class="fas fa-shipping-fast"></i>
-            <div class="content">
-                <h3>free shipping</h3>
-                <p>order over $100</p>
-            </div>
-        </div>
-
-        <div class="icons">
-            <i class="fas fa-lock"></i>
-            <div class="content">
-                <h3>secure payment</h3>
-                <p>100 secure payment</p>
-            </div>
-        </div>
-
-        <div class="icons">
-            <i class="fas fa-redo-alt"></i>
-            <div class="content">
-                <h3>easy returns</h3>
-                <p>10 days returns</p>
-            </div>
-        </div>
-
-        <div class="icons">
-            <i class="fas fa-headset"></i>
-            <div class="content">
-                <h3>24/7 support</h3>
-                <p>call us anytime</p>
-            </div>
-        </div>
-
-    </section> -->
+  
 
 
 
@@ -165,17 +146,16 @@
 
     <!-- footer section ends -->
     <!-- loader  -->
-
     @*<div class="loader-container">
-        <img src="/assets/images/loader-imgb.gif" alt="">
-    </div>*@
+            <img src="/assets/images/loader-imgb.gif" alt="">
+        </div>*@
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-    
+
     <script src="/js/CustomerJsFiles/shome.js"></script>
-   
+
     @RenderSection("Scripts", false)
 </body>
 </html>
