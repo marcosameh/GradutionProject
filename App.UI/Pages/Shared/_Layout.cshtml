@@ -18,11 +18,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link href="/css/CustomerCssFiles/chome.css" rel="stylesheet" />
-    @RenderSection("Styles", false)
-
+    <link rel="stylesheet" href="css/CustomerCssFiles/chome.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min (1).css">
+    <link rel="stylesheet" href="css/_bootswatch.scss">
+    <link rel="stylesheet" href="css/_variables.scss"> -->
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
@@ -35,9 +38,19 @@
 
             <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
             <!-- <a href="#register" class="F1">Register</a>
-            <a href="#login" class="F1">Login</a> -->
+    <a href="#login" class="F1">Login</a> -->
+            <form action="" class="search-form">
+                <input type="search" name="" placeholder="search here..." id="search-box">
+                <button type="submit" class="search-button">
+                    <span class="button-icon"><i class="fas fa-search"></i></span>
+                </button>
+
+                <!-- <label for="search-box" class="fas fa-search"></label> -->
+            </form>
 
             <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
@@ -87,12 +100,7 @@
 
     </nav>
 
-
-
-  
-
-
-
+ 
     @RenderBody()
     <!-- footer section starts  -->
 

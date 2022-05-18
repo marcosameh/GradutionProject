@@ -53,19 +53,26 @@
 
             @foreach (var item in Model.FeatureBooks)
             {
+
                 <div class="swiper-slide box">
                     <div class="icons">
                         <a href="/@Global.UrlName/book-details/@item.Id" class="fas fa-search"></a>
                     </div>
                     <div class="image">
-                        <img src="@item.PhotoPath" alt="">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+                            <img src="@item.PhotoPath" alt="">
+                        </a>
                     </div>
                     <div class="content">
-                        <h3>@item.Name</h3>
-                        <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
-                        <a href="#" class="btn">add to cart</a>
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+
+                            <h3>@item.Name</h3>
+                            <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
+                            </a>
+                            <a href="/@Global.UrlName/book-details/@item.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
                     </div>
                 </div>
+
             }
         </div>
         <div class="swiper-button-next"></div>
@@ -174,3 +181,4 @@
     <img src="~/assets/images/loader-imgb.gif" alt="" />
 
 </div>
+

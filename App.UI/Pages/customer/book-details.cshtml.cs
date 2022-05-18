@@ -42,24 +42,7 @@ namespace App.UI.Pages.customer
 
 
         }
-        public void OnGetAddToCart(int Id)
-        {
-            var userid = userManger.GetUserId(HttpContext.User);
+       
 
-            if (!string.IsNullOrEmpty(userid))
-            {
-                BookDetails = bookManger.GetBookById(Id);
-            Cart cart = Cart.GetInstance();
-            cart.AddToCart(
-                userid,
-                Id,
-                BookDetails.Name,
-                BookDetails.PhotoPath,
-                Convert.ToDecimal(BookDetails.BookPriceAfterDiscount),
-                Global.UrlName
-             );
-            }
-
-        }
     }
 }

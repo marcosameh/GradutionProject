@@ -7,7 +7,7 @@
 @inject UserManager<ApplicationUser> UserManager
 @model App.UI.Pages.customer.book_detailsModel
 @{
-    ViewBag.Title = Model.BookDetails.Name + " Book Details";
+    ViewBag.Title = Model.BookDetails.Name.ToUpper() + " Book Details";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
@@ -28,11 +28,11 @@
 
 
 
-                @if (Model.BookDetails.Price.ToString().Equals(Model.BookDetails.BookPriceAfterDiscount))
+                @if (Model.BookDetails.Price.ToString("####").Equals(Model.BookDetails.BookPriceAfterDiscount))
                 {<div class="price">$@Model.BookDetails.Price</div>
             }
             else
-            { <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price</span></div>}
+            { <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price.ToString("####")</span></div>}
 
 
                 <div class="stars">
@@ -117,31 +117,37 @@
     <div class="swiper Trend-slider">
         @if (SignInManager.IsSignedIn(User))
         {<div class="swiper-wrapper">
-                @foreach (var book in Model.recomendedBooks)
-                {
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="/customer/exchange-book-details/@book.BookId" class="fas fa-search"></a>
+    @foreach (var item in Model.recomendedBooks)
+    {
 
-                        </div>
-                        <div class="image">
-                            <img src="/photos/books/@book.Book.Photo" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>@book.Book.Name</h3>
-                            <a href="#" class="btnt">add to cart</a>
-                        </div>
-                    </div>
-                }
-
-
-
-
-
-
-
-
+        <div class="swiper-slide box">
+            <div class="icons">
+                <a href="/customer/exchange-book-details/@item.BookId" class="fas fa-search"></a>
             </div>
+            <div class="image">
+                <a href="/customer/exchange-book-details/@item.BookId">
+                    <img src="@item.Book.Photo" alt="">
+                </a>
+            </div>
+            <div class="content">
+                <a href="/customer/exchange-book-details/@item.BookId">
+
+                    <h3>@item.Book.Name</h3>
+                </a>
+                <a href="/customer/exchange-book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+            </div>
+        </div>
+
+    }
+
+
+
+
+
+
+
+
+</div>
 
 
 
@@ -172,26 +178,28 @@
     <div class="swiper Trend-slider">
 
         <div class="swiper-wrapper">
-            @foreach (var Book in Model.MostSellingBooks)
+            @foreach (var item in Model.MostSellingBooks)
             {
+
                 <div class="swiper-slide box">
                     <div class="icons">
-                        <a href="/@Global.UrlName/book-details/@Book.Id" class="fas fa-search"></a>
-
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="fas fa-search"></a>
                     </div>
                     <div class="image">
-                        <img src="@Book.PhotoPath" alt="">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+                            <img src="@item.PhotoPath" alt="">
+                        </a>
                     </div>
                     <div class="content">
-                        <h3>@Book.Name</h3>
-                        @if (Book.Price.ToString("####").Equals(Book.BookPriceAfterDiscount))
-                        {<div class="price">$@Book.Price</div>
-                        }
-                        else
-                        { <div class="price">$@Book.BookPriceAfterDiscount <span>$@Book.Price</span></div>}
-                        <a href="#" class="btnt">add to cart</a>
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+
+                            <h3>@item.Name</h3>
+                            <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
+                        </a>
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
                     </div>
                 </div>
+
             }
 
 

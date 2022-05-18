@@ -1,6 +1,11 @@
+using App.Customer.CartManager;
 using App.Librarian.Managers;
 using App.Librarian.ViewModels;
+using App.UI.Configurations;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SharedTenant.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace App.UI.Pages.Customer
@@ -11,8 +16,12 @@ namespace App.UI.Pages.Customer
         private readonly BookManager bookManger;
         public List<BookVM> FeatureBooks;
         public List<BookVM> NewArrivals;
+        public BookVM BookDetails;
 
-        public IndexModel(BookManager bookManger)
+        public IndexModel(BookManager bookManger
+
+            )
+
         {
             this.bookManger = bookManger;
         }
@@ -24,7 +33,8 @@ namespace App.UI.Pages.Customer
             NewArrivals = bookManger.GetNewArrivalls();
 
         }
-       
+  
+
 
     }
 }

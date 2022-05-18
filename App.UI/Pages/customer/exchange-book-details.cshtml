@@ -1,7 +1,7 @@
 ﻿@page "{Id:int:min(1)}"
 @model App.UI.Pages.customer.exchange_book_detailsModel
 @{
-    ViewBag.Title = Model.BookDetails.Name + " Book Details";
+    ViewBag.Title = Model.BookDetails.Name.ToUpper() + " Book Details";
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
