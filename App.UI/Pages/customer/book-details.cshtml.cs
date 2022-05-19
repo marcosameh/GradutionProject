@@ -22,9 +22,9 @@ namespace App.UI.Pages.customer
         private readonly RecommenedBooksManger recommenedBooksManger;
         private readonly UserManager<ApplicationUser> userManger;
         public BookVM BookDetails;
-        public List<BookVM >MostSellingBooks;
+        public List<BookVM> MostSellingBooks;
         public List<CustomerRecomendedBook> recomendedBooks;
-        public book_detailsModel(BookManager bookManger ,
+        public book_detailsModel(BookManager bookManger,
             RecommenedBooksManger recommenedBooksManger,
             UserManager<ApplicationUser> userManger)
         {
@@ -37,12 +37,31 @@ namespace App.UI.Pages.customer
             BookDetails = bookManger.GetBookById(Id);
             MostSellingBooks = bookManger.GetMostSellingBook();
             var userid = userManger.GetUserId(HttpContext.User);
-            if(!string.IsNullOrEmpty( userid))
+            if (!string.IsNullOrEmpty(userid))
                 recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
 
 
         }
-       
+        public void OnGetAddToCart(int Id)
+        {
+            var userid = userManger.GetUserId(HttpContext.User);
 
+            if (!string.IsNullOrEmpty(userid))
+            {
+                BookDetails = bookManger.GetBookById(Id);
+                Cart cart = Cart.GetInstance();
+                cart.AddToCart(
+                    userid,
+                    Id,
+                    BookDetails.Name,
+                    BookDetails.PhotoPath,
+                    Convert.ToDecimal(BookDetails.BookPriceAfterDiscount),
+                    Global.UrlName
+                 );
+            }
+
+
+
+        }
     }
 }
