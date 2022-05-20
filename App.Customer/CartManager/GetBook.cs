@@ -30,7 +30,7 @@ namespace App.Customer.CartManager
                 IncreamentBookSells(item.ItemID);
 
             }
-            cart.DeleteCartItemInSameBookStore(BookStore,userid);
+            //cart.DeleteCartItemInSameBookStore(BookStore,userid);
         }
 
     }

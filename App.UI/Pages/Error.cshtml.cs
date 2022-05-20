@@ -14,6 +14,7 @@ namespace App.UI.Pages
     public class ErrorModel : PageModel
     {
         public string RequestId { get; set; }
+        public string msg { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
@@ -26,6 +27,8 @@ namespace App.UI.Pages
 
         public void OnGet()
         {
+            var msg = Request.Query["msg"];
+
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
         }
     }

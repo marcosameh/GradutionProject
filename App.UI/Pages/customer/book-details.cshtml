@@ -11,6 +11,8 @@
     Layout = "/Pages/Shared/CustomerLayout.cshtml";
 }
 <link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+<link rel="stylesheet" href="/limonte-sweetalert2/sweetalert2.css">
+
 <input type="hidden" value="@Model.BookDetails.Id" id='bookId'>
 <section class="bookdesc">
 
@@ -29,10 +31,13 @@
 
 
                 @if (Model.BookDetails.Price.ToString("####").Equals(Model.BookDetails.BookPriceAfterDiscount))
-                {<div class="price">$@Model.BookDetails.Price</div>
-            }
-            else
-            { <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price.ToString("####")</span></div>}
+                {
+                    <div class="price">$@Model.BookDetails.Price</div>
+                }
+                else
+                {
+                    <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price.ToString("####")</span></div>
+                }
 
 
                 <div class="stars">
@@ -63,8 +68,24 @@
         </div>
 
         <div class="butns">
-            <a href="#" class="btnt cart-btn" id="btn">add to cart</a>
-            <a href="#" class="btnt">Read Sample</a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+
+                <a href="#" class="btnt cart-btn" id="btn">add to cart</a>
+            }
+            else
+            {
+                <a href="#" class="btnt cart-btn" id="btn2">add to cart</a>
+            }
+            @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
+            {
+                <audio controls>
+
+                    <source src="/audio/books/@Model.BookDetails.AduioUrl" type="audio/mpeg">
+
+                </audio>
+            }
+
             <a href="#" class="icon"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
 
 
@@ -116,53 +137,55 @@
 
     <div class="swiper Trend-slider">
         @if (SignInManager.IsSignedIn(User))
-        {<div class="swiper-wrapper">
-    @foreach (var item in Model.recomendedBooks)
-    {
+        {
+            <div class="swiper-wrapper">
+                @foreach (var item in Model.recomendedBooks)
+                {
 
-        <div class="swiper-slide box">
-            <div class="icons">
-                <a href="/customer/exchange-book-details/@item.BookId" class="fas fa-search"></a>
+                    <div class="swiper-slide box">
+                        <div class="icons">
+                            <a href="/customer/exchange-book-details/@item.BookId" class="fas fa-search"></a>
+                        </div>
+                        <div class="image">
+                            <a href="/customer/exchange-book-details/@item.BookId">
+                                <img src="@item.Book.Photo" alt="">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <a href="/customer/exchange-book-details/@item.BookId">
+
+                                <h3>@item.Book.Name</h3>
+                            </a>
+                            <a href="/customer/exchange-book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+
+
+
+
             </div>
-            <div class="image">
-                <a href="/customer/exchange-book-details/@item.BookId">
-                    <img src="@item.Book.Photo" alt="">
-                </a>
-            </div>
-            <div class="content">
-                <a href="/customer/exchange-book-details/@item.BookId">
-
-                    <h3>@item.Book.Name</h3>
-                </a>
-                <a href="/customer/exchange-book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
-            </div>
-        </div>
-
-    }
 
 
 
+            <div class="swiper-button-next"></div>
 
 
-
-
-
-</div>
-
-
-
-<div class="swiper-button-next"></div>
-
-
-<div class="swiper-button-prev"></div>
+            <div class="swiper-button-prev"></div>
         }
-        else { 
-    <center>
-        <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
-        <h2>Please login to get recommended books</h2>
-        <a href="/account/login" class="btnt">Login</a>
+        else
+        {
+            <center>
+                <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
+                <h2>Please login to get recommended books</h2>
+                <a href="/account/login" class="btnt">Login</a>
 
-    </center>
+            </center>
         }
 
     </div>
@@ -219,10 +242,11 @@
 <!-- similar section ends -->
 
 
-
+<script src="/limonte-sweetalert2/sweetalert2.min.js"></script>
 <script>
-    $(function () {
-        $("#btn").click(function () {
+
+    $(function() {
+        $("#btn").click(function() {
             var Id = $('#bookId').val();
             $.ajax({
 
@@ -231,6 +255,12 @@
 
 
             });
+        });
+        $("#btn2").click(function() {
+
+            Swal.fire('You Must Login First')
+
+
         });
     });
 </script>

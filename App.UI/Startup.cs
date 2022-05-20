@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SharedTenant.Domain;
 using SharedTenant.Models;
+using System.Security.Claims;
 using X.Paymob.CashIn;
 
 namespace App.UI
@@ -39,10 +40,11 @@ namespace App.UI
 
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
+                options.ClaimsIdentity.UserIdClaimType = "UserID";
+            }).AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
+            
+          
 
-            })
-
-                .AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
 
             services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
             services.AddAutoMapper(x => x.AddProfile(new CustomerDomainProfile()));

@@ -40,4 +40,16 @@
     <Folder Include="wwwroot\Photos\customer\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\pages\about.scss" />
+    <None Include="wwwroot\css\pages\boat-details.scss" />
+    <None Include="wwwroot\css\pages\contact.scss" />
+    <None Include="wwwroot\css\pages\home.scss" />
+    <None Include="wwwroot\css\pages\media.scss" />
+    <None Include="wwwroot\css\pages\print_style.scss" />
+    <None Include="wwwroot\css\pages\receipt.scss" />
+    <None Include="wwwroot\image\check.svg" />
+    <None Include="wwwroot\image\svg\master.svg" />
+  </ItemGroup>
+
 </Project>

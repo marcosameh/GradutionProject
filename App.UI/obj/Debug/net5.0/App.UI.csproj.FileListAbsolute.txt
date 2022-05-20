@@ -695,3 +695,5 @@ D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\ref\App.UI.dll
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.pdb
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cache
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Account\Logout.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Account\Logout.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\process-payment.cshtml.g.cs

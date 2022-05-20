@@ -1,0 +1,15 @@
+﻿.about-page {
+    .our-team {
+        background: #f2f2f2;
+
+        .four-items.owl-carousel .owl-nav {
+            width: 108%;
+            left: -4%;
+            color: $black;
+
+            button:hover {
+                color: $black !important;
+            }
+        }
+    }
+}

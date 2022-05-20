@@ -62,7 +62,9 @@ namespace App.UI.Pages.customer
                 firstName: applicationUser.UserName,
                 lastName: applicationUser.NormalizedUserName,
                 phoneNumber: applicationUser.PhoneNumber,
+                street: applicationUser.Address,
                 email: applicationUser.Email);
+                
 
             var paymentKeyRequest = new CashInPaymentKeyRequest(
                 integrationId: IntegrationId,

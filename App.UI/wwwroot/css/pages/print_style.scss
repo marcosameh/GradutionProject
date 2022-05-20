@@ -1,0 +1,14 @@
+﻿@media print{
+    .main-header, .main-footer, .initial-btn {
+        display: none !important;
+    }
+    .receipt-page {
+        .container {
+            max-width: unset;
+        }
+
+        .receipt-content {
+            padding: 0;
+        }
+    }
+}
