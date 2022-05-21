@@ -54,10 +54,12 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+            <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <a href="/my/wishlist" class="fas fa-heart"></a>
 
-                    </form>
+                <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+
+            </form>
                 }
                 else
                 {

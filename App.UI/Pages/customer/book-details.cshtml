@@ -30,7 +30,7 @@
 
 
 
-                @if (Model.BookDetails.Price.ToString("####").Equals(Model.BookDetails.BookPriceAfterDiscount))
+                @if (string.IsNullOrEmpty(Model.BookDetails.BookPriceAfterDiscount) )
                 {
                     <div class="price">$@Model.BookDetails.Price</div>
                 }
@@ -72,10 +72,14 @@
             {
 
                 <a href="#" class="btnt cart-btn" id="btn">add to cart</a>
+                <a href="#" class="icon" id="btnwish"><i class="fa-regular fa-heart-circle-plus" ></i>   Add to watchlist</a>
+
             }
             else
             {
                 <a href="#" class="btnt cart-btn" id="btn2">add to cart</a>
+                <a href="#" class="icon" id="btnwish2"><i class="fa-regular fa-heart-circle-plus" ></i>   Add to watchlist</a>
+
             }
             @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
             {
@@ -86,7 +90,6 @@
                 </audio>
             }
 
-            <a href="#" class="icon"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
 
 
 
@@ -262,6 +265,26 @@
 
 
         });
+        $("#btnwish").click(function () {
+            var Id = $('#bookId').val();
+            $.ajax({
+
+                url: '?handler=AddToWishlist',
+                data: { Id: Id },
+
+
+            });
+            Swal.fire('Successfully Added to your wishlist')
+
+        });
+        $("#btnwish2").click(function () {
+
+            Swal.fire('You Must Login First')
+
+
+        });
+
+
     });
 </script>
 <!-- Trend section ends -->
