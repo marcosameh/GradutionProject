@@ -17,12 +17,14 @@ using SharedTenant.Models;
 
 namespace App.UI.Pages.customer
 {
+   // [Authorize(Roles = "Customer")]
     public class book_detailsModel : PageModel
     {
         private readonly BookManager bookManger;
-        private readonly RecommenedBooksManger recommenedBooksManger;
+       public RecommenedBooksManger recommenedBooksManger { get; set; }
         private readonly UserManager<ApplicationUser> userManger;
-        private readonly WishlistCRUD wishlistCRUD;
+        public WishlistCRUD wishlistCRUD;
+        public int wishid;
         public BookVM BookDetails;
         public List<BookVM> MostSellingBooks;
         public List<CustomerRecomendedBook> recomendedBooks;
@@ -42,7 +44,9 @@ namespace App.UI.Pages.customer
             MostSellingBooks = bookManger.GetMostSellingBook();
             var userid = userManger.GetUserId(HttpContext.User);
             if (!string.IsNullOrEmpty(userid))
-                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+            {  recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+               wishid = wishlistCRUD.FindWish(userid, Global.UrlName,Id);
+            }
 
 
         }
@@ -81,12 +85,15 @@ namespace App.UI.Pages.customer
                     BookName = BookDetails.Name,
                     BookPhoto = BookDetails.PhotoPath,
                     CustomerId = userid,
-                    BookStore = Global.UrlName
+                    BookStore = Global.UrlName,
+                    ForExchange=false
+                    
                 }) ;
             }
 
 
 
-        }
+        } 
+       
     }
 }

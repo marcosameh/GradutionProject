@@ -14,5 +14,22 @@ namespace App.Customer.WishlistManger
         public string BookStore { get; set; }
         public string BookPhoto { get; set; }
         public string BookName { get; set; }
+        public bool ForExchange { get; set; }
+        public string OwnerName
+        {
+            get
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(BookStore).ToString();
+                    return addr.Substring(0, addr.IndexOf("@"));
+                }
+                catch
+                {
+                    return BookStore;
+                }
+
+            }
+        }
     }
 }

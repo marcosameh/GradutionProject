@@ -13,5 +13,6 @@ namespace SharedTenant.Models
         public string BookStore { get; set; }
         public string BookPhoto { get; set; }
         public string BookName { get; set; }
+        public bool? ForExchange { get; set; }
     }
 }

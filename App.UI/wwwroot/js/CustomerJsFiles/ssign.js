@@ -92,7 +92,7 @@ function updateProgressbar() {
 const wrapper = document.querySelector(".wrapper");
           const fileName = document.querySelector(".file-name");
           const defaultBtn = document.querySelector("#default-btn");
-          const customBtn = document.querySelector("#custom-btn");
+          const customBtn = document.querySelector("#Input_Photo");
           const cancelBtn = document.querySelector("#cancel-btn i");
           const img = document.querySelector("img");
           let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;

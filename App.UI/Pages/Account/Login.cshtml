@@ -25,7 +25,7 @@
                 <form method="post" class="sign-in-form">
 
                     <h2 class="title">Sign in</h2>
-
+                    <div asp-validation-summary="All" style="color:red"></div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Username" asp-for="Input.Email"/>

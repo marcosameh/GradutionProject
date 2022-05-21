@@ -25,6 +25,7 @@ namespace SharedTenant.Models
         public bool? IsActive { get; set; }
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
+        public string OwnerId { get; set; }
 
         public virtual ICollection<CustomerCategoryBookRate> CustomerCategoryBookRate { get; set; }
         public virtual ICollection<CustomerRecomendedBook> CustomerRecomendedBook { get; set; }

@@ -16,5 +16,6 @@ namespace App.Customer.ViewModel
         public string CategoryPhoto { get; set; }
         public IFormFile PhotoFile { get; set; }
         public string PhotoPath { get { return "/photos/category/" + CategoryPhoto; } }
+
     }
 }

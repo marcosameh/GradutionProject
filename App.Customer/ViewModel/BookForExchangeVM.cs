@@ -20,6 +20,9 @@ namespace App.Customer.ViewModel
         public string PdfUrl { get; set; }
         public string AduioUrl { get; set; }
         public string PhotoPath { get { return "/photos/books/" + Photo; } }
+        public string OwnerId { get; set; }
+
+
 
     }
 }

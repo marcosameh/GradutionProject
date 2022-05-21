@@ -12,11 +12,15 @@ namespace App.Customer.RecommendedSystem
     {
         private SharedtenantBaseRebo<CustomerCategoryBookRate> CustomerCategoryBookRateRepo;
         private SharedtenantBaseRebo<CustomerRecomendedBook> CustomerRecomendedBookRepo;
+        private SharedtenantBaseRebo<CustomerLoveCategory> CustomerLoveCategoryRepo;
+
 
         public RecommenedBooksManger(SharedtenantContext context)
         {
             CustomerCategoryBookRateRepo = new SharedtenantBaseRebo<CustomerCategoryBookRate>(context);
             CustomerRecomendedBookRepo = new SharedtenantBaseRebo<CustomerRecomendedBook>(context);
+            CustomerLoveCategoryRepo = new SharedtenantBaseRebo<CustomerLoveCategory>(context);
+
 
         }
         public void SetRecommenedBooks(string userid)
@@ -43,6 +47,12 @@ namespace App.Customer.RecommendedSystem
         public List<CustomerRecomendedBook> GetRecommenedBooks(string userid)
         {
             return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid ,book=>book.Book).OrderByDescending(rate=>rate.LoveRate).Take(10).ToList();
+        }
+        public bool CustomerRegisterFavouriteCategories(string userid)
+        {
+            if (CustomerLoveCategoryRepo.GetMany(Customer => Customer.CutomerId.Equals(userid)).Count()!=0)
+                return true;
+            return false;
         }
     }
 }

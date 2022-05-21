@@ -73,25 +73,42 @@
 
         <div class="header-2">
             <nav class="navbar">
+                @if (!string.IsNullOrEmpty(Global.UrlName))
+                {
+                    <ul>
+                        <li><a href="/@Global.UrlName/index">home</a></li>
+                        <li><a href="#featured">featured</a></li>
+                        <li><a href="#arrivals">arrivals</a></li>
+                        <li>
+                            <a href="/@Global.UrlName/books">books</a>
+                            <ul>
+                                <li> <a href="#1">Download books</a></li>
+                                <li> <a href="#2">upload books</a></li>
+                                <li> <a href="#3">writen books</a></li>
+                                <li> <a href="#4">paper books</a></li>
+                                <li> <a href="#5"> books</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/@Global.UrlName/section">sections</a></li>
+                        <li><a href="/@Global.UrlName/authors">authors</a></li>
 
-                <ul>
-                    <li><a href="/@Global.UrlName/index">home</a></li>
-                    <li><a href="#featured">featured</a></li>
-                    <li><a href="#arrivals">arrivals</a></li>
-                    <li>
-                        <a href="/@Global.UrlName/books">books</a>
-                        <ul>
-                            <li> <a href="#1">Download books</a></li>
-                            <li> <a href="#2">upload books</a></li>
-                            <li> <a href="#3">writen books</a></li>
-                            <li> <a href="#4">paper books</a></li>
-                            <li> <a href="#5"> books</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/@Global.UrlName/section">sections</a></li>
-                    <li><a href="/@Global.UrlName/authors">authors</a></li>
+                    </ul>
+                }
+                else
+                {
+                    <ul>
+                        <li><a href="/index">home</a></li>
+                        <li><a href="/index">featured</a></li>
+                        <li><a href="/index">arrivals</a></li>
+                        <li>
+                            <a href="/index">books</a>
+                            
+                        </li>
+                        <li><a href="/index">sections</a></li>
+                        <li><a href="/index">authors</a></li>
 
-                </ul>
+                    </ul>
+                }
             </nav>
 
         </div>

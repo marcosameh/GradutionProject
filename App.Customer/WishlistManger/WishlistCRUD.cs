@@ -31,11 +31,16 @@ namespace App.Customer.WishlistManger
         public List<WishlistVM> GetAllWishes(string CustomerID)
         {
             var data = WishlistRepo.GetMany(Customer => Customer.CustomerId.Equals(CustomerID));
+
             return mapper.Map < List<WishlistVM> >(data);
         }
-        public int CountWishlist(string CustomerID)
+        public int FindWish(string CustomerID,string Bookstore,int BookID)
         {
-            return WishlistRepo.GetMany(Customer => Customer.CustomerId.Equals(CustomerID)).Count();
+            var result = WishlistRepo.GetOne(wish => wish.CustomerId.Equals(CustomerID) && wish.BookStore.Equals(Bookstore) && wish.BookId==BookID);
+            if (result != null)
+                return result.WishId;
+            return 0;
+
         }
     }
 }

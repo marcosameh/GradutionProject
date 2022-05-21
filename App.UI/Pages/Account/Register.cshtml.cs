@@ -51,17 +51,18 @@ namespace App.UI.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Email Field is requred")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
-            [Required]
-            
-            [Display(Name = "UserName")]          
+
+
+            [Display(Name = "UserName")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             public string UserName { get; set; }
 
-            [Required]
+
+            [Required(ErrorMessage = "Password Field is requred")]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
@@ -71,7 +72,14 @@ namespace App.UI.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required(ErrorMessage = "Photo Field is requred")]
             public IFormFile Photo { get; set; }
+
+            [Required(ErrorMessage = "Address Field is requred")]
+            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+
+            public string Address { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -87,7 +95,7 @@ namespace App.UI.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
 
-                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/librarian/";
+                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/customer/";
                 string photoname = Path.GetFileName(Input.Photo.FileName);
                 string finalpath = photopath + photoname;
                 using (var stream = System.IO.File.Create(finalpath))
@@ -99,14 +107,15 @@ namespace App.UI.Areas.Identity.Pages.Account
                 var user = new ApplicationUser { UserName = Input.UserName, Email = Input.Email, Photo = photoname };
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
-                user.EmailConfirmed = true;
-                await _userManager.AddToRoleAsync(user, "Librarian");
                 if (result.Succeeded)
                 {
+                    user.EmailConfirmed = true;
                     _logger.LogInformation("User created a new account with password.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToPage("Login");
+                await _userManager.AddToRoleAsync(user, "Customer");
+                    var userid = await _userManager.GetUserIdAsync(user);
+                    return Redirect("/Account/Register/recommended-categories/"+userid);
 
 
                 }
