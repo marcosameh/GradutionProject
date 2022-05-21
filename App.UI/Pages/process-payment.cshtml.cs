@@ -20,7 +20,9 @@ namespace App.UI.Pages
         public CashInCallbackTransaction CallBackData { get; set; }
         
         public ApplicationUser user { get; set; }
-        public Cart cart; 
+        public Cart cart;
+        public int price;
+        public string CreatedAdd;
         public process_paymentModel(IPaymobCashInBroker broker,UserManager<ApplicationUser> userManager)
         {
             this.broker = broker;
@@ -36,12 +38,14 @@ namespace App.UI.Pages
 
         public void OnGet()
         {
+            price = Convert.ToInt32(Request.Query["amount_cents"]);
+            price = price / 100;
+            CreatedAdd = Request.Query["created_at"];
 
-            
 
             if (!CallBackData.Success)
             {
-
+                
 
                 Response.Redirect($"/error?msg=Payment Failed, Please try again");
 
