@@ -40,6 +40,10 @@
       {
          "Name": "[dbo].[ExchangeBookCategoryList]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Wishlist]",
+         "ObjectType": 0
       }
    ],
    "UiHint": "DESKTOP-MQNIHEC.SharedTenant",

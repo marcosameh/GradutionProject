@@ -1,4 +1,5 @@
 ﻿using App.Customer.ViewModel;
+using App.Customer.WishlistManger;
 using AutoMapper;
 using SharedTenant.Models;
 using System;
@@ -15,6 +16,7 @@ namespace App.Customer.CustomerAutoMapper
         {
         CreateMap<ExchangBookCategory, ExchangeBookCategoryVM>().ReverseMap();
             CreateMap<BooksForExchange, BookForExchangeVM>().ReverseMap();
+            CreateMap<Wishlist, WishlistVM>().ReverseMap();
 
 
         }

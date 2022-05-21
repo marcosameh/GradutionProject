@@ -3,6 +3,7 @@ using App.Core.Models;
 using App.Customer.CartManager;
 using App.Customer.RecommendedSystem;
 using App.Customer.Views;
+using App.Customer.WishlistManger;
 using App.Librarian.Managers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,7 @@ namespace App.UI.Configurations
             .AddScoped<RegisterPage2Manger>()
             .AddScoped<RecommenedBooksManger>()
             .AddScoped<ExchangeBookManger>()
+            .AddScoped<WishlistCRUD>()
 
             .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
 
