@@ -46,7 +46,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "DESKTOP-MQNIHEC.SharedTenant",
+   "UiHint": "MARCOSAMEH.SharedTenant",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

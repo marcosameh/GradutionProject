@@ -401,7 +401,6 @@ D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\add.
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\Delete.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\List.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\Update.cshtml.g.cs
-D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\account.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\author-details.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\Authors.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\book-details.cshtml.g.cs
@@ -699,3 +698,5 @@ D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\process-pa
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\wishlist.cshtml.g.cs
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\process-payment.cshtml.g.cs
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Account\paymentplan.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Account\paymentplan.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\wishlist.cshtml.g.cs

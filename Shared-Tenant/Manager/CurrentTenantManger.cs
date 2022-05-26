@@ -43,7 +43,7 @@ namespace SharedTenant.Manager
     
         public IQueryable<BookStores> GetBookStores()
         {
-            return SharedtenantContext.BookStores;
+            return SharedtenantContext.BookStores.Where(b=>b.EndSubscriptionDate>=System.DateTime.Now);
         }
         public IQueryable<string> GetDomins()
         {

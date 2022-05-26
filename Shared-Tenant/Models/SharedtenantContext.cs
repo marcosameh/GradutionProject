@@ -36,6 +36,10 @@ namespace SharedTenant.Models
 
             modelBuilder.Entity<BookStores>(entity =>
             {
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasMaxLength(120);
+
                 entity.Property(e => e.ConnectionString)
                     .IsRequired()
                     .HasMaxLength(200);
@@ -43,6 +47,8 @@ namespace SharedTenant.Models
                 entity.Property(e => e.Domain)
                     .IsRequired()
                     .HasMaxLength(100);
+
+                entity.Property(e => e.EndSubscriptionDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Logo).HasMaxLength(50);
 

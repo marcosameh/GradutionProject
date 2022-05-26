@@ -1246,19 +1246,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Peter\\.nuget\\packages\\": {}
+    "C:\\Users\\M\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj",
+      "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
       "projectName": "App.Core",
-      "projectPath": "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj",
-      "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-      "outputPath": "D:\\1- Project\\GradutionProject\\App.Core\\obj\\",
+      "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
+      "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
+      "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1272,8 +1272,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
             }
           }
         }
@@ -1316,7 +1316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

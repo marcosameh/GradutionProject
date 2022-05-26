@@ -13,5 +13,7 @@ namespace SharedTenant.Models
         public string UrlName { get; set; }
         public string Name { get; set; }
         public string Logo { get; set; }
+        public string Address { get; set; }
+        public DateTime EndSubscriptionDate { get; set; }
     }
 }
