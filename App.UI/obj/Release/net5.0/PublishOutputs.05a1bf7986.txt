@@ -226,7 +226,9 @@ D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\cbook.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\cbookdesc.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\ccart.css
+D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\cformlib.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\chome.css
+D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\cregisterlib.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\csection.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\csign.css
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\css\CustomerCssFiles\csignup.css
@@ -453,6 +455,7 @@ D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Phot
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Photos\librarian\IMG-20191025-WA0013.jpg
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Photos\librarian\IMG_20190401_155405.jpg
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Photos\librarian\PB2.png
+D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Photos\librarian\RecommendSystem.png
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\wwwroot\Photos\librarian\Screenshot 2022-05-21 164214.png
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\web.config
 D:\1- Project\GradutionProject\App.UI\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
