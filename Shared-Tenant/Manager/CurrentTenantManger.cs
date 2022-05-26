@@ -28,7 +28,7 @@ namespace SharedTenant.Manager
             var CurrentDomin = Accessor.HttpContext.Request.Host.Value;          
             foreach (var domin in GetDomins())
             {
-                if (domin == CurrentDomin /*&& CurrentDomin != "localhost:44381"*/)
+                if (domin == CurrentDomin  /*&&CurrentDomin != "localhost:44381"*/)
                 {
                     return SharedtenantContext.BookStores.Where(x => x.Domain == CurrentDomin).FirstOrDefault();
                 }

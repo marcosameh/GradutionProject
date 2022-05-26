@@ -1,0 +1,35 @@
+﻿.contact-page {
+    .contact.continer {
+    }
+
+    .contact-info {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        margin-top: -125px;
+        position: relative;
+        z-index: 11;
+
+        div {
+            flex: 0 0 32%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 280px;
+            text-align: center;
+            background: $white;
+            border: 1px solid #F2F2F2;
+            padding: 15px 20px;
+
+            span, a {
+                font-size: 24px;
+                font-weight: 400;
+                color: $black;
+                display: block;
+                margin-top: 35px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

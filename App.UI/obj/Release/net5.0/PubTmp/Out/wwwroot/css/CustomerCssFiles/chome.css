@@ -215,6 +215,8 @@ section{
 .header .header-2 .navbar ul{
     list-style: none;
     padding: 0px;
+    z-index: 1000;
+
 }
 
 .header .header-2 .navbar ul li{

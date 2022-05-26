@@ -698,3 +698,4 @@ D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Account\Lo
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\process-payment.cshtml.g.cs
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\wishlist.cshtml.g.cs
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\process-payment.cshtml.g.cs
+D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Account\paymentplan.cshtml.g.cs

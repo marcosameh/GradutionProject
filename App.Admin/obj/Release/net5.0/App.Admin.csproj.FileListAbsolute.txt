@@ -10,3 +10,15 @@ D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.csproj.
 D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.dll
 D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\ref\App.Admin.dll
 D:\Clients\GraduationProject\Code\App.Admin\obj\Release\net5.0\App.Admin.pdb
+D:\1- Project\GradutionProject\App.Admin\bin\Release\net5.0\App.Admin.deps.json
+D:\1- Project\GradutionProject\App.Admin\bin\Release\net5.0\App.Admin.dll
+D:\1- Project\GradutionProject\App.Admin\bin\Release\net5.0\ref\App.Admin.dll
+D:\1- Project\GradutionProject\App.Admin\bin\Release\net5.0\App.Admin.pdb
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.csproj.AssemblyReference.cache
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.GeneratedMSBuildEditorConfig.editorconfig
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.AssemblyInfoInputs.cache
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.AssemblyInfo.cs
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.csproj.CoreCompileInputs.cache
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.dll
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\ref\App.Admin.dll
+D:\1- Project\GradutionProject\App.Admin\obj\Release\net5.0\App.Admin.pdb

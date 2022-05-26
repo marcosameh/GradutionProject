@@ -122,6 +122,25 @@ section{
     justify-content: space-between;
 }
 
+.header .header-1 .register-library{
+
+    border: 1px solid #db3c34;
+    background: none;
+    padding: 8px 12px;
+    font-size: 17px;
+    font-family: "montserrat";
+    cursor: pointer;
+    margin: 8px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    color: #db3c34;
+
+}
+
+
+
+
 .header .header-1 .logo{
     font-size: 2.5rem;
     font-weight: bolder;

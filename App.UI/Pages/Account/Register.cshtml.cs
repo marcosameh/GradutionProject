@@ -46,7 +46,8 @@ namespace App.UI.Areas.Identity.Pages.Account
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
-
+        [BindProperty(SupportsGet =true)]
+        public string Actor { get; set; }
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
         public class InputModel
@@ -82,8 +83,12 @@ namespace App.UI.Areas.Identity.Pages.Account
             public string Address { get; set; }
         }
 
-        public async Task OnGetAsync(string returnUrl = null)
+        public async Task OnGetAsync(string actor =null, string returnUrl = null  )
         {
+            if (string.IsNullOrEmpty(actor))
+                Actor = "admin";
+            else            Actor = actor;
+
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -95,7 +100,7 @@ namespace App.UI.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
 
-                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/customer/";
+                string photopath = Directory.GetCurrentDirectory() + "/wwwroot/photos/"+Actor+"/";
                 string photoname = Path.GetFileName(Input.Photo.FileName);
                 string finalpath = photopath + photoname;
                 using (var stream = System.IO.File.Create(finalpath))
@@ -113,9 +118,22 @@ namespace App.UI.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                await _userManager.AddToRoleAsync(user, "Customer");
+                    if(Actor.Equals("customer"))
+                    {
+                        await _userManager.AddToRoleAsync(user, "Customer");
                     var userid = await _userManager.GetUserIdAsync(user);
                     return Redirect("/Account/Register/recommended-categories/"+userid);
+                    }
+                    else if(Actor.Equals("librarian"))
+                    {
+                        await _userManager.AddToRoleAsync(user, "Librarian"); 
+                        return Redirect("/Account/Register/paymentplan");
+
+
+                    }
+
+
+
 
 
                 }

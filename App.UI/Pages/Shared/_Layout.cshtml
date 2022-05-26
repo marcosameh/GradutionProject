@@ -47,19 +47,19 @@
 
                 <!-- <label for="search-box" class="fas fa-search"></label> -->
             </form>
-
+            <a href="/Account/Register/librarian" class="register-library">Register your own library </a>
             <div class="icons">
                 <div id="search-btn" class="fas fa-search"></div>
 
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-            <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <a href="/my/wishlist" class="fas fa-heart"></a>
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <a href="/my/wishlist" class="fas fa-heart"></a>
 
-                <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
 
-            </form>
+                    </form>
                 }
                 else
                 {

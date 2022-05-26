@@ -5,6 +5,14 @@
     {
       "library": "datatables@1.10.21",
       "destination": "wwwroot/datatables/"
+    },
+    {
+      "library": "magnific-popup.js@1.1.0",
+      "destination": "wwwroot/lib/magnific-popup.js/",
+      "files": [
+        "jquery.magnific-popup.min.js",
+        "magnific-popup.min.css"
+      ]
     }
   ]
 }

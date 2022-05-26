@@ -1,0 +1,81 @@
+﻿.receipt-page {
+    padding: 50px 0;
+
+    .receipt-content {
+        padding: 35px 100px;
+        border: 1px solid #F0F0F0;
+
+        > .row {
+            span b {
+                width: 115px;
+                display: inline-block;
+            }
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        hr {
+            margin: 25px 0;
+            background-color: #F0F0F0;
+            height: 1px;
+            opacity: 1;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #333333;
+            display: block;
+            margin-bottom: 8px;
+
+            b {
+                margin-right: 30px;
+            }
+        }
+
+        table {
+            border-spacing: 0 10px;
+            border-collapse: separate;
+
+            td, th {
+                text-align: center;
+            }
+
+            th {
+                border: 0;
+            }
+
+            tr td {
+                border-top: 1px solid #f0f0f0;
+                border-color: #f0f0f0 !important;
+
+
+                &:first-child {
+                    border-left: 1px solid #f0f0f0;
+                }
+
+                &:last-child {
+                    border-right: 1px solid #f0f0f0;
+                }
+            }
+
+            .total-row {
+                td {
+                    &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3) {
+                        border: 0px;
+                    }
+
+                    &:nth-of-type(4) {
+                        border: 1px solid #f0f0f0;
+                    }
+                }
+            }
+        }
+    }
+}
