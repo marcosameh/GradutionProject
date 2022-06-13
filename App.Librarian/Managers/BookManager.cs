@@ -6,14 +6,17 @@ using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Korzh.EasyQuery.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace App.Librarian.Managers
 {
     public class BookManager
 
     {
+        private readonly KitabiContext context;
         private readonly IMapper mapper;
         BaseRepo<Book> BookRepo;
         BaseRepo<BookCategoryList> CategoryListRepo;
@@ -22,11 +25,18 @@ namespace App.Librarian.Managers
         {
             BookRepo = new BaseRepo<Book>(context);
             CategoryListRepo = new BaseRepo<BookCategoryList>(context);
+            this.context = context;
             this.mapper = mapper;
         }
         public List<BookVM> GetAllBooks()
         {
             var book = BookRepo.GetMany(null, book => book.Author).OrderBy(x => x.Id).ToList();
+
+            return mapper.Map<List<BookVM>>(book);
+        }
+        public List<BookVM> GetMatchedBooks(string SearchValue)
+        {
+            var book = context.Book.FullTextSearchQuery(SearchValue).Include(x=>x.Author);
 
             return mapper.Map<List<BookVM>>(book);
         }

@@ -18,6 +18,8 @@ namespace App.UI.Pages
         private readonly CurrentTenantManager currentTenantManager;
 
         public IQueryable<BookStores> Bookstores { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string SearchValue { get; set; }
         public defaultModel(CurrentTenantManager  currentTenantManager)
         {
             this.currentTenantManager = currentTenantManager;
@@ -27,6 +29,11 @@ namespace App.UI.Pages
             Bookstores = currentTenantManager.GetBookStores();
            // var userid = userManger.GetUserId(HttpContext.User);
             
+        }
+        public void OnPost(string SearchValue)
+        {
+            Bookstores = currentTenantManager.GetRelatedBookStores(SearchValue);
+
         }
 
     }

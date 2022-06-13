@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.Linq;
+using Korzh.EasyQuery.Linq;
+
 namespace SharedTenant.Manager
 {
     public class CurrentTenantManager
@@ -49,5 +51,17 @@ namespace SharedTenant.Manager
         {
             return SharedtenantContext.BookStores.Select(x => x.Domain);
         }
+        public IQueryable<BookStores> GetRelatedBookStores( string SearchValue)
+        {
+          
+            IQueryable<BookStores> RelatedBookStores = SharedtenantContext.BookStores.Where(b => b.EndSubscriptionDate >= System.DateTime.Now).FullTextSearchQuery(SearchValue);
+          
+            if(!RelatedBookStores.Any())
+            {
+                return RelatedBookStores= Enumerable.Empty<BookStores>().AsQueryable();
+            }
+            return RelatedBookStores;
+        }
+       
     }
 }

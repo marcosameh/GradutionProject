@@ -14,17 +14,25 @@ namespace App.UI.Pages.customer
     {
         private readonly BookManager manager;
         public List<BookVM> allBooks;
-        public PagedList<BookVM> PagingAuthors { get; set; }
-
+        public PagedList<BookVM> PagingBooks { get; set; }
+        [BindProperty(SupportsGet =true)]
+        public string SearchValue { get; set; }
+        [FromQuery(Name = "page")]
+        public int PageNumber { get; set; } = 1;
         public booksModel(BookManager manager)
         {
             this.manager = manager;
         }
-        public void OnGet([FromQuery] int Page = 1)
+        public void OnGet()
         {
             allBooks = manager.GetAllBooks();
-            PagingAuthors = PagedList<BookVM>.Create(allBooks.AsQueryable(), Page, 24);
+            PagingBooks = PagedList<BookVM>.Create(allBooks.AsQueryable(), PageNumber, 2);
 
+        }
+        public void OnPost()
+        {
+            allBooks = manager.GetMatchedBooks(SearchValue);
+            PagingBooks = PagedList<BookVM>.Create(allBooks.AsQueryable(), PageNumber, 2);
         }
     }
 }

@@ -700,3 +700,7 @@ D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\process-payme
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Account\paymentplan.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Account\paymentplan.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\wishlist.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\EasyData.Core.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.Linq.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.AspNetCore.dll

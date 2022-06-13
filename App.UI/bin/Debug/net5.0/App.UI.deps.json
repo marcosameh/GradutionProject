@@ -38,6 +38,7 @@
           "App.Customer": "1.0.0",
           "App.Librarian": "1.0.0",
           "Hashids.net": "1.5.0",
+          "Korzh.EasyQuery.AspNetCore": "7.2.1",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.12",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.16",
           "Microsoft.AspNetCore.Identity.UI": "5.0.16",
@@ -210,7 +211,7 @@
           "System.Linq.Reference": "5.0.0.0",
           "System.Linq.Expressions.Reference": "5.0.0.0",
           "System.Linq.Parallel": "5.0.0.0",
-          "System.Linq.Queryable": "5.0.0.0",
+          "System.Linq.Queryable.Reference": "5.0.0.0",
           "System.Memory.Reference": "5.0.0.0",
           "System.Net": "4.0.0.0",
           "System.Net.Http": "5.0.0.0",
@@ -285,7 +286,7 @@
           "System.Threading.Tasks.Reference": "5.0.0.0",
           "System.Threading.Tasks.Extensions.Reference": "5.0.0.0",
           "System.Threading.Tasks.Parallel": "5.0.0.0",
-          "System.Threading.Thread": "5.0.0.0",
+          "System.Threading.Thread.Reference": "5.0.0.0",
           "System.Threading.ThreadPool": "5.0.0.0",
           "System.Threading.Timer": "5.0.0.0",
           "System.Transactions": "4.0.0.0",
@@ -356,6 +357,20 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "EasyData.Core/1.4.3": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/EasyData.Core.dll": {
+            "assemblyVersion": "1.4.3.2",
+            "fileVersion": "1.4.3.2"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/EasyData.Core.dll": {}
+        }
+      },
       "Flurl/3.0.2": {
         "runtime": {
           "lib/netstandard2.0/Flurl.dll": {
@@ -395,6 +410,54 @@
         },
         "compile": {
           "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      },
+      "Korzh.EasyQuery/7.2.1": {
+        "dependencies": {
+          "EasyData.Core": "1.4.3",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Korzh.EasyQuery.dll": {
+            "assemblyVersion": "7.2.1.5",
+            "fileVersion": "7.2.1.5"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Korzh.EasyQuery.dll": {}
+        }
+      },
+      "Korzh.EasyQuery.AspNetCore/7.2.1": {
+        "dependencies": {
+          "Korzh.EasyQuery": "7.2.1"
+        },
+        "runtime": {
+          "lib/net5.0/Korzh.EasyQuery.AspNetCore.dll": {
+            "assemblyVersion": "7.2.1.5",
+            "fileVersion": "7.2.1.5"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Korzh.EasyQuery.AspNetCore.dll": {}
+        }
+      },
+      "Korzh.EasyQuery.Linq/7.2.1": {
+        "dependencies": {
+          "Korzh.EasyQuery": "7.2.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Korzh.EasyQuery.Linq.dll": {
+            "assemblyVersion": "7.2.1.5",
+            "fileVersion": "7.2.1.5"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Korzh.EasyQuery.Linq.dll": {}
         }
       },
       "LazZiya.ImageResize/4.1.0": {
@@ -1347,7 +1410,7 @@
       "Microsoft.IdentityModel.JsonWebTokens/5.6.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Tokens": "5.6.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
@@ -1388,7 +1451,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/5.6.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "5.6.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "System.IdentityModel.Tokens.Jwt": "5.6.0"
         },
         "runtime": {
@@ -1404,7 +1467,7 @@
       "Microsoft.IdentityModel.Tokens/5.6.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Logging": "5.6.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "System.Security.Cryptography.Cng": "4.5.0"
         },
         "runtime": {
@@ -1442,7 +1505,7 @@
       },
       "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/5.0.2": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.3",
           "System.Collections.Immutable": "5.0.0"
         },
         "runtime": {
@@ -1459,7 +1522,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Templating": "5.0.2",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Core.dll": {
@@ -1533,7 +1596,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis.CSharp.Workspaces": "3.8.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Contracts": "5.0.2",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/net5.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {
@@ -1570,11 +1633,11 @@
           "Microsoft.NETCore.Platforms": "5.0.0"
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
           }
         },
         "compile": {
@@ -1887,7 +1950,7 @@
         "dependencies": {
           "Microsoft.IdentityModel.JsonWebTokens": "5.6.0",
           "Microsoft.IdentityModel.Tokens": "5.6.0",
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "lib/netstandard2.0/System.IdentityModel.Tokens.Jwt.dll": {
@@ -1975,6 +2038,18 @@
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0"
+        }
+      },
+      "System.Linq.Queryable/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
         }
       },
       "System.Memory/4.5.4": {},
@@ -2340,6 +2415,11 @@
         }
       },
       "System.Threading.Tasks.Extensions/4.5.4": {},
+      "System.Threading.Thread/4.3.0": {
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        }
+      },
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "5.0.0"
@@ -2496,7 +2576,8 @@
       "App.Librarian/1.0.0": {
         "dependencies": {
           "App.Core": "1.0.0",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Korzh.EasyQuery.Linq": "7.2.1"
         },
         "runtime": {
           "App.Librarian.dll": {}
@@ -2507,6 +2588,7 @@
       },
       "SharedTenant/1.0.0": {
         "dependencies": {
+          "Korzh.EasyQuery.Linq": "7.2.1",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
@@ -3498,7 +3580,7 @@
         },
         "compileOnly": true
       },
-      "System.Linq.Queryable/5.0.0.0": {
+      "System.Linq.Queryable.Reference/5.0.0.0": {
         "compile": {
           "System.Linq.Queryable.dll": {}
         },
@@ -3948,7 +4030,7 @@
         },
         "compileOnly": true
       },
-      "System.Threading.Thread/5.0.0.0": {
+      "System.Threading.Thread.Reference/5.0.0.0": {
         "compile": {
           "System.Threading.Thread.dll": {}
         },
@@ -4097,6 +4179,13 @@
       "path": "automapper.extensions.microsoft.dependencyinjection/11.0.0",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512"
     },
+    "EasyData.Core/1.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gc6vSC1GSiXrtJMxgjX6HTDC5hm3kjch87ibIw42lDMOhLKJQmLfJeylu3UDbV64Vuy0nIFuJuZt+2cj+6TGhw==",
+      "path": "easydata.core/1.4.3",
+      "hashPath": "easydata.core.1.4.3.nupkg.sha512"
+    },
     "Flurl/3.0.2": {
       "type": "package",
       "serviceable": true,
@@ -4124,6 +4213,27 @@
       "sha512": "sha512-kKSyoVfndMriKHLfYGmr0uzQuI4jcc3TKGyww7buJFCYeHb/X0kodYBPL7n9454q7v6ASiRmDgpPGaDGerg/Hg==",
       "path": "jetbrains.annotations/2021.2.0",
       "hashPath": "jetbrains.annotations.2021.2.0.nupkg.sha512"
+    },
+    "Korzh.EasyQuery/7.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-L1T8sheGA4ZFISJb5CkRZEZ0tisOiLCb5Cuc+YVnWztqmJFuv7d4UCYqR5PG7Obr+KybjV/UQZcPGbhXWXkcdQ==",
+      "path": "korzh.easyquery/7.2.1",
+      "hashPath": "korzh.easyquery.7.2.1.nupkg.sha512"
+    },
+    "Korzh.EasyQuery.AspNetCore/7.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A7oxZ1iJM+SQwBrraOYXVP5u5yW0HmOabrgvA1ny+pVDF3LJGD6OOmdWmr1kWjItVbugHPo4P2RCXLQztSQUAg==",
+      "path": "korzh.easyquery.aspnetcore/7.2.1",
+      "hashPath": "korzh.easyquery.aspnetcore.7.2.1.nupkg.sha512"
+    },
+    "Korzh.EasyQuery.Linq/7.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4TFf50Kj9Suv5ZXKRV5ZO0srF8icQeV3KSkgJ8sURM4qHauJBjUHkJ4wowlPVJ9IRuXeSRgREIdtsXkvpnvtsQ==",
+      "path": "korzh.easyquery.linq/7.2.1",
+      "hashPath": "korzh.easyquery.linq.7.2.1.nupkg.sha512"
     },
     "LazZiya.ImageResize/4.1.0": {
       "type": "package",
@@ -4692,12 +4802,12 @@
       "path": "microsoft.win32.systemevents/5.0.0",
       "hashPath": "microsoft.win32.systemevents.5.0.0.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "Polly/7.2.2": {
       "type": "package",
@@ -4943,6 +5053,13 @@
       "sha512": "sha512-PGKkrd2khG4CnlyJwxwwaWWiSiWFNBGlgXvJpeO0xCXrZ89ODrQ6tjEWS/kOqZ8GwEOUATtKtzp1eRgmYNfclg==",
       "path": "system.linq.expressions/4.3.0",
       "hashPath": "system.linq.expressions.4.3.0.nupkg.sha512"
+    },
+    "System.Linq.Queryable/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "path": "system.linq.queryable/4.3.0",
+      "hashPath": "system.linq.queryable.4.3.0.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",
@@ -5244,6 +5361,13 @@
       "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
       "path": "system.threading.tasks.extensions/4.5.4",
       "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    },
+    "System.Threading.Thread/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
+      "path": "system.threading.thread/4.3.0",
+      "hashPath": "system.threading.thread.4.3.0.nupkg.sha512"
     },
     "System.Windows.Extensions/4.7.0": {
       "type": "package",
@@ -6134,7 +6258,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Linq.Queryable/5.0.0.0": {
+    "System.Linq.Queryable.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -6509,7 +6633,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.Threading.Thread/5.0.0.0": {
+    "System.Threading.Thread.Reference/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

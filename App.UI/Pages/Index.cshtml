@@ -16,9 +16,10 @@
         cursor: pointer;
         font-weight: 500;
     }
-    .btnt:hover {
-        background: var(--dark-color);
-    }
+
+        .btnt:hover {
+            background: var(--dark-color);
+        }
 </style>
 <!-- reviews section starts  -->
 <!-- reviews section starts  -->
@@ -28,33 +29,42 @@
 
     <div class="swiper reviews-slider">
         <div class="swiper-wrapper">
-            @foreach (var store in Model.Bookstores)
+            @if (Model.Bookstores.Any())
             {
+                @foreach (var store in Model.Bookstores)
+                {
+                   
 
-            <div class="swiper-slide box">
-                <a href="@store.UrlName/index">
-                    <img src="/Photos/librarian/@store.Logo" alt="">
-                    <h3>@store.Name</h3>
-                    <p>@store.Address</p>
-                    <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                </a>
+                    <div class="swiper-slide box">
+                        <a href="@store.UrlName/index">
+                            <img src="/Photos/librarian/@store.Logo" alt="">
+                            <h3><eq-highlight-text value="@store.Name" text="@Model.SearchValue"></eq-highlight-text></h3>
+                            <p> <eq-highlight-text value="@store.Address" text="@Model.SearchValue"></eq-highlight-text></p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </a>
 
-                <a href="@store.UrlName/index" class="btnt">VISIT</a>
+                        <a href="@store.UrlName/index" class="btnt">VISIT</a>
 
-            </div>
+                    </div>
 
+                }
             }
+            else
+            {
+                <h2>No Related BookStores</h2>
+            }
+        </div>
+
 
         </div>
-    </div>
-</section>
+    </section>
 
 
-<!-- reviews section ends -->
-<!-- reviews section ends -->
+    <!-- reviews section ends -->
+    <!-- reviews section ends -->

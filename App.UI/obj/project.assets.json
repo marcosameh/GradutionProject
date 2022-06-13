@@ -39,6 +39,18 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "EasyData.Core/1.4.3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/EasyData.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/EasyData.Core.dll": {}
+        }
+      },
       "Flurl/3.0.2": {
         "type": "package",
         "compile": {
@@ -73,6 +85,51 @@
         },
         "runtime": {
           "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      },
+      "Korzh.EasyQuery/7.2.1": {
+        "type": "package",
+        "dependencies": {
+          "EasyData.Core": "1.4.3",
+          "Microsoft.Extensions.Logging.Abstractions": "2.1.1",
+          "Microsoft.Extensions.Options": "2.1.1",
+          "Newtonsoft.Json": "12.0.3",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection.Emit": "4.3.0",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Korzh.EasyQuery.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Korzh.EasyQuery.dll": {}
+        }
+      },
+      "Korzh.EasyQuery.AspNetCore/7.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Korzh.EasyQuery": "7.2.1"
+        },
+        "compile": {
+          "lib/net5.0/Korzh.EasyQuery.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Korzh.EasyQuery.AspNetCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Korzh.EasyQuery.Linq/7.2.1": {
+        "type": "package",
+        "dependencies": {
+          "Korzh.EasyQuery": "7.2.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Korzh.EasyQuery.Linq.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Korzh.EasyQuery.Linq.dll": {}
         }
       },
       "LazZiya.ImageResize/4.1.0": {
@@ -1394,7 +1451,7 @@
           }
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -1932,6 +1989,25 @@
           "lib/netstandard1.6/System.Linq.Expressions.dll": {}
         }
       },
+      "System.Linq.Queryable/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.0/System.Linq.Queryable.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Linq.Queryable.dll": {}
+        }
+      },
       "System.Memory/4.5.4": {
         "type": "package",
         "compile": {
@@ -2085,7 +2161,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.1/_._": {}
+          "ref/netstandard1.1/System.Reflection.Emit.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.dll": {}
@@ -2099,7 +2175,7 @@
           "System.Runtime": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.0/_._": {}
+          "ref/netstandard1.0/System.Reflection.Emit.ILGeneration.dll": {}
         },
         "runtime": {
           "lib/netstandard1.3/System.Reflection.Emit.ILGeneration.dll": {}
@@ -2570,6 +2646,18 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime": "4.3.0"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.3/System.Threading.Thread.dll": {}
+        }
+      },
       "System.Windows.Extensions/4.7.0": {
         "type": "package",
         "dependencies": {
@@ -2771,7 +2859,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "App.Core": "1.0.0",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0"
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
+          "Korzh.EasyQuery.Linq": "7.2.1"
         },
         "compile": {
           "bin/placeholder/App.Librarian.dll": {}
@@ -2784,6 +2873,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Korzh.EasyQuery.Linq": "7.2.1",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0",
@@ -2845,6 +2935,21 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "EasyData.Core/1.4.3": {
+      "sha512": "gc6vSC1GSiXrtJMxgjX6HTDC5hm3kjch87ibIw42lDMOhLKJQmLfJeylu3UDbV64Vuy0nIFuJuZt+2cj+6TGhw==",
+      "type": "package",
+      "path": "easydata.core/1.4.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "easydata.core.1.4.3.nupkg.sha512",
+        "easydata.core.nuspec",
+        "lib/net6.0/EasyData.Core.dll",
+        "lib/net6.0/EasyData.Core.xml",
+        "lib/netstandard2.0/EasyData.Core.dll",
+        "lib/netstandard2.0/EasyData.Core.xml"
       ]
     },
     "Flurl/3.0.2": {
@@ -2922,6 +3027,54 @@
         "lib/netstandard2.0/JetBrains.Annotations.xml",
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.dll",
         "lib/portable40-net40+sl5+win8+wp8+wpa81/JetBrains.Annotations.xml"
+      ]
+    },
+    "Korzh.EasyQuery/7.2.1": {
+      "sha512": "L1T8sheGA4ZFISJb5CkRZEZ0tisOiLCb5Cuc+YVnWztqmJFuv7d4UCYqR5PG7Obr+KybjV/UQZcPGbhXWXkcdQ==",
+      "type": "package",
+      "path": "korzh.easyquery/7.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "korzh.easyquery.7.2.1.nupkg.sha512",
+        "korzh.easyquery.nuspec",
+        "lib/netstandard2.0/Korzh.EasyQuery.dll",
+        "lib/netstandard2.0/Korzh.EasyQuery.xml"
+      ]
+    },
+    "Korzh.EasyQuery.AspNetCore/7.2.1": {
+      "sha512": "A7oxZ1iJM+SQwBrraOYXVP5u5yW0HmOabrgvA1ny+pVDF3LJGD6OOmdWmr1kWjItVbugHPo4P2RCXLQztSQUAg==",
+      "type": "package",
+      "path": "korzh.easyquery.aspnetcore/7.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "korzh.easyquery.aspnetcore.7.2.1.nupkg.sha512",
+        "korzh.easyquery.aspnetcore.nuspec",
+        "lib/net5.0/Korzh.EasyQuery.AspNetCore.dll",
+        "lib/net5.0/Korzh.EasyQuery.AspNetCore.xml",
+        "lib/net6.0/Korzh.EasyQuery.AspNetCore.dll",
+        "lib/net6.0/Korzh.EasyQuery.AspNetCore.xml",
+        "lib/netcoreapp3.1/Korzh.EasyQuery.AspNetCore.dll",
+        "lib/netcoreapp3.1/Korzh.EasyQuery.AspNetCore.xml",
+        "lib/netstandard2.0/Korzh.EasyQuery.AspNetCore.dll",
+        "lib/netstandard2.0/Korzh.EasyQuery.AspNetCore.xml"
+      ]
+    },
+    "Korzh.EasyQuery.Linq/7.2.1": {
+      "sha512": "4TFf50Kj9Suv5ZXKRV5ZO0srF8icQeV3KSkgJ8sURM4qHauJBjUHkJ4wowlPVJ9IRuXeSRgREIdtsXkvpnvtsQ==",
+      "type": "package",
+      "path": "korzh.easyquery.linq/7.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "korzh.easyquery.linq.7.2.1.nupkg.sha512",
+        "korzh.easyquery.linq.nuspec",
+        "lib/netstandard2.0/Korzh.EasyQuery.Linq.dll",
+        "lib/netstandard2.0/Korzh.EasyQuery.Linq.xml"
       ]
     },
     "LazZiya.ImageResize/4.1.0": {
@@ -5001,10 +5154,10 @@
         "version.txt"
       ]
     },
-    "Newtonsoft.Json/11.0.2": {
-      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
-      "path": "newtonsoft.json/11.0.2",
+      "path": "newtonsoft.json/12.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5027,8 +5180,9 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.11.0.2.nupkg.sha512",
-        "newtonsoft.json.nuspec"
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "Polly/7.2.2": {
@@ -6501,6 +6655,65 @@
         "runtimes/aot/lib/netcore50/System.Linq.Expressions.dll",
         "system.linq.expressions.4.3.0.nupkg.sha512",
         "system.linq.expressions.nuspec"
+      ]
+    },
+    "System.Linq.Queryable/4.3.0": {
+      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "type": "package",
+      "path": "system.linq.queryable/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/monoandroid10/_._",
+        "lib/monotouch10/_._",
+        "lib/net45/_._",
+        "lib/netcore50/System.Linq.Queryable.dll",
+        "lib/netstandard1.3/System.Linq.Queryable.dll",
+        "lib/portable-net45+win8+wp8+wpa81/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/monoandroid10/_._",
+        "ref/monotouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/System.Linq.Queryable.dll",
+        "ref/netcore50/System.Linq.Queryable.xml",
+        "ref/netcore50/de/System.Linq.Queryable.xml",
+        "ref/netcore50/es/System.Linq.Queryable.xml",
+        "ref/netcore50/fr/System.Linq.Queryable.xml",
+        "ref/netcore50/it/System.Linq.Queryable.xml",
+        "ref/netcore50/ja/System.Linq.Queryable.xml",
+        "ref/netcore50/ko/System.Linq.Queryable.xml",
+        "ref/netcore50/ru/System.Linq.Queryable.xml",
+        "ref/netcore50/zh-hans/System.Linq.Queryable.xml",
+        "ref/netcore50/zh-hant/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/System.Linq.Queryable.dll",
+        "ref/netstandard1.0/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/de/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/es/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/fr/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/it/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ja/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ko/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/ru/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/zh-hans/System.Linq.Queryable.xml",
+        "ref/netstandard1.0/zh-hant/System.Linq.Queryable.xml",
+        "ref/portable-net45+win8+wp8+wpa81/_._",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.linq.queryable.4.3.0.nupkg.sha512",
+        "system.linq.queryable.nuspec"
       ]
     },
     "System.Memory/4.5.4": {
@@ -8630,6 +8843,46 @@
         "version.txt"
       ]
     },
+    "System.Threading.Thread/4.3.0": {
+      "sha512": "OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
+      "type": "package",
+      "path": "system.threading.thread/4.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Threading.Thread.dll",
+        "lib/netcore50/_._",
+        "lib/netstandard1.3/System.Threading.Thread.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.xml",
+        "ref/netstandard1.3/de/System.Threading.Thread.xml",
+        "ref/netstandard1.3/es/System.Threading.Thread.xml",
+        "ref/netstandard1.3/fr/System.Threading.Thread.xml",
+        "ref/netstandard1.3/it/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ja/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ko/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ru/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.Thread.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.thread.4.3.0.nupkg.sha512",
+        "system.threading.thread.nuspec"
+      ]
+    },
     "System.Windows.Extensions/4.7.0": {
       "sha512": "CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "type": "package",
@@ -8984,6 +9237,7 @@
       "App.Customer >= 1.0.0",
       "App.Librarian >= 1.0.0",
       "Hashids.net >= 1.5.0",
+      "Korzh.EasyQuery.AspNetCore >= 7.2.1",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.12",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 5.0.16",
       "Microsoft.AspNetCore.Identity.UI >= 5.0.16",
@@ -8996,19 +9250,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Peter\\.nuget\\packages\\": {}
+    "C:\\Users\\M\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\1- Project\\GradutionProject\\App.UI\\App.UI.csproj",
+      "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.UI\\App.UI.csproj",
       "projectName": "App.UI",
-      "projectPath": "D:\\1- Project\\GradutionProject\\App.UI\\App.UI.csproj",
-      "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
-      "outputPath": "D:\\1- Project\\GradutionProject\\App.UI\\obj\\",
+      "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.UI\\App.UI.csproj",
+      "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
+      "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.UI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9022,20 +9276,20 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\1- Project\\GradutionProject\\App.Admin\\App.Admin.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\App.Admin\\App.Admin.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj"
             },
-            "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\App.Core\\App.Core.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj"
             },
-            "D:\\1- Project\\GradutionProject\\App.Customer\\App.Customer.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\App.Customer\\App.Customer.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj"
             },
-            "D:\\1- Project\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\App.Librarian\\App.Librarian.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj"
             },
-            "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
-              "projectPath": "D:\\1- Project\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
+            "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
+              "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
             }
           }
         }
@@ -9053,6 +9307,10 @@
           "Hashids.net": {
             "target": "Package",
             "version": "[1.5.0, )"
+          },
+          "Korzh.EasyQuery.AspNetCore": {
+            "target": "Package",
+            "version": "[7.2.1, )"
           },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
@@ -9107,7 +9365,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
