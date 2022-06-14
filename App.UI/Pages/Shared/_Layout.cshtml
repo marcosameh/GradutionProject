@@ -16,7 +16,8 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <!-- logo icon  -->
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/CustomerCssFiles/chome.css">
     <!-- <link rel="stylesheet" href="css/bootstrap.css">
@@ -54,12 +55,14 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                        <a href="/my/wishlist" class="fas fa-heart"></a>
+            <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
 
-                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+                <a href="/my/wishlist" class="fas fa-heart"></a>
 
-                    </form>
+                <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+
+            </form>
                 }
                 else
                 {
@@ -76,6 +79,7 @@
                 <ul>
                     <li><a href="/">Bookstores</a></li>
                     <li><a href="/bookstoexchange">Books To Exchange</a></li>
+                    <li><a href="/my/recommended-books">Recommended-Books </a></li>
 
 
                 </ul>

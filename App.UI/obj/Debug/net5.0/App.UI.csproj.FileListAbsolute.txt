@@ -704,3 +704,10 @@ D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\EasyData.Core.dll
 D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.dll
 D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.Linq.dll
 D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.AspNetCore.dll
+D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\EasyData.Core.dll
+D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.dll
+D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.AspNetCore.dll
+D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\Korzh.EasyQuery.Linq.dll
+D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\recommened-books.cshtml.g.cs
+D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\uploadbook.cshtml.g.cs
+D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\uploaded-books.cshtml.g.cs

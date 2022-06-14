@@ -26,15 +26,13 @@ namespace App.Customer.RecommendedSystem
         private readonly UserManager<ApplicationUser> userManager;
         private SharedtenantBaseRebo<ExchangBookCategory> bookCategoryRepo;
         private SharedtenantBaseRebo<CustomerLoveCategory> customerLoveCategoryRepo;
-        private SharedtenantBaseRebo<ExchangeBookCategoryList> CategoryListRepo;
-        private SharedtenantBaseRebo<CustomerCategoryBookRate> CustomerCategoryBookRateRepo;
+
 
         public RegisterPage2Manger(SharedtenantContext context, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             bookCategoryRepo = new SharedtenantBaseRebo<ExchangBookCategory>(context);
             customerLoveCategoryRepo = new SharedtenantBaseRebo<CustomerLoveCategory>(context);
-            CategoryListRepo = new SharedtenantBaseRebo<ExchangeBookCategoryList>(context);
-            CustomerCategoryBookRateRepo = new SharedtenantBaseRebo<CustomerCategoryBookRate>(context);
+
 
             this.mapper = mapper;
             this.userManager = userManager;
@@ -92,21 +90,20 @@ namespace App.Customer.RecommendedSystem
                         CategoryList.FavouriteCategoryList[i].LoveRate = 1;
                     int LoveRate = CategoryList.FavouriteCategoryList[i].LoveRate;
                     customerLoveCategoryRepo.Add(new CustomerLoveCategory { CutomerId= Customerid ,CategoryId= CategoryId ,LoveRate= LoveRate });
-                    DeployCustomer_Category__Book_Rate(CategoryId, Customerid, LoveRate);
                 }
                 CategoryList.FavouriteCategoryList.Clear();
             }
 
         }
-        // this function is responsble for deploying Customer_Category__Book_Rate table in the database 
-        private void DeployCustomer_Category__Book_Rate(int CategryID, String customerID,int LoveRate)
-        {
-            var BookIDs = CategoryListRepo.GetMany(ID => ID.CategroyId == CategryID).Select(item => item.BookId).ToList();
-            foreach (var bookid in BookIDs)
-            {
-                CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = bookid, CustomerId = customerID, CategoryId = CategryID, LoveRate = LoveRate * 4 });
-            }
-        }
+        //// this function is responsble for deploying Customer_Category__Book_Rate table in the database 
+        //private void DeployCustomer_Category__Book_Rate(int CategryID, string customerID, int LoveRate)
+        //{
+        //    var BookIDs = CategoryListRepo.GetMany(ID => ID.CategroyId == CategryID).Select(item => item.BookId).ToList();
+        //    foreach (var bookid in BookIDs)
+        //    {
+        //        CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = bookid, CustomerId = customerID, CategoryId = CategryID, LoveRate = LoveRate * 4 });
+        //    }
+        //}
 
         public string ReturnCategoryList()
         {

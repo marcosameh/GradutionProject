@@ -17,11 +17,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/CustomerCssFiles/bootstrap.min (1).css">
+    <link href="/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="/css/CustomerCssFiles/bootstrap.min (1).css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
-
+    <!-- logo icon  -->
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
     <!-- custom jquery  -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -61,6 +70,7 @@
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
                     <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
                         <a href="/my/wishlist" class="fas fa-heart"></a>
                         <a href="/@Global.UrlName/cart" class="fas fa-shopping-cart cart">  <span class="count"> 10 </span> </a>
                         <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
@@ -80,17 +90,16 @@
                 {
                     <ul>
                         <li><a href="/@Global.UrlName/index">home</a></li>
-                        <li><a href="#featured">featured</a></li>
-                        <li><a href="#arrivals">arrivals</a></li>
+                        <li><a href="/my/recommended-books">Recommended-Books </a></li>
                         <li>
                             <a href="/@Global.UrlName/books">books</a>
-                           @* <ul>
-                                <li> <a href="#1">Download books</a></li>
-                                <li> <a href="#2">upload books</a></li>
-                                <li> <a href="#3">writen books</a></li>
-                                <li> <a href="#4">paper books</a></li>
-                                <li> <a href="#5"> books</a></li>
-                            </ul>*@
+                            @* <ul>
+                                    <li> <a href="#1">Download books</a></li>
+                                    <li> <a href="#2">upload books</a></li>
+                                    <li> <a href="#3">writen books</a></li>
+                                    <li> <a href="#4">paper books</a></li>
+                                    <li> <a href="#5"> books</a></li>
+                                </ul>*@
                         </li>
                         <li><a href="/@Global.UrlName/section">sections</a></li>
                         <li><a href="/@Global.UrlName/authors">authors</a></li>
@@ -101,11 +110,10 @@
                 {
                     <ul>
                         <li><a href="/index">home</a></li>
-                        <li><a href="/index">featured</a></li>
-                        <li><a href="/index">arrivals</a></li>
+                        <li><a href="/index">Recommended-Books</a></li>
                         <li>
                             <a href="/index">books</a>
-                            
+
                         </li>
                         <li><a href="/index">sections</a></li>
                         <li><a href="/index">authors</a></li>
@@ -198,6 +206,8 @@
     <!-- custom js file link  -->
 
     <script src="~/js/CustomerJsFiles/shome.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
