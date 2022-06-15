@@ -3,9 +3,9 @@
 @model AuthorsVM
 <div class="col-lg-3 col-md-6">
     <a href="/@Global.UrlName/author-details/@Model.Id">
-        <div class="card">
+        <div class="card" style="max-height:330px !important;overflow:hidden !important ">
 
-            <div class="card-body">
+            <div class="card-body" >
                 <img src="@Model.PhotoPath" alt="" class="img-fluid rounded-circle w-50 mb-3">
                 <h3>@Model.Name</h3>
                 <h5>Writer</h5>

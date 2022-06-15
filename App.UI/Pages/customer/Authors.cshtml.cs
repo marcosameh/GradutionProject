@@ -22,6 +22,9 @@ namespace App.UI.Pages.customer
         private readonly AuthorManager athorManager;
         public List<AuthorsVM> Authors;
         public PagedList<AuthorsVM> PagingAuthors { get; set; }
+
+        [FromQuery(Name = "page")]
+        public int PageNumber { get; set; } = 1;
         public AuthorsModel(AuthorManager athorManager)
         {
             this.athorManager = athorManager;
@@ -29,13 +32,19 @@ namespace App.UI.Pages.customer
         }
 
 
-        public void OnGet([FromQuery]int Page=1)
+        public void OnGet()
         {
 
            
             Authors = athorManager.GetAuthors();
-            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), Page, 12);
+            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), PageNumber, 12);
 
+
+        }
+        public void OnPost(string SearchValue)
+        {
+            Authors = athorManager.GetMatchedAuthors(SearchValue);
+            PagingAuthors = PagedList<AuthorsVM>.Create(Authors.AsQueryable(), PageNumber, 12);
 
         }
     }

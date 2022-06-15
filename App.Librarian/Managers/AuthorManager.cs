@@ -3,6 +3,7 @@ using App.Core.Models;
 using App.Core.Repositories;
 using App.Librarian.ViewModels;
 using AutoMapper;
+using Korzh.EasyQuery.Linq;
 using LazZiya.ImageResize;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace App.Librarian.Managers
 
     public class AuthorManager
     {
+        private readonly KitabiContext context;
         private readonly IMapper mapper;
         BaseRepo<Authors> AuthorRepo;
         BaseRepo<Book> AuthorBooksRepo;
@@ -24,6 +26,7 @@ namespace App.Librarian.Managers
         {
             AuthorRepo = new BaseRepo<Authors>(context);
             AuthorBooksRepo = new BaseRepo<Book>(context);
+            this.context = context;
             this.mapper = mapper;
         }
         public List<AuthorsVM> GetAuthors()
@@ -32,7 +35,12 @@ namespace App.Librarian.Managers
            return mapper.Map<List<AuthorsVM>>(Authors);
             
         }
-
+        public List<AuthorsVM> GetMatchedAuthors(string SearchValue)
+        {
+            var Authors = context.Authors.FullTextSearchQuery(SearchValue);
+            return mapper.Map<List<AuthorsVM>>(Authors);
+           
+        }
         public int GetAuthorsCount()
         {
             var Authors = AuthorRepo.GetAll().Count();

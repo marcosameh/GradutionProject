@@ -33,7 +33,10 @@ namespace App.UI.Pages.Customer
             NewArrivals = bookManger.GetNewArrivalls();
 
         }
-  
+        public void OnPost(string SearchValue)
+        {
+
+        }
 
 
     }
