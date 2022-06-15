@@ -9,7 +9,9 @@
 <section id="team">
     <div class="container my-3 py-5 text-center">
         <div class="row">
-            @foreach (var Book in Model.PagingBooks)
+            @if (Model.PagingBooks.Any())
+            {
+                 @foreach (var Book in Model.PagingBooks)
             {
                 <div class="col-md-2 col-sm-4">
                     <div class=" card img-thumbnail">
@@ -28,9 +30,14 @@
                             </div>
                         </a>
                     </div>
-                </div>
-              
+                    </div>
+
             }
+                }else
+                {
+                    <h3>No Related Books</h3>
+                }
+           
         </div>
 
     </div>

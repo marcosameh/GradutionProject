@@ -36,7 +36,7 @@ namespace App.Librarian.Managers
         }
         public List<BookVM> GetMatchedBooks(string SearchValue)
         {
-            var book = context.Book.FullTextSearchQuery(SearchValue).Include(x=>x.Author);
+            var book = BookRepo.GetMany(x=>x.Name.Contains(SearchValue)||x.Description.Contains(SearchValue)||x.Author.Name.Contains(SearchValue), book => book.Author).OrderBy(x => x.Id).ToList();
 
             return mapper.Map<List<BookVM>>(book);
         }
