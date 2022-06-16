@@ -46,6 +46,7 @@ namespace App.UI.Pages.customer
             {
                 BookVM.AduioUrl = FileManager.UploadFile(BookVM.AudioFile, "/wwwroot/pdf/books/");
             }
+            BookVM.IsActive = false;
             bookManger.UploadBook(BookVM, CategoryIds);
             return Redirect("/my/uploaded-books");
         }

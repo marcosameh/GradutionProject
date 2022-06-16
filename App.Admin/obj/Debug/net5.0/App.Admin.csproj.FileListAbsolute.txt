@@ -34,3 +34,15 @@ D:\1- Project\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.csproj.CoreC
 D:\1- Project\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.dll
 D:\1- Project\GradutionProject\App.Admin\obj\Debug\net5.0\ref\App.Admin.dll
 D:\1- Project\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.pdb
+D:\Clients\GradutionProject\App.Admin\bin\Debug\net5.0\App.Admin.deps.json
+D:\Clients\GradutionProject\App.Admin\bin\Debug\net5.0\App.Admin.dll
+D:\Clients\GradutionProject\App.Admin\bin\Debug\net5.0\ref\App.Admin.dll
+D:\Clients\GradutionProject\App.Admin\bin\Debug\net5.0\App.Admin.pdb
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.csproj.AssemblyReference.cache
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.AssemblyInfoInputs.cache
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.AssemblyInfo.cs
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.csproj.CoreCompileInputs.cache
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.dll
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\ref\App.Admin.dll
+D:\Clients\GradutionProject\App.Admin\obj\Debug\net5.0\App.Admin.pdb

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj": {}
+    "D:\\Clients\\GradutionProject\\App.Customer\\App.Customer.csproj": {}
   },
   "projects": {
-    "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
+    "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
+        "projectUniqueName": "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj",
         "projectName": "App.Core",
-        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj",
-        "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
-        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\obj\\",
+        "projectPath": "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GradutionProject\\App.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
-                "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
+              "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
+                "projectPath": "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
               }
             }
           }
@@ -72,21 +72,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj": {
+    "D:\\Clients\\GradutionProject\\App.Customer\\App.Customer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj",
+        "projectUniqueName": "D:\\Clients\\GradutionProject\\App.Customer\\App.Customer.csproj",
         "projectName": "App.Customer",
-        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Customer\\App.Customer.csproj",
-        "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
-        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Customer\\obj\\",
+        "projectPath": "D:\\Clients\\GradutionProject\\App.Customer\\App.Customer.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GradutionProject\\App.Customer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -100,14 +100,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
-                "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj"
+              "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj": {
+                "projectPath": "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj"
               },
-              "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {
-                "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj"
+              "D:\\Clients\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {
+                "projectPath": "D:\\Clients\\GradutionProject\\App.Librarian\\App.Librarian.csproj"
               },
-              "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
-                "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj"
+              "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
+                "projectPath": "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj"
               }
             }
           }
@@ -146,21 +146,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj": {
+    "D:\\Clients\\GradutionProject\\App.Librarian\\App.Librarian.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj",
+        "projectUniqueName": "D:\\Clients\\GradutionProject\\App.Librarian\\App.Librarian.csproj",
         "projectName": "App.Librarian",
-        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\App.Librarian.csproj",
-        "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
-        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Librarian\\obj\\",
+        "projectPath": "D:\\Clients\\GradutionProject\\App.Librarian\\App.Librarian.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GradutionProject\\App.Librarian\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -174,8 +174,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj": {
-                "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Core\\App.Core.csproj"
+              "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj": {
+                "projectPath": "D:\\Clients\\GradutionProject\\App.Core\\App.Core.csproj"
               }
             }
           }
@@ -214,21 +214,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj": {
+    "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj",
+        "projectUniqueName": "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj",
         "projectName": "SharedTenant",
-        "projectPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\SharedTenant.csproj",
-        "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
-        "outputPath": "D:\\Clients\\GraduationProject\\Code\\Shared-Tenant\\obj\\",
+        "projectPath": "D:\\Clients\\GradutionProject\\Shared-Tenant\\SharedTenant.csproj",
+        "packagesPath": "C:\\Users\\dell\\.nuget\\packages\\",
+        "outputPath": "D:\\Clients\\GradutionProject\\Shared-Tenant\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -298,7 +298,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

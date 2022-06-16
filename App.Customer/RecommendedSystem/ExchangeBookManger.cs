@@ -83,7 +83,7 @@ namespace App.Customer.RecommendedSystem
         }
         public List<BooksForExchange> GetAllExchangeBook()
         {
-            return  BooksForExchangeRepo.GetAll().ToList();
+            return  BooksForExchangeRepo.GetMany(book => book.IsActive == true).ToList();
         }
 
     }

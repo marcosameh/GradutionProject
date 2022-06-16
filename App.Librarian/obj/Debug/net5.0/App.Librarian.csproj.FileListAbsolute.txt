@@ -49,3 +49,20 @@ D:\1- Project\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.cspr
 D:\1- Project\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.dll
 D:\1- Project\GradutionProject\App.Librarian\obj\Debug\net5.0\ref\App.Librarian.dll
 D:\1- Project\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.dll
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\ref\App.Librarian.dll
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\App.Librarian.deps.json
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\App.Librarian.dll
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\ref\App.Librarian.dll
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\App.Librarian.pdb
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\App.Core.dll
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\SharedTenant.dll
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\App.Core.pdb
+D:\Clients\GradutionProject\App.Librarian\bin\Debug\net5.0\SharedTenant.pdb
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.AssemblyReference.cache
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.AssemblyInfoInputs.cache
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.AssemblyInfo.cs
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.CoreCompileInputs.cache
+D:\Clients\GradutionProject\App.Librarian\obj\Debug\net5.0\App.Librarian.csproj.CopyComplete
