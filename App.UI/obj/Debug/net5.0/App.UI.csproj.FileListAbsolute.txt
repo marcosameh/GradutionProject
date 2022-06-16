@@ -721,3 +721,14 @@ D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\runtimes\win-x86\native\s
 D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\1- Project\GradutionProject\App.UI\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\1- Project\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\customer\books-for-exchange.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Clients\GraduationProject\Code\App.UI\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\books-for-exchange.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Add.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\delete.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Edit.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Iist.cshtml.g.cs

@@ -37,8 +37,8 @@
     <Folder Include="wwwroot\audio\books\" />
     <Folder Include="wwwroot\pdf\books\" />
     <Folder Include="wwwroot\Photos\author\" />
-    <Folder Include="wwwroot\Photos\Admin\" />
     <Folder Include="wwwroot\Photos\customer\" />
+    <Folder Include="wwwroot\Photos\Admin\" />
   </ItemGroup>
 
   <ItemGroup>
