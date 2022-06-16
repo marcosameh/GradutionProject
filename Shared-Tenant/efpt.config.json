@@ -44,9 +44,13 @@
       {
          "Name": "[dbo].[Wishlist]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UpdateInterest]",
+         "ObjectType": 1
       }
    ],
-   "UiHint": "MARCOSAMEH.SharedTenant",
+   "UiHint": "DESKTOP-MQNIHEC.SharedTenant",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

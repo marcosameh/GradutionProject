@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
@@ -19,7 +19,10 @@
     <!-- logo icon  -->
     <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/CustomerCssFiles/chome.css">
+    <link rel="stylesheet" href="/css/CustomerCssFiles/chome.css">
+    <!-- custom css file link  -->
+    <link href="/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="/css/CustomerCssFiles/bootstrap.min (1).css" rel="stylesheet" />
     <!-- <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min (1).css">
     <link rel="stylesheet" href="css/_bootswatch.scss">
@@ -29,6 +32,11 @@
 
 </head>
 <body>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+    </style>
 
 
     <!-- header section starts  -->
@@ -39,7 +47,7 @@
 
             <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
             <!-- <a href="#register" class="F1">Register</a>
-    <a href="#login" class="F1">Login</a> -->
+            <a href="#login" class="F1">Login</a> -->
             <form asp-page="/index" class="search-form" method="post">
                 <input type="text" name="SearchValue" placeholder="Search by BookStore Name  Or Address " id="search-box">
                 <button type="submit" class="search-button">
@@ -55,14 +63,14 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-            <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
 
-                <a href="/my/wishlist" class="fas fa-heart"></a>
+                        <a href="/my/wishlist" class="fas fa-heart"></a>
 
-                <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
 
-            </form>
+                    </form>
                 }
                 else
                 {
@@ -73,13 +81,22 @@
         </div>
 
         <div class="header-2">
-            <nav class="navbar">
+            <nav class="navbar" style="width:56%">
 
 
                 <ul>
-                    <li><a href="/">Bookstores</a></li>
-                    <li><a href="/bookstoexchange">Books To Exchange</a></li>
-                    <li><a href="/my/recommended-books">Recommended-Books </a></li>
+
+                    <li><a href="/exchange/books">Books To Exchange</a></li>
+                    <li><a href="/index">Bookstores</a></li>
+
+
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/my/recommended-books">Recommended-Books </a></li>
+                        <li><a href="/Account/Register/intersts/@UserManager.GetUserId(User)?handler=ResetIntersets">Update-my-intrests </a></li>
+
+                    }
 
 
                 </ul>
@@ -106,7 +123,7 @@
 
     </nav>
 
- 
+
     @RenderBody()
     <!-- footer section starts  -->
 

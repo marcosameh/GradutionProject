@@ -12,15 +12,23 @@ namespace App.UI.Pages.Account
 {
     public class RegisterPage2Model : PageModel
     {
-        private readonly RegisterPage2Manger manger;
+        private readonly RegisterFavouriteCategoryManger manger;
         public List<ExchangeBookCategoryVM> bookCategories;
-        public RegisterPage2Model(RegisterPage2Manger manger)
+
+        [BindProperty(SupportsGet =true)]
+        public string handler { get; set; }
+        public RegisterPage2Model(RegisterFavouriteCategoryManger manger)
         {
             this.manger = manger;
         }
-        public void OnGet()
+        public void OnGet(string id)
         {
             bookCategories = manger.GetAllBookCategories();
+            if(!string.IsNullOrEmpty(handler) && handler.Equals("ResetIntersets"))
+            {
+                manger.UpdateInterest(id);
+            }
+
         }
         public async Task<IActionResult> OnPost(string id)
         {
@@ -33,6 +41,10 @@ namespace App.UI.Pages.Account
             }
 
             await manger.AddCustomerLoveCategory(id);
+            if (!string.IsNullOrEmpty(handler) && handler.Equals("ResetIntersets"))
+            {
+                return Redirect("/index");
+            }
             return Redirect("/Account/Login");
         }
         public void OnGetSetCategoryList(int labelID)

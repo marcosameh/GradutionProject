@@ -12,6 +12,7 @@ namespace SharedTenant.Models
         public int? BookId { get; set; }
         public int? LoveRate { get; set; }
         public int TableId { get; set; }
+        public bool? Processed { get; set; }
 
         public virtual BooksForExchange Book { get; set; }
         public virtual ExchangBookCategory Category { get; set; }

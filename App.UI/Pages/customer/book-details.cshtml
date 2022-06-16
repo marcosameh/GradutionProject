@@ -267,6 +267,64 @@
 
 
 <!-- similar section ends -->
+<section class="Trend" id="Trend">
+
+    <h1 class="heading"> <span>Book from same category</span> </h1>
+
+    <div class="swiper Trend-slider">
+        @if (Model.BooksBasedOnCategory.Count != 0)
+        {
+            <div class="swiper-wrapper">
+
+                @foreach (var item in Model.BooksBasedOnCategory)
+                {
+
+                    <div class="swiper-slide box">
+                        <div class="icons">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id" class="fas fa-search"></a>
+                        </div>
+                        <div class="image">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id">
+                                <img src="/Photos/Books/@item.Book.Photo" alt="">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id">
+
+                                <h3>@item.Book.Name</h3>
+                            </a>
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+<div class="swiper-button-next"></div>
+
+
+<div class="swiper-button-prev"></div>
+
+
+        }
+        else { <center>
+    <h1 style="font-size: xxx-large; color: #114766">No Boos From This Category</h1>
+
+
+</center>}
+  </div>
+
+</section>
 
 
 <script src="/limonte-sweetalert2/sweetalert2.min.js"></script>

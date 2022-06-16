@@ -44,12 +44,14 @@ namespace App.Customer.RecommendedSystem
                 PdfUrl = BookVM.PdfUrl,
                 AduioUrl = BookVM.AduioUrl,
                 UrlName = BookVM.UrlName,
-                OwnerId=BookVM.OwnerId
+                OwnerId=BookVM.OwnerId,
+                NumberOfCopies=BookVM.NumberOfCopies
+                
 
             };
 
             BooksForExchangeRepo.Add(Book);
-            BookVM.ExchageBookId = GetBookId(BookVM.UrlName);
+            BookVM.ExchageBookId = GetBookId(BookVM.Photo);
             foreach (var item in Categories)
             {
                 var category = new ExchangeBookCategoryList { BookId = BookVM.ExchageBookId, CategroyId = item };
@@ -59,9 +61,9 @@ namespace App.Customer.RecommendedSystem
 
 
         }
-        public int GetBookId(string UrlName)
+        public int GetBookId(string photo)
          {
-             var book = BooksForExchangeRepo.GetOne(x => x.UrlName == UrlName);
+             var book = BooksForExchangeRepo.GetOne(x => x.Photo == photo);
              return book.ExchageBookId;
          }
         public List<ExchangBookCategory> GetAllCategories()
@@ -71,6 +73,17 @@ namespace App.Customer.RecommendedSystem
         public List<BooksForExchange> GetAllBooksByUser(string username)
         {
             return BooksForExchangeRepo.GetMany(book=>book.OwnerId.Equals(username)).ToList();
+        }
+
+        public List<ExchangeBookCategoryList> GetAllBookFromSameCategory(int Bookid)
+        {
+            int CategoryId = (int)CategoryListRepo.GetMany(book => book.BookId == Bookid).Select(category=>category.CategroyId).FirstOrDefault();
+            var result = CategoryListRepo.GetMany(book => book.CategroyId == CategoryId, book => book.Book).OrderByDescending(last=>last.Id).Take(10).ToList();
+            return result;
+        }
+        public List<BooksForExchange> GetAllExchangeBook()
+        {
+            return  BooksForExchangeRepo.GetAll().ToList();
         }
 
     }

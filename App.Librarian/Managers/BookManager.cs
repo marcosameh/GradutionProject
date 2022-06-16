@@ -140,6 +140,12 @@ namespace App.Librarian.Managers
 
 
         }
-
+        public List<BookCategoryList> GetAllBookFromSameCategory(int Bookid)
+        {
+            int CategoryId = CategoryListRepo.GetMany(book => book.BookId == Bookid).Select(C=>C.CategoryId).FirstOrDefault();
+            
+            var result = CategoryListRepo.GetMany(book => book.CategoryId == CategoryId, book => book.Book).OrderByDescending(last => last.BookId).Take(10).ToList();
+            return result;
+        }
     }
 }

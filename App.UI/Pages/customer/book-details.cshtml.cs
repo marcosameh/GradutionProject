@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using App.Core.Models;
 using App.Customer.CartManager;
 using App.Customer.RecommendedSystem;
 using App.Customer.WishlistManger;
@@ -28,6 +29,7 @@ namespace App.UI.Pages.customer
         public BookVM BookDetails;
         public List<BookVM> MostSellingBooks;
         public List<CustomerRecomendedBook> recomendedBooks;
+        public List<BookCategoryList> BooksBasedOnCategory;
         public book_detailsModel(BookManager bookManger,
             RecommenedBooksManger recommenedBooksManger,
             UserManager<ApplicationUser> userManger,
@@ -42,9 +44,10 @@ namespace App.UI.Pages.customer
         {
             BookDetails = bookManger.GetBookById(Id);
             MostSellingBooks = bookManger.GetMostSellingBook();
+            BooksBasedOnCategory = bookManger.GetAllBookFromSameCategory(Id);
             var userid = userManger.GetUserId(HttpContext.User);
             if (!string.IsNullOrEmpty(userid))
-            {  recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+            {  recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid,10);
                wishid = wishlistCRUD.FindWish(userid, Global.UrlName,Id);
             }
 

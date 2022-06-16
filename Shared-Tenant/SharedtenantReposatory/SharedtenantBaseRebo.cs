@@ -83,6 +83,20 @@ namespace SharedTenant.SharedtenantReposatory
 
 
         }
+        public void ExecProcidure(string ProcedureName,string parameter)
+        {
+            try
+            {
+                DbContext.Set<TEntity>().FromSqlRaw("EXECUTE "+ProcedureName+" {0}" ,parameter).ToList();
+
+
+            }
+            catch (Exception e)
+            {
+                var s = e.Message;
+                throw;
+            }
+        }
 
     }
 }

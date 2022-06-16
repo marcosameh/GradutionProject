@@ -20,7 +20,7 @@ namespace App.Customer.RecommendedSystem
     {
         public static List<CategoryListItems> FavouriteCategoryList =new List<CategoryListItems>();
     }
-    public class RegisterPage2Manger
+    public class RegisterFavouriteCategoryManger
     {
         private readonly IMapper mapper;
         private readonly UserManager<ApplicationUser> userManager;
@@ -28,7 +28,7 @@ namespace App.Customer.RecommendedSystem
         private SharedtenantBaseRebo<CustomerLoveCategory> customerLoveCategoryRepo;
 
 
-        public RegisterPage2Manger(SharedtenantContext context, IMapper mapper, UserManager<ApplicationUser> userManager)
+        public RegisterFavouriteCategoryManger(SharedtenantContext context, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             bookCategoryRepo = new SharedtenantBaseRebo<ExchangBookCategory>(context);
             customerLoveCategoryRepo = new SharedtenantBaseRebo<CustomerLoveCategory>(context);
@@ -115,6 +115,17 @@ namespace App.Customer.RecommendedSystem
                 result += category.CategoryName + " \\ ";
             }
             return result ;
+        }
+        public void UpdateInterest(string userid)
+        {
+            try
+            {
+            customerLoveCategoryRepo.ExecProcidure("UpdateInterest",userid);
+
+            }catch(Exception ex)
+            {
+
+            }
         }
     }
 

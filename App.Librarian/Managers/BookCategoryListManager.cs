@@ -23,10 +23,10 @@ namespace App.Librarian.Managers
             return context.BookCategoryList.Where(x => x.BookId == Id);
 
         }
+
       
 
-     
-      
+
 
     }
 }

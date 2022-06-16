@@ -27,34 +27,58 @@ namespace App.Customer.RecommendedSystem
 
         }
         // this function is responsble for deploying Customer_Category__Book_Rate table in the database 
-        private void DeployCustomer_Category__Book_Rate(string userid,int NumBooks)
+        private void DeployCustomer_Category__Book_Rate(string userid, int NumBooks)
         {
 
             // load customer favourite categories
             var FavoriteCategories = CustomerLoveCategoryRepo.GetMany(Customer => Customer.CutomerId.Equals(userid)).ToList();
-            foreach (var FavouriteCategory in FavoriteCategories)
-            {
-                // returns last book occurance from a spacific category that belongs to a spacific customer
-                var LastBookOccurance = CustomerCategoryBookRateRepo.GetMany(item => item.CustomerId.Equals(userid) && item.CategoryId == FavouriteCategory.CategoryId)
-                    .OrderByDescending(item=>item.BookId)
-                    .FirstOrDefault();
-                if(LastBookOccurance!=null)
-                {
-                // returns a list of books that has the same category as the customer likes
-                 var CategoryList = CategoryListRepo.GetMany(ID => ID.CategroyId == FavouriteCategory.CategoryId).ToList();
 
-                // skips alredy processed books and processes 5 new records from the new books 
-                // proccess 5 new books from the every category that the customer likes 
-                foreach (var CategoryItem in CategoryList.SkipWhile(CategoryItem => CategoryItem.BookId <= LastBookOccurance.BookId).Take(NumBooks)) { 
-                     if (CustomerCategoryBookRateRepo.GetOne(item=>item.CustomerId.Equals(userid) && item.BookId==CategoryItem.BookId)==null) {
-                            CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = CategoryItem.BookId, CustomerId = userid, CategoryId = FavouriteCategory.CategoryId, LoveRate = FavouriteCategory.LoveRate * 4 });
-                     }
+            // returns last book occurance from a spacific category that belongs to a spacific customer
+            var LastBookOccurance = CustomerCategoryBookRateRepo.GetMany(item => item.CustomerId.Equals(userid))
+                .OrderByDescending(item => item.BookId)
+                .FirstOrDefault();
+
+            if (LastBookOccurance != null)
+            {
+                // returns a list of books that newley added to the system
+                var NewBooksOccurance = CategoryListRepo.GetMany(b => b.BookId > LastBookOccurance.BookId).Take(NumBooks).ToList();
+                if (NewBooksOccurance.Count != 0) { 
+                    foreach (var book in NewBooksOccurance)
+
+                    {
+
+                        foreach (var FavouriteCategory in FavoriteCategories)
+                        {
+                            if (book.CategroyId == FavouriteCategory.CategoryId)
+                            {
+                                CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = book.BookId, CustomerId = userid, CategoryId = FavouriteCategory.CategoryId, LoveRate = FavouriteCategory.LoveRate * 4 });
+                                break;
+
+                            }
+                        }
+                    }
                 }
-                }
-               
             }
-          
-        }
+            else
+            {
+                var NewBooksOccurance = CategoryListRepo.GetAll().Take(NumBooks).ToList();
+
+                foreach (var book in NewBooksOccurance)
+
+                {
+
+                    foreach (var FavouriteCategory in FavoriteCategories)
+                    {
+                        if (book.CategroyId == FavouriteCategory.CategoryId)
+                        {
+                            CustomerCategoryBookRateRepo.Add(new CustomerCategoryBookRate { BookId = book.BookId, CustomerId = userid, CategoryId = FavouriteCategory.CategoryId, LoveRate = FavouriteCategory.LoveRate * 4 });
+                            break;
+
+                        }
+                    }
+                }
+            }
+        } 
         // this function is responsble for deploying CustomerRecommendedBook table in the database 
 
         private void DeployCustomerRecommendedBook(string userid,int NumBooks)
@@ -103,10 +127,11 @@ namespace App.Customer.RecommendedSystem
 
         public List<CustomerRecomendedBook> GetRecommenedBooks(string userid,int NumBooks=0)
         {
+            // Books Page
             if (NumBooks==0)
                 return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid, book => book.Book).OrderByDescending(rate => rate.LoveRate).ToList();
-
-            return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid ,book=>book.Book).OrderByDescending(rate=>rate.LoveRate).Take(10).ToList();
+            // Book Details Page
+            return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid ,book=>book.Book).OrderByDescending(rate=>rate.LoveRate).Take(NumBooks).ToList();
         }
         public bool CustomerRegisterFavouriteCategories(string userid)
         {

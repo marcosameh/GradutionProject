@@ -122,7 +122,7 @@ namespace App.UI.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, "Customer");
                     var userid = await _userManager.GetUserIdAsync(user);
-                    return Redirect("/Account/Register/recommended-categories/"+userid);
+                    return Redirect("/Account/Register/intersts/" + userid);
                     }
                     else if(Actor.Equals("librarian"))
                     {

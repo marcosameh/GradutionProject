@@ -15,7 +15,6 @@ namespace App.UI.Pages.customer
     public class recommened_booksModel : PageModel
     {
         private readonly UserManager<ApplicationUser> userManger;
-        private readonly RecommenedBooksManger booksManger;
         public List<CustomerRecomendedBook> recomendedBooks;
         public PagedList<CustomerRecomendedBook> PagingBooks { get; set; }
         [FromQuery(Name = "page")]
@@ -23,18 +22,22 @@ namespace App.UI.Pages.customer
 
         public RecommenedBooksManger recommenedBooksManger { get; set; }
         public recommened_booksModel(UserManager<ApplicationUser> userManger,
-        RecommenedBooksManger booksManger)
+        RecommenedBooksManger recommenedBooksManger)
         {
             this.userManger = userManger;
-            this.recommenedBooksManger = booksManger;
+            this.recommenedBooksManger = recommenedBooksManger;
         }
         public void OnGet()
         {  
-            var userid = userManger.GetUserName(HttpContext.User);
-                
+            var userid = userManger.GetUserId(HttpContext.User);
+                if(userid != null)
+            {
+                recommenedBooksManger.SetRecommenedBooks(userid);
+                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid, 0);
 
-                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
-                PagingBooks = PagedList<CustomerRecomendedBook>.Create(recomendedBooks.AsQueryable(), PageNumber, 12
+            }
+
+            PagingBooks = PagedList<CustomerRecomendedBook>.Create(recomendedBooks.AsQueryable(), PageNumber, 12
                     );
 
 
@@ -42,14 +45,7 @@ namespace App.UI.Pages.customer
            
 
         }
-        public void OnPost()
-        {
-            var userid = userManger.GetUserId(HttpContext.User);
-
-            recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
-            PagingBooks = PagedList<CustomerRecomendedBook>.Create(recomendedBooks.AsQueryable(), PageNumber, 12
-                );
-        }
+       
     }
 }
 

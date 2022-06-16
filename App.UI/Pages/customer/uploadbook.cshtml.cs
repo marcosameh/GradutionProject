@@ -19,7 +19,7 @@ namespace App.UI.Pages.customer
         [BindProperty]
         public List<int> CategoryIds { get; set; }
         public List<ExchangBookCategory> allCategories { get; set; }
-        [BindProperty]
+        [BindProperty(SupportsGet =true)]
         public BookForExchangeVM BookVM { get; set; }
 
         public uploadbookModel(ExchangeBookManger bookManger)

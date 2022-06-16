@@ -1,0 +1,39 @@
+﻿@page "/exchange/books"
+@model App.UI.Pages.customer.books_for_exchangeModel
+@{
+    ViewData["Title"] = "Exchange Books";
+}
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbook.css">
+<section id="team">
+    <div class="container my-3 py-5 text-center">
+        <div class="row">
+            @foreach (var Book in Model.PagingBooks)
+            {
+                <div class="col-md-2 col-sm-4">
+                    <div class=" card img-thumbnail">
+                        <a class="body" href="/exchange/book-details/@Book.ExchageBookId">
+
+                            <img src="/photos/books/@Book.Photo" alt="" class="img-fluid img w-100 mb-2">
+                            <h3> @Book.Name </h3>
+                            <h5>@Book.AuthorName</h5>
+
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+
+</section>
+
+<partial name="_Pager" model="@Model.PagingBooks.PagingData" />

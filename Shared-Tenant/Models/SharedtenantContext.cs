@@ -94,6 +94,10 @@ namespace SharedTenant.Models
                     .HasMaxLength(450)
                     .HasColumnName("CustomerID");
 
+                entity.Property(e => e.Processed)
+                    .HasColumnName("processed")
+                    .HasDefaultValueSql("((0))");
+
                 entity.HasOne(d => d.Book)
                     .WithMany(p => p.CustomerCategoryBookRate)
                     .HasForeignKey(d => d.BookId)
@@ -177,6 +181,7 @@ namespace SharedTenant.Models
                     .HasColumnName("CustomerID");
             });
 
+            OnModelCreatingGeneratedProcedures(modelBuilder);
             OnModelCreatingPartial(modelBuilder);
         }
 

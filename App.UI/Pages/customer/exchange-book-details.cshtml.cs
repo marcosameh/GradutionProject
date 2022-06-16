@@ -14,14 +14,18 @@ using SharedTenant.Models;
 
 namespace App.UI.Pages.customer
 {
-    [Authorize(Roles = "Customer")]
+
     public class exchange_book_detailsModel : PageModel
     {
         private readonly ExchangeBookManger bookManger;
         private readonly RecommenedBooksManger recommenedBooksManger;
         private readonly UserManager<ApplicationUser> userManger;
         public BookForExchangeVM BookDetails;
+        public string OwnerName { get; set; }
+        public string OwnerPhoneNum { get; set; }
         public List<CustomerRecomendedBook> recomendedBooks;
+
+        public List<ExchangeBookCategoryList> BooksBasedOnCategory;
         public WishlistCRUD WishlistCRUD { get; }
         public int wishid;
         public exchange_book_detailsModel(ExchangeBookManger bookManger,
@@ -40,10 +44,15 @@ namespace App.UI.Pages.customer
         public async Task OnGet(int id)
         {
             BookDetails = bookManger.GetBookByID(id);
+            var BookOwner = await userManger.FindByIdAsync(BookDetails.OwnerId);
+            OwnerName = BookOwner.Email;
+            OwnerPhoneNum = BookOwner.PhoneNumber;
+            BooksBasedOnCategory = bookManger.GetAllBookFromSameCategory(id);
+
             var userid = userManger.GetUserId(HttpContext.User);
             if (!string.IsNullOrEmpty(userid))
             {
-                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid);
+                recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid,10);
                 var user = await userManger.FindByIdAsync(BookDetails.OwnerId);
                 string BookStoree = await userManger.GetUserNameAsync(user);
 

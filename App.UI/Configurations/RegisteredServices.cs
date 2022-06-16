@@ -27,7 +27,7 @@ namespace App.UI.Configurations
             .AddScoped<BookCategoryManager>()
             .AddScoped<GetBook>()
             .AddScoped<SectionView>()
-            .AddScoped<RegisterPage2Manger>()
+            .AddScoped<RegisterFavouriteCategoryManger>()
             .AddScoped<RecommenedBooksManger>()
             .AddScoped<ExchangeBookManger>()
             .AddScoped<WishlistCRUD>()

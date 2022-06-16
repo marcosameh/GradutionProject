@@ -1,8 +1,9 @@
-﻿@page "/Account/Register/recommended-categories/{id}"
+﻿@page "/Account/Register/intersts/{id}"
 @using App.Customer.RecommendedSystem;
 @model App.UI.Pages.Account.RegisterPage2Model
 @{
     Layout = null;
+    ViewData["Title"] = "register itersts";
 }
 
 
@@ -21,6 +22,8 @@
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
     <link href="~/css/CustomerCssFiles/csignup.css" rel="stylesheet" />
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
+
     <title>register recommended categories</title>
 </head>
 <body>
@@ -142,14 +145,28 @@
 
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>One of us ?</h3>
+                    @if (string.IsNullOrEmpty(Model.handler))
+                    {
+                        <h3>One of us ?</h3>
 
-                    <p>
-                        If you are a member of our website, click on the sign in button.
-                    </p>
+                        <p>
+                            If you are a member of our website, click on the sign in button.
+                        </p>
 
 
-                    <a asp-page="/Account/Login" class="btn transparent" id="sign-up-btn">Sign in</a>
+                        <a asp-page="/Account/Login" class="btn transparent" id="sign-up-btn">Sign in</a>
+                    }
+                    else
+                    {
+                        <h3>New here ?</h3>
+                        <p>
+                            In the event that you are not a member yet on our website, you can join us now,
+                            click on sign up button and enter your data to enjoy our services.
+                        </p>
+
+                        <a href="/Account/Register/customer" class="btn transparent" id="sign-up-btn">Sign up</a>
+                    }
+
                 </div>
 
                 <img src="~/image/register.svg" class="image" alt="" />
