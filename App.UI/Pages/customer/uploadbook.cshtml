@@ -30,7 +30,7 @@
         Upload Book FORM
     </div>
     <div asp-validation-summary="All" style="color:red"></div>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="form">
             @{
                 var userid =  userManager.GetUserId(User);
