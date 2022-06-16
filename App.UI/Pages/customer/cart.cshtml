@@ -1,0 +1,125 @@
+﻿@page "{Id:int:min(1)?}"
+@using App.UI.Configurations
+@model App.UI.Pages.customer.cartModel
+@{
+    ViewBag.Title = "Cart Details";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+
+}
+<link href="~/css/CustomerCssFiles/ccart.css" rel="stylesheet" />
+<link href="/lib/magnific-popup.js/magnific-popup.min.css" rel="stylesheet" />
+<section id="cart-home" class="pt-5 mt-5 container">
+
+    <h2 class="font-weight-bold pt-5">Shopping Cart</h2>
+    <hr>
+
+</section>
+@if (Model.cart.CountListItems(Global.UrlName, Model.userid) != 0)
+{
+    <section id="cart-container" class="container my-5">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped" width="100%">
+
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Book Store</td>
+                        <td>Book Name</td>
+                        <td>Price</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.cart.CartList.Where(a => a.BookStore.Equals( Global.UrlName)))
+                    {
+                    <tr>
+
+                        <td><a href="/@Global.UrlName/cart/@item.ItemID"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><img src="@item.BookPhoto" alt=""></td>
+                        <td><h5>@item.BookStore</h5></td>
+                        <td><h5>@item.BookName</h5></td>
+                        <td><h5>$@item.BookPrice</h5></td>
+                    </tr>
+                    }
+
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+
+
+
+    <section id="cart-bottom" class="container">
+        <div class="row">
+
+
+            <div class="total col-lg-12 col-md-7 col-12">
+                <div>
+                    <h5>Cart total</h5>
+
+                    <div class="d-flex justify-content-between">
+                        <h6>Subtotal</h6>
+                        <p>$@Model.cart.GetTotalPrice(Global.UrlName,Model.userid).ToString("####")</p>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <h6>Delivery</h6>
+                        <p>$40</p>
+                    </div>
+
+                    <hr class="second-ht">
+
+                    <div class="d-flex justify-content-between">
+                        <h6>Total</h6>
+                        @{
+                            int priceAfterDelivery = (int)Model.cart.GetTotalPrice(Global.UrlName, Model.userid) + 40;
+                        }
+                        <p>$@priceAfterDelivery.ToString("####")</p>
+                    </div>
+                    <form method="post">
+                        <input type="hidden" value="@priceAfterDelivery" name="TotalPrice">
+                        <button type="submit" class="btnt ml-auto">Proceed to checkout</button>
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+}
+else
+{
+    <section id="cart-home" class="pt-5 mt-5 container">
+        <h1 class="font-weight-bold pt-5">The cart is empty</h1>
+    </section>
+}
+<input type="hidden" value="@Model.Iframe" id="hdnPaymentFrame" />
+
+@section Scripts{
+    <script src="/lib/magnific-popup.js/jquery.magnific-popup.min.js"></script>
+<script>
+        $(document).ready(function () {
+           var frameSrc = $("#hdnPaymentFrame").val();
+           if(frameSrc.length > 1){
+
+               $.magnificPopup.open({
+                  items: {
+                    src: frameSrc, 
+                    type: 'iframe'
+                  }
+                });
+
+               
+           };
+            });
+
+</script>
+        }

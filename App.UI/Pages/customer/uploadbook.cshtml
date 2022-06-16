@@ -1,0 +1,181 @@
+﻿@page "/upload/book"
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> userManager
+@model App.UI.Pages.customer.uploadbookModel
+@{
+    //Layout = null;
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+    ViewBag.Title = "upload a book";
+
+}
+
+
+
+<link href="/css/CustomerCssFiles/cuploadbook.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="title">
+        Upload Book FORM
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" style="color:red"></div>
+
+        <div class="form">
+            @{
+                var userid = userManager.GetUserId(User);
+            }
+            <input type="hidden" value="@userid" asp-for="BookVM.OwnerId" />
+            <div class="inputfield">
+                <label>Book Name</label>
+                <input type="text" asp-for="BookVM.Name" class="input">
+
+            </div>
+            <div class="inputfield">
+
+                <span class="text-danger" asp-validation-for="BookVM.Name"></span>
+            </div>
+            <div class="inputfield">
+                <label>Author Name</label>
+                <input type="text" asp-for="BookVM.AuthorName" class="input">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.AuthorName"></span>
+            </div>
+            <div class="inputfield">
+                <label>Copy Year</label>
+                <input type="text" asp-for="BookVM.CopyYear" class="input">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.CopyYear"></span>
+            </div>
+
+            <div class="inputfield">
+                <label>Book Url</label>
+                <input type="text" asp-for="BookVM.UrlName" class="input">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.UrlName"></span>
+            </div>
+
+
+            <div class="inputfield">
+                <label>Number Of Copies</label>
+                <input type="text" asp-for="BookVM.NumberOfCopies" class="input">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.NumberOfCopies"></span>
+            </div>
+
+            <div class="inputfield">
+                <label>Book Description</label>
+                <input type="text" asp-for="BookVM.Description" class="input">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.Description"></span>
+            </div>
+
+
+            <div class="inputfield">
+                <label asp-for="BookVM.PhotoFile">Book Photo</label>
+                <input type="file" class="form-control" asp-for="BookVM.PhotoFile" id="uploadedfile">
+                <br />
+            </div>
+
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.PhotoFile"></span>
+            </div>
+
+            <div class="inputfield">
+                <label>Book pdf</label>
+                <input type="file" class="form-control" asp-for="BookVM.PdfFile" id="uploadedfile">
+                <br />
+            </div>
+
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.PdfFile"></span>
+            </div>
+
+            <div class="inputfield">
+                <label>Book audio</label>
+                <input type="file" class="form-control" asp-for="BookVM.AudioFile" id="uploadedfile">
+                <br />
+            </div>
+            <div class="inputfield">
+                <span class="text-danger" asp-validation-for="BookVM.AudioFile"></span>
+            </div>
+
+
+            <div class="inputfield">
+                <label>Book Category list</label>
+
+                <select class="custom_select form-control selectpicker" multiple data-live-search="true" asp-for="CategoryIds">
+                    @foreach (var category in Model.allCategories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+
+                    }
+
+                </select>
+            </div>
+
+
+
+
+
+
+
+            <div class="inputfield">
+                <input type="submit" value="Upload" class="btn">
+            </div>
+        </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- footer section ends -->
+<!-- custom js file link  -->
+<script src="/js/CustomerJsFiles/shome.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

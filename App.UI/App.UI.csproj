@@ -6,13 +6,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\Books\Delete.cshtml~RF2623a9dd.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hashids.net" Version="1.5.0" />
+    <PackageReference Include="Korzh.EasyQuery.AspNetCore" Version="7.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.17" />
+    <PackageReference Include="Xdot.Paymob.CashIn.DependencyInjection" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,10 +30,27 @@
     <ProjectReference Include="..\App.Core\App.Core.csproj" />
     <ProjectReference Include="..\App.Customer\App.Customer.csproj" />
     <ProjectReference Include="..\App.Librarian\App.Librarian.csproj" />
+    <ProjectReference Include="..\Shared-Tenant\SharedTenant.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\audio\books\" />
+    <Folder Include="wwwroot\pdf\books\" />
     <Folder Include="wwwroot\Photos\author\" />
+    <Folder Include="wwwroot\Photos\Admin\" />
+    <Folder Include="wwwroot\Photos\customer\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\pages\about.scss" />
+    <None Include="wwwroot\css\pages\boat-details.scss" />
+    <None Include="wwwroot\css\pages\contact.scss" />
+    <None Include="wwwroot\css\pages\home.scss" />
+    <None Include="wwwroot\css\pages\media.scss" />
+    <None Include="wwwroot\css\pages\print_style.scss" />
+    <None Include="wwwroot\css\pages\receipt.scss" />
+    <None Include="wwwroot\image\check.svg" />
+    <None Include="wwwroot\image\svg\master.svg" />
   </ItemGroup>
 
 </Project>

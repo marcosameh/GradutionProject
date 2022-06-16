@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,10 +17,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link href="~/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="/css/CustomerCssFiles/bootstrap.min (1).css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--fontawesome link -->
     <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+    <!-- logo icon  -->
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
+    <!-- custom jquery  -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -23,6 +40,7 @@
         a:link {
             text-decoration: none;
         }
+
     </style>
 
 
@@ -30,134 +48,167 @@
 
         <div class="header-1">
 
-            <a asp-page="/customer/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+            <a href="/index" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
 
-            <form action="" class="search-form">
-                <input type="search" name="SearchFor" placeholder="search here..." id="search-box">
+            <form method="post" class="search-form">
+                <input type="text" name="SearchValue" placeholder="search here..." id="search-box">
                 <button type="submit" class="search-button">
                     <span class="button-icon"><i class="fas fa-search"></i></span>
                 </button>
 
                 <!-- <label for="search-box" class="fas fa-search"></label> -->
             </form>
+            @if (!ViewData["Title"].Equals("librarian register"))
+            {<a href="/Account/Register/librarian" class="register-library">Register your own library </a>
+            }
 
             <div class="icons">
-                <div id="search-btn" class="fas fa-search"></div>
-                <a href="#" class="fas fa-heart"></a>
-                <a href="#" class="fas fa-shopping-cart"></a>
-                <a asp-page="/Account/Login" class="fas fa-user"></a>
-                <!-- <div id="login-btn" class="fas fa-user"></div> -->
-                <div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>
 
+                <div id="search-btn" class="fas fa-search"></div>
+
+                <!-- <div id="login-btn" class="fas fa-user"></div> -->
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
+                        <a href="/my/wishlist" class="fas fa-heart"></a>
+                        <a href="/@Global.UrlName/cart" class="fas fa-shopping-cart cart">  <span class="count"> 10 </span> </a>
+                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+
+                    </form>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" class="fas fa-user"></a>
+                }
             </div>
         </div>
 
         <div class="header-2">
-            <nav class="navbar">
-
+            <nav class="navbar" style="width:62%">
+                @if (!string.IsNullOrEmpty(Global.UrlName))
+                {
                 <ul>
-                    <li><a asp-page="/customer/index">home</a></li>
-                    <li><a href="#featured">featured</a></li>
-                    <li><a href="#arrivals">arrivals</a></li>
-                    <li>
-                        <a href="book.html">books</a>
-                        <ul>
-                            <li> <a href="#1">Download books</a></li>
-                            <li> <a href="#2">upload books</a></li>
-                            <li> <a href="#3">writen books</a></li>
-                            <li> <a href="#4">paper books</a></li>
-                            <li> <a href="#5"> books</a></li>
-                        </ul>
-                    </li>
-                    <li><a asp-page="/customer/section">sections</a></li>
-                    <li><a asp-page="/customer/authors">authors</a></li>
+                    <li><a href="/@Global.UrlName/index">home</a></li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/my/recommended-books">Recommended-Books </a></li>
+                        <li><a href="/Account/Register/intersts/@UserManager.GetUserId(User)?handler=ResetIntersets">Update-my-intrests </a></li>
+                    }
+                    <li><a href="/@Global.UrlName/books">books</a></li>                                           
+                    <li><a href="/@Global.UrlName/section">sections</a></li>
+                    <li><a href="/@Global.UrlName/authors">authors</a></li>
 
                 </ul>
+                }
+                else
+                {
+            <ul>
+                <li><a href="/index">home</a></li>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <li><a href="/index">Recommended-Books</a></li>
+                    <li><a href="/index">Update-my-intrests </a></li>
+
+                }
+                <li>
+                    <a href="/index">books</a>
+
+                </li>
+                <li><a href="/index">sections</a></li>
+                <li><a href="/index">authors</a></li>
+
+            </ul>
+                }
             </nav>
 
         </div>
 
     </header>
-        <div>
-            @RenderBody()
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+    <!-- header section ends -->
+
+
+
+
+
+
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our locations</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                <a asp-page="/sections"> <i class="fas fa-arrow-right"></i> sections </a>
+                <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
+                <img src="~/assets/images/worldmap.png" class="map" alt="">
+            </div>
+
         </div>
 
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
 
+        <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
 
+    </section>
 
-        <!-- header section ends -->
-
-
-
-
-
-
-
-        <section class="footer">
-
-            <div class="box-container">
-
-                <div class="box">
-                    <h3>our locations</h3>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
-                    <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
-                </div>
-
-                <div class="box">
-                    <h3>quick links</h3>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> home </a>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> featured </a>
-                    <a asp-page="/customer/index"> <i class="fas fa-arrow-right"></i> arrivals </a>
-                    <a asp-page="/sections"> <i class="fas fa-arrow-right"></i> sections </a>
-                    <a asp-page="/customer/authors"> <i class="fas fa-arrow-right"></i> authors </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
-                </div>
-
-                <div class="box">
-                    <h3>extra links</h3>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> account info </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> ordered items </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> privacy policy </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> payment method </a>
-                    <a href="#"> <i class="fas fa-arrow-right"></i> our serivces </a>
-                </div>
-
-                <div class="box">
-                    <h3>contact info</h3>
-                    <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
-                    <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
-                    <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
-                    <img src="~/assets/images/worldmap.png" class="map" alt="">
-                </div>
-
-            </div>
-
-            <div class="share">
-                <a href="#" class="fab fa-facebook-f"></a>
-                <a href="#" class="fab fa-twitter"></a>
-                <a href="#" class="fab fa-instagram"></a>
-                <a href="#" class="fab fa-linkedin"></a>
-                <a href="#" class="fab fa-pinterest"></a>
-            </div>
-
-            <div class="credit"> created by <span>KKMPAY Team</span> | all rights reserved! </div>
-
-        </section>
-
-        <!-- footer section ends -->
-        <!-- loader  -->
+    <!-- footer section ends -->
+    <!-- loader  -->
 
 
 
 
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-        <!-- custom js file link  -->
+    <!-- custom js file link  -->
 
-        <script src="~/js/CustomerJsFiles/shome.js"></script>
+    <script src="~/js/CustomerJsFiles/shome.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

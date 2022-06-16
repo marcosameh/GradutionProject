@@ -1,5 +1,4 @@
-using App.Core.Domain;
-using App.Core.Models;
+using App.Customer.CustomerAutoMapper;
 using App.Librarian.AutoMapper;
 using App.UI.Configurations;
 using Microsoft.AspNetCore.Builder;
@@ -10,7 +9,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Reflection;
+using SharedTenant.Domain;
+using SharedTenant.Models;
+using System.Security.Claims;
+using X.Paymob.CashIn;
 
 namespace App.UI
 {
@@ -26,31 +28,50 @@ namespace App.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<KitabiContext>(options =>
+
+
+            services.AddDbContext<SharedtenantContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AppCore")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
+
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-             
+
                 options.Password.RequireUppercase = false;
                 options.Password.RequireNonAlphanumeric = false;
-                
-            })
+                options.ClaimsIdentity.UserIdClaimType = "UserID";
+            }).AddEntityFrameworkStores<SharedtenantContext>().AddDefaultUI().AddDefaultTokenProviders();
+            
+          
 
-                .AddEntityFrameworkStores<KitabiContext>().AddDefaultUI().AddDefaultTokenProviders();
+
+            services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+            services.AddAutoMapper(x => x.AddProfile(new CustomerDomainProfile()));
+
+
 
             services.AddRegisteredServices();
-            services.AddAutoMapper(x => x.AddProfile(new DominProfile()));
+            services.AddPaymobCashIn(config =>
+            {
+                config.ApiKey = Configuration.GetValue<string>("PaymobConfiguration:ApiKey");
+                config.Hmac = Configuration.GetValue<string>("PaymobConfiguration:Hmac");
+
+                //config.IframeBaseUrl
+            });
+            services.AddCustomizedRoutes();
+
+
+
 
             //services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/Login");
-            services.AddRazorPages();
+
 
             //URL in lower case
             services.Configure<RouteOptions>(option =>
             {
-                option.LowercaseUrls=true;
+                option.LowercaseUrls = true;
             });
         }
 
@@ -70,17 +91,17 @@ namespace App.UI
             }
 
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+
         }
     }
 }

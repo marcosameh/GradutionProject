@@ -1,0 +1,76 @@
+﻿@page "/my/wishlist/{Id:int:min(1)?}"
+@model App.UI.Pages.customer.wishlistModel
+@{
+    ViewBag.Title = "MY WISHLIST";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+}
+<link href="~/css/CustomerCssFiles/ccart.css" rel="stylesheet" />
+<link href="/lib/magnific-popup.js/magnific-popup.min.css" rel="stylesheet" />
+<section id="cart-home" class="pt-5 mt-5 container">
+
+    <h2 class="font-weight-bold pt-5">My Wishlist</h2>
+    <hr>
+
+</section>
+@if (Model.MyWishlist.Count   != 0 )
+{
+    <section id="cart-container" class="container my-5">
+
+        <div class="table-responsive">
+
+            <table class="table table-striped" width="100%">
+
+                <thead>
+                    <tr>
+                        <td>Remove</td>
+                        <td>Image</td>
+                        <td>Owner</td>
+                        <td>Book Name</td>
+                        <td>Book Details</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MyWishlist)
+                    {
+                    <tr>
+
+                        <td><a href="/my/wishlist/@item.WishId"><i class="fas fa-trash-alt"></i></a></td>
+                        <td><img src="@item.BookPhoto" alt=""></td>
+                        <td><h5>@item.OwnerName</h5></td>
+                        <td><h5>@item.BookName</h5></td>
+                        @if (item.ForExchange)
+                        {
+                            <td>
+                                <a href="/exchange/book-details/@item.BookId" class="btnt" style="margin-top:5rem">DETAILS</a>
+
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <a href="/@item.BookStore/book-details/@item.BookId" class="btnt" style="margin-top:5rem">DETAILS</a>
+
+                            </td>
+}
+
+                    </tr>
+                    }
+
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </section>
+
+
+}
+else
+{
+    <section id="cart-home" class="pt-5 mt-5 container">
+        <h1 class="font-weight-bold pt-5">Your wishlist is empty</h1>
+    </section>
+}

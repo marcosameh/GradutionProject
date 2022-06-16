@@ -1,0 +1,47 @@
+﻿@page
+@using App.UI.Configurations
+@model App.UI.Pages.customer.booksModel
+@{
+    ViewBag.Title = "Books page";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+}
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbook.css">
+<section id="team">
+    <div class="container my-3 py-5 text-center">
+        <div class="row">
+            @if (Model.PagingBooks.Any())
+            {
+                 @foreach (var Book in Model.PagingBooks)
+            {
+                <div class="col-md-2 col-sm-4">
+                    <div class=" card img-thumbnail">
+                        <a class="body" href="/@Global.UrlName/book-details/@Book.Id">
+
+                            <img src="@Book.PhotoPath" alt="" class="img-fluid img w-100 mb-2">
+                            <h3> @Book.Name </h3>
+                            <h5>@Book.AuthorName</h5>
+
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </a>
+                    </div>
+                    </div>
+
+            }
+                }else
+                {
+                    <h3>No Related Books</h3>
+                }
+           
+        </div>
+
+    </div>
+
+</section>
+
+<partial name="_Pager" model="@Model.PagingBooks.PagingData" />

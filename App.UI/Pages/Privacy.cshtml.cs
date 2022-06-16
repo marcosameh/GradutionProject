@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using App.UI.Configurations;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -19,6 +20,10 @@ namespace App.UI.Pages
 
         public void OnGet()
         {
+        }
+        public void OnPost(string UrlName)
+        {
+            Global.UrlName = UrlName;
         }
     }
 }

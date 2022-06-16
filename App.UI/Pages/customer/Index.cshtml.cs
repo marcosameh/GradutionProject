@@ -1,41 +1,43 @@
-using System.Linq;
-using System.Threading.Tasks;
-using App.Core.Domain;
-using App.Core.Models;
-using App.Customer.ViewManger;
-using Microsoft.AspNetCore.Authorization;
+using App.Customer.CartManager;
+using App.Librarian.Managers;
+using App.Librarian.ViewModels;
+using App.UI.Configurations;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SharedTenant.Domain;
+using System;
+using System.Collections.Generic;
 
 namespace App.UI.Pages.Customer
 {
     //[Authorize(Roles = "Customer")]
     public class IndexModel : PageModel
     {
+        private readonly BookManager bookManger;
+        public List<BookVM> FeatureBooks;
+        public List<BookVM> NewArrivals;
+        public BookVM BookDetails;
 
-        private readonly UserManager<ApplicationUser> userManager;
-       
- 
+        public IndexModel(BookManager bookManger
 
+            )
 
-        [BindProperty(SupportsGet =true)]
-        public string SearchFor { get; set; }
-        public LibrarianView Librarian { get; }
-        public OffersView Offers { get; }
-
-        public IndexModel( LibrarianView librarian,OffersView offers)
         {
-            Librarian = librarian;
-            Offers = offers;
-
+            this.bookManger = bookManger;
         }
 
 
         public void OnGet()
         {
-           
+            FeatureBooks = bookManger.GetfeaturedBooks();
+            NewArrivals = bookManger.GetNewArrivalls();
+
         }
-      
+        public void OnPost(string SearchValue)
+        {
+
+        }
+
+
     }
 }

@@ -1,54 +1,192 @@
-﻿<!DOCTYPE html>
+﻿@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - App.UI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- logo icon  -->
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/css/CustomerCssFiles/chome.css">
+    <!-- custom css file link  -->
+    <link href="/css/CustomerCssFiles/bootstrap.css" rel="stylesheet" />
+    <link href="/css/CustomerCssFiles/bootstrap.min (1).css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min (1).css">
+    <link rel="stylesheet" href="css/_bootswatch.scss">
+    <link rel="stylesheet" href="css/_variables.scss"> -->
+    <!--fontawesome link -->
+    <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">App.UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <style>
+        a:link {
+            text-decoration: none;
+        }
+    </style>
+
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <div class="header-1">
+
+            <a href="#" class="logo"> <i class="fas fa-book"></i> Ktabi </a>
+            <!-- <a href="#register" class="F1">Register</a>
+            <a href="#login" class="F1">Login</a> -->
+            <form asp-page="/index" class="search-form" method="post">
+                <input type="text" name="SearchValue" placeholder="Search by BookStore Name  Or Address " id="search-box">
+                <button type="submit" class="search-button">
+                    <span class="button-icon"><i class="fas fa-search"></i></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Index">Customer-Home</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
+
+                <!-- <label for="search-box" class="fas fa-search"></label> -->
+            </form>
+            <a href="/Account/Register/librarian" class="register-library">Register your own library </a>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                        <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
+
+                        <a href="/my/wishlist" class="fas fa-heart"></a>
+
+                        <button type="submit" style="background-color:white"><div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>   </button>
+
+                    </form>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" class="fas fa-user"></a>
+                }
+
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - App.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
-    </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <div class="header-2">
+            <nav class="navbar" style="width:56%">
 
-    @await RenderSectionAsync("Scripts", required: false)
+
+                <ul>
+
+                    <li><a href="/exchange/books">Books To Exchange</a></li>
+                    <li><a href="/index">Bookstores</a></li>
+
+
+
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <li><a href="/my/recommended-books">Recommended-Books </a></li>
+                        <li><a href="/Account/Register/intersts/@UserManager.GetUserId(User)?handler=ResetIntersets">Update-my-intrests </a></li>
+
+                    }
+
+
+                </ul>
+
+
+
+
+            </nav>
+        </div>
+
+    </header>
+
+    <!-- header section ends -->
+    <!-- bottom navbar  -->
+
+
+    <nav class="bottom-navbar">
+        <a href="home.html" class="fas fa-home"></a>
+        <a href="#featured" class="fas fa-list"></a>
+        <a href="#arrivals" class="fas fa-tags"></a>
+        <a href="section.html"><i class="fa-solid fa-section"></i></a>
+        <a href="author.html"><i class="fa-solid fa-feather-pointed"></i></a>
+        <a href="book.html"><i class="fa-solid fa-book"></i></a>
+
+    </nav>
+
+
+    @RenderBody()
+    <!-- footer section starts  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>our locations</h3>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Cairo </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Giza </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Alex </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Tanta </a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Sharm El Sheikh</a>
+                <a href="#"> <i class="fas fa-map-marker-alt"></i> Hurghada </a>
+            </div>
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#"> <i class="fas fa-arrow-right"></i> home </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> featured </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> arrivals </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> sections </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> authors </a>
+                <a href="#"> <i class="fas fa-arrow-right"></i> books </a>
+            </div>
+
+
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> ktabi@gmail.com </a>
+                <img src="/assets/images/worldmap.png" class="map" alt="">
+            </div>
+
+        </div>
+
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+            <a href="#" class="fab fa-pinterest"></a>
+        </div>
+
+        <div class="credit"> Created by  <span>FCAIH Team</span> @DateTime.Now.Year| all rights reserved! </div>
+
+    </section>
+
+    <!-- footer section ends -->
+    <!-- loader  -->
+    @*<div class="loader-container">
+            <img src="/assets/images/loader-imgb.gif" alt="">
+        </div>*@
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+    <script src="/js/CustomerJsFiles/shome.js"></script>
+
+    @RenderSection("Scripts", false)
 </body>
 </html>

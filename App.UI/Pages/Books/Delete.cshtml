@@ -1,0 +1,61 @@
+﻿@page
+@model App.UI.Pages.Books.DeleteModel
+@{
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
+    ViewBag.Title = "Delete Book";
+}
+<h2 class="text-center">Are You Want to Delete Book ?</h2>
+<form  method="post" class="form-group">
+
+    <label asp-for="Book.Name">Book Name</label>
+    <input type="text" asp-for="Book.Name" disabled class="form-control" />
+    <br /><br />
+
+    <label asp-for="Book.UrlName">Book Url </label>
+    <input type="text" asp-for="Book.UrlName" disabled class="form-control" />
+    <br /><br />
+
+    <label asp-for="Book.CopyYear">Book Copy Year</label>
+    <input type="text" asp-for="Book.CopyYear" disabled class="form-control" />
+    <br /><br />
+
+    <label asp-for="Book.AuthorName">Author Name </label>
+    <input type="text" asp-for="Book.AuthorName" disabled class="form-control" />
+    <br /><br />
+
+
+    <label asp-for="Book.Price">Book Price </label>
+    <input type="text" asp-for="Book.Price" disabled class="form-control" />
+    <br /><br />
+     <label asp-for="Book.Offer">Book Offer </label>
+    <input type="text" asp-for="Book.Offer" disabled class="form-control" />
+    <br /><br />
+
+
+    <label asp-for="Book.Description">Book Description</label>
+    <textarea asp-for="Book.Description" disabled class="form-control" rows="4"></textarea>
+    <br /><br />
+
+
+     <label asp-for="Book.PhotoPath">Book photo </label>
+   <img src="@Model.Book.PhotoPath"  />
+    <br /><br />
+     
+    <input type="hidden" asp-for="Book.Id" />   
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" disabled asp-for="Book.IsActive" class="custom-control-input">
+        <label class="custom-control-label" asp-for="Book.IsActive "> Is Active</label>
+    </div>
+
+    <br />
+    <center>
+        <input type="submit" value="Delete" class="btn btn-primary" />
+    </center>
+
+</form>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+

@@ -1,0 +1,32 @@
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\App.Librarian.deps.json
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\ref\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\App.Librarian.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\App.Core.dll
+D:\Clients\GraduationProject\Code\App.Librarian\bin\Release\net5.0\App.Core.pdb
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.AssemblyReference.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.GeneratedMSBuildEditorConfig.editorconfig
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.AssemblyInfoInputs.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.AssemblyInfo.cs
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.CoreCompileInputs.cache
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.CopyComplete
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\ref\App.Librarian.dll
+D:\Clients\GraduationProject\Code\App.Librarian\obj\Release\net5.0\App.Librarian.pdb
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\App.Librarian.deps.json
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\App.Librarian.dll
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\ref\App.Librarian.dll
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\App.Librarian.pdb
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\App.Core.dll
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\SharedTenant.dll
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\App.Core.pdb
+D:\1- Project\GradutionProject\App.Librarian\bin\Release\net5.0\SharedTenant.pdb
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.AssemblyReference.cache
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.GeneratedMSBuildEditorConfig.editorconfig
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.AssemblyInfoInputs.cache
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.AssemblyInfo.cs
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.CoreCompileInputs.cache
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.csproj.CopyComplete
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.dll
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\ref\App.Librarian.dll
+D:\1- Project\GradutionProject\App.Librarian\obj\Release\net5.0\App.Librarian.pdb

@@ -1,32 +1,36 @@
 ﻿@using App.Librarian.ViewModels;
+@using App.UI.Configurations
 @model AuthorsVM
 <div class="col-lg-3 col-md-6">
-    <div class="card">
-        <div class="card-body">
-            <img src="@Model.PhotoPath" alt="" class="img-fluid rounded-circle w-50 mb-3">
-            <h3>@Model.Name</h3>
-            <h5>Writer</h5>
-            <p>
-                @Model.Bio
-            </p>
-            <div class="d-flex flex-row justify-content-center">
+    <a href="/@Global.UrlName/author-details/@Model.Id">
+        <div class="card" style="max-height:330px !important;overflow:hidden !important ">
 
-                <div class="card-stats">
-                    <div class="stat">
-                        <div class="value"><sup></sup></div>
-                        <div class="type"></div>
-                    </div>
-                    <div class="stat">
-                        <div class="value">@Model.NumberOfBooks</div>
-                        <div class="type">book</div>
-                    </div>
-                    <div class="stat">
-                        <div class="value"></div>
-                        <div class="type"></div>
-                    </div>
+            <div class="card-body" >
+                <img src="@Model.PhotoPath" alt="" class="img-fluid rounded-circle w-50 mb-3">
+                <h3>@Model.Name</h3>
+                <h5>Writer</h5>
+                <p>
+                    @Model.Bio
+                </p>
+                <div class="d-flex flex-row justify-content-center">
 
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="value"><sup></sup></div>
+                            <div class="type"></div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">@Model.NumberOfBooks</div>
+                            <div class="type">book</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value"></div>
+                            <div class="type"></div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </div>

@@ -1,0 +1,373 @@
+﻿@page "{Id:int:min(1)}"
+@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model App.UI.Pages.customer.book_detailsModel
+@{
+    ViewBag.Title = Model.BookDetails.Name.ToUpper() + " Book Details";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+}
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+<link rel="stylesheet" href="/limonte-sweetalert2/sweetalert2.css">
+
+<input type="hidden" value="@Model.BookDetails.Id" id='bookId'>
+
+<section class="bookdesc">
+
+    <div class="container ">
+        <div class="row">
+
+            <div class=" col-md-4 coverbook">
+                <img src="@Model.BookDetails.PhotoPath" alt="">
+            </div>
+
+
+            <div class=" col-md-8 content">
+
+                <h1 class="bookname"> @Model.BookDetails.Name </h1>
+
+
+
+                @if (Model.BookDetails.Price.ToString("####").Equals(Model.BookDetails.BookPriceAfterDiscount))
+                {
+                    <div class="price">$@Model.BookDetails.Price.ToString("####")</div>
+                }
+                else
+                {
+                    <div class="price">$@Model.BookDetails.BookPriceAfterDiscount <span>$@Model.BookDetails.Price.ToString("####")</span></div>
+                }
+
+
+                <div class="stars">
+                    <span class="rate"> Rate of book : </span>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+
+
+
+                <div class="about">
+
+                    <h2> About book </h2>
+                    <p class="description">
+                        @Model.BookDetails.Description
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="butns">
+            @if (SignInManager.IsSignedIn(User))
+            {
+
+
+
+                <a href="#" class="btnt cart-btn" id="btn">add to cart</a>
+
+                @if (Model.wishid == 0)
+                {
+                    <a href="#" class="icon" id="btnwish"><i class="fa-regular fa-heart-circle-plus"></i>   Add to your watchlist</a>
+                }
+                else
+                {
+                    <a href="/my/wishlist/@Model.wishid" id="btnwishREMOVE" class="icon"><i class="fa-regular fa-heart-circle-minus"></i>   Remove From your watchlist</a>
+
+                }
+
+            }
+            else
+            {
+                <a href="#" class="btnt cart-btn" id="btn2">add to cart</a>
+                <a href="#" class="icon" id="btnwish2"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
+
+            }
+            @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
+            {
+                <audio controls>
+
+                    <source src="/audio/books/@Model.BookDetails.AduioUrl" type="audio/mpeg">
+
+                </audio>
+            }
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</section>
+
+<section class="aboutauthor">
+
+    <div class="about">
+        <h1 class="heading"> <span>About Author</span> </h1>
+    </div>
+
+    <div class="cont">
+        <a class="card" href="/@Global.UrlName/author-details/@Model.BookDetails.AuthorId">
+            <div class="row">
+                <div class="icon-container">
+                    <div class="loading-icon">
+                        <img src="@Model.BookDetails.AuthorPhotoPath" alt="">
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="name">@Model.BookDetails.AuthorName</div>
+
+                </div>
+            </div>
+
+        </a>
+    </div>
+
+</section>
+
+<!-- Recommended section starts  -->
+<section class="Trend" id="Trend">
+
+    <h1 class="heading"> <span>Recommended For You</span> </h1>
+
+    <div class="swiper Trend-slider">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            if (Model.recommenedBooksManger.CustomerRegisterFavouriteCategories(UserManager.GetUserId(User)))
+            {
+                if (Model.recomendedBooks.Count != 0)
+                {
+                    <div class="swiper-wrapper">
+                        @foreach (var item in Model.recomendedBooks)
+                        {
+
+                            <div class="swiper-slide box">
+                                <div class="icons">
+                                    <a href="/exchange/book-details/@item.BookId" class="fas fa-search"></a>
+                                </div>
+                                <div class="image">
+                                    <a href="/exchange/book-details/@item.BookId">
+                                        <img src="/photos/books/@item.Book.Photo" alt="">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <a href="/exchange/book-details/@item.BookId">
+
+                                        <h3>@item.Book.Name</h3>
+                                    </a>
+                                    <a href="/exchange/book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                }
+                else
+                {
+                 <center>
+                     <h1 style="font-size: xxx-large; color: #114766">Books Not Available Yet</h1>
+                     <h2>Please Wait Until We Recieve New Books</h2>
+
+                 </center>
+                }
+            }
+            else
+            {
+                <center>
+                    <h1 style="font-size: xxx-large; color: #114766">Help Us Serve You Better</h1>
+                    <h2>Register Your Favourite Categories</h2>
+                    <a href="/Account/Register/recommended-categories/@UserManager.GetUserId(User)" class="btnt">Register Favourite Categories</a>
+
+                </center>
+            }
+
+        }
+
+
+        else
+        {
+            <center>
+                <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
+                <h2>Please login to get recommended books</h2>
+                <a href="/account/login" class="btnt">Login</a>
+
+            </center>
+        }
+
+    </div>
+
+</section>
+
+
+<!-- similar section starts  -->
+<section class="Trend" id="Trend">
+
+    <h1 class="heading"> <span>Most Selling Books</span> </h1>
+
+    <div class="swiper Trend-slider">
+
+        <div class="swiper-wrapper">
+            @foreach (var item in Model.MostSellingBooks)
+            {
+
+                <div class="swiper-slide box">
+                    <div class="icons">
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="fas fa-search"></a>
+                    </div>
+                    <div class="image">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+                            <img src="@item.PhotoPath" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+
+                            <h3>@item.Name</h3>
+                            <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
+                        </a>
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                    </div>
+                </div>
+
+            }
+
+
+
+
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+
+<!-- similar section ends -->
+<section class="Trend" id="Trend">
+
+    <h1 class="heading"> <span>Book from same category</span> </h1>
+
+    <div class="swiper Trend-slider">
+        @if (Model.BooksBasedOnCategory.Count != 0)
+        {
+            <div class="swiper-wrapper">
+
+                @foreach (var item in Model.BooksBasedOnCategory)
+                {
+
+                    <div class="swiper-slide box">
+                        <div class="icons">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id" class="fas fa-search"></a>
+                        </div>
+                        <div class="image">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id">
+                                <img src="/Photos/Books/@item.Book.Photo" alt="">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id">
+
+                                <h3>@item.Book.Name</h3>
+                            </a>
+                            <a href="/@Global.UrlName/book-details/@item.Book.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                        </div>
+                    </div>
+
+                }
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+<div class="swiper-button-next"></div>
+
+
+<div class="swiper-button-prev"></div>
+
+
+        }
+        else { <center>
+    <h1 style="font-size: xxx-large; color: #114766">No Boos From This Category</h1>
+
+
+</center>}
+  </div>
+
+</section>
+
+
+<script src="/limonte-sweetalert2/sweetalert2.min.js"></script>
+<script>
+
+    $(function () {
+        $("#btn").click(function () {
+            var Id = $('#bookId').val();
+            $.ajax({
+
+                url: '?handler=AddToCart',
+                data: { Id: Id },
+
+
+            });
+        });
+        $("#btn2").click(function () {
+
+            Swal.fire('You Must Login First')
+
+
+        });
+        $("#btnwish").click(function () {
+            var Id = $('#bookId').val();
+            $.ajax({
+
+                url: '?handler=AddToWishlist',
+                data: { Id: Id },
+
+
+            });
+            Swal.fire('Successfully Added to your wishlist')
+
+        });
+        $("#btnwish2").click(function () {
+
+            Swal.fire('You Must Login First')
+
+
+        });
+
+
+
+    });
+</script>
+<!-- Trend section ends -->

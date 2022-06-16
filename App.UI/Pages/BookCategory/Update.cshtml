@@ -1,0 +1,37 @@
+﻿@page "{id:int:min(1)}"
+@model App.UI.Pages.BookCategory.UpdateModel
+@{
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
+    ViewBag.Title = "Update Book Category";
+
+}
+<h2 class="text-center">Do You Want to Update Author ?</h2>
+<div class="card">
+    <div class="card-header">
+        <h3>Update Book Category</h3>
+    </div>
+    <div class="card-block">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Category</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Categories.CategoryName" class="form-control">
+                    <span class="text-danger" asp-validation-for="Categories.CategoryName"></span>
+                </div>
+
+            </div>
+
+
+
+            <input type="hidden" asp-for="Categories.Id" />
+
+
+            <div class="text-right">
+                <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Edit Category</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<!-- Basic Form Inputs card end -->

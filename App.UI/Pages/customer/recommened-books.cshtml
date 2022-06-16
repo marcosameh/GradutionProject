@@ -1,0 +1,79 @@
+﻿@page "/my/recommended-books"
+@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model App.UI.Pages.customer.recommened_booksModel
+@{
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+    ViewBag.Title = "Recommended  books";
+}
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbook.css">
+
+<br />
+<br />
+@if (!SignInManager.IsSignedIn(User))
+{
+
+    <center>
+        <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
+        <h2>Please login to get recommended books</h2>
+        <a href="/account/login" class="btnt">Login</a>
+    </center>
+}
+else if (!Model.recommenedBooksManger.CustomerRegisterFavouriteCategories(UserManager.GetUserId(User)))
+{
+    <center>
+        <h1 style="font-size: xxx-large; color: #114766">Help Us Serve You Better</h1>
+        <h2>Register Your Favourite Categories</h2>
+        <a href="/Account/Register/intersts/@UserManager.GetUserId(User)" class="btnt">Register Favourite Categories</a>
+
+    </center>
+}
+else if (Model.recomendedBooks.Count != 0)
+{
+    <section id="team">
+        <div class="container my-3 py-5 text-center">
+            <div class="row">
+                @foreach (var Book in Model.PagingBooks)
+                {
+                    <div class="col-md-2 col-sm-4">
+                        <div class=" card img-thumbnail">
+                            <a class="body" href="/exchange/book-details/@Book.BookId">
+
+                                <img src="/photos/books/@Book.Book.Photo" alt="" class="img-fluid img w-100 mb-2">
+                                <h3> @Book.Book.Name </h3>
+                                <h5>@Book.Book.AuthorName</h5>
+
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+    </section>
+
+    <partial name="_Pager" model="@Model.PagingBooks.PagingData" />
+}
+else
+{
+    <center>
+        <h1 style="font-size: xxx-large; color: #114766">Books Not Available Yet</h1>
+        <h2>Please Wait Until We Recieve New Books</h2>
+
+    </center>
+}
+}

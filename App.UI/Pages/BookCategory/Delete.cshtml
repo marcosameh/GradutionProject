@@ -1,0 +1,29 @@
+﻿@page "{id:int:min(1)}"
+@model App.UI.Pages.BookCategory.DeleteModel
+@{
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
+    ViewBag.Title = "Delete Book Category";
+}
+<h2 class="text-center">Are You Want to Delete Book Category ?</h2>
+<form method="post" class="form-group">
+
+    <label asp-for="Categories.CategoryName">Book Category Name</label>
+    <input type="text" asp-for="Categories.CategoryName" disabled class="form-control" />
+    <br /><br />
+
+
+    <input type="hidden" asp-for="Categories.Id" />
+
+
+    <center>
+        <input type="submit" value="Delete" class="btn btn-danger" />
+    </center>
+
+</form>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/jquery.validate.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+

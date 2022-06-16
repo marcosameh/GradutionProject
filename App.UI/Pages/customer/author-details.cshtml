@@ -1,0 +1,104 @@
+﻿@page "{Id:int:min(1)}"
+@model App.UI.Pages.customer.author_detailsModel
+@using App.UI.Configurations
+@{
+    ViewBag.Title = Model.author.Name.ToUpper()+" author-Details page";
+    Layout = "/Pages/Shared/CustomerLayout.cshtml";
+}
+<link href="~/css/CustomerCssFiles/cauthordesc.css" rel="stylesheet" />
+<section class="bookdesc">
+
+    <div class="container ">
+        <div class="row">
+
+            <div class=" col-md-4 coverauthor">
+                <img src="@Model.author.PhotoPath" alt="">
+                <div class="shadow-box"></div>
+            </div>
+
+
+            <div class=" col-md-8 content">
+
+                <h1 class="authorname"> @Model.author.Name </h1>
+
+
+                <div class="stars">
+                    <span class="rate"> Rate of author : </span>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+
+
+
+                <div class="about">
+
+                    <h2> About author </h2>
+                    <p class="description">
+                        @Model.author.Bio
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="butns">
+            <a href="#" class="icon"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
+        </div>
+
+
+
+
+
+    </div>
+
+</section>
+<section class="similar" id="similar">
+
+    <h1 class="heading"> <span> Author's books </span> </h1>
+
+    <div class="swiper similar-slider">
+
+        <div class="swiper-wrapper">
+            @foreach (var item in Model.AuthorBooks)
+            {
+
+                <div class="swiper-slide box">
+                    <div class="icons">
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="fas fa-search"></a>
+                    </div>
+                    <div class="image">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+                            <img src="@item.PhotoPath" alt="">
+                        </a>
+                    </div>
+                    <div class="content">
+                        <a href="/@Global.UrlName/book-details/@item.Id">
+
+                            <h3>@item.Name</h3>
+                            <div class="price">$@item.BookPriceAfterDiscount <span>$@item.Price.ToString("####")</span></div>
+                        </a>
+                        <a href="/@Global.UrlName/book-details/@item.Id" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                    </div>
+                </div>
+
+            }
+
+
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+<!-- similar section ends -->

@@ -1,0 +1,71 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "SharedtenantContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "SharedTenant",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[BooksForExchange]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[BookStores]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Customer_Category_Book_Rate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CustomerLoveCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CustomerRecomendedBook]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ExchangBookCategory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ExchangeBookCategoryList]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Wishlist]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UpdateInterest]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "DESKTOP-MQNIHEC.SharedTenant",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

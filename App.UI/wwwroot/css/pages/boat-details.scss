@@ -1,0 +1,140 @@
+﻿.boat_details-page {
+    #mainCarousel .carousel__slide img {
+        @extend .fit-img;
+    }
+
+    .initial-title {
+        margin-bottom: 20px;
+    }
+
+    .datepicker-booking {
+        background: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 15px 0 0;
+
+        .datepicker-inline {
+            margin: auto;
+            width: 100%;
+
+            .table-condensed {
+                width: 70%;
+                margin: auto;
+                border-collapse: inherit;
+            }
+        }
+
+        .booking-status {
+            order: 1;
+            padding: 15px 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            div {
+                font-size: 12px;
+                font-weight: 400;
+                color: #fff;
+                text-transform: uppercase;
+
+                span {
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    margin-right: 10px;
+                }
+
+                &.available span {
+                    border: 1px solid #707070;
+                }
+
+                &.unavailable span {
+                    background: #FF0000;
+                }
+            }
+        }
+    }
+
+    form.main-form {
+        border: 1px solid #F1F1F1;
+        padding: 25px 30px;
+        margin-top: 15px;
+
+        .head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 30px;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+
+            h2 {
+                margin-bottom: 0;
+            }
+
+            small {
+                font-size: 18px;
+                font-weight: 400;
+            }
+        }
+
+        .initial-btn {
+            height: 60px;
+        }
+    }
+
+    .map {
+        margin-top: 25px;
+        height: 270px;
+    }
+
+    .our-note {
+        margin-top: 25px;
+        background: #F2F2F2;
+        padding: 25px 30px;
+    }
+
+    .our-yachts {
+        background: #F2F2F2;
+
+        .two-items {
+            .yacht_box {
+                display: flex;
+                margin-top: 0;
+            }
+
+            &.owl-carousel {
+                .owl-nav {
+                    width: 100%;
+                    color: #000;
+
+                    .owl-prev {
+                        left: -30px
+                    }
+
+                    .owl-next {
+                        right: -30px
+                    }
+
+                    .owl-prev:hover, .owl-next:hover {
+                        color: #8d8d8d !important;
+                    }
+                }
+
+                .owl-dots {
+                    bottom: -30px;
+
+                    .owl-dot {
+                        border-color: #000;
+
+                        &.active {
+                            background: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -2,118 +2,87 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
     Layout = null;
 }
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Login Page</title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
-    <!-- Meta -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js"
+            crossorigin="anonymous"></script>
 
-    <!-- Favicon icon -->
+    <!--fontawesome link -->
+    <script src="https://kit.fontawesome.com/70ea18d072.js" crossorigin="anonymous"></script>
+    <link href="~/css/CustomerCssFiles/csign.css" rel="stylesheet" />
+    <link rel="shortcut icon " type="image/png" href="/image/Logo.png">
 
-    <link rel="icon" href="~/assets/images/favicon.ico" type="image/x-icon">
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-    <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap/css/bootstrap.min.css">
-    <!-- waves.css -->
-    <link rel="stylesheet" href="~/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
-    <!-- themify-icons line icon -->
-    <link rel="stylesheet" type="text/css" href="~/assets/icon/themify-icons/themify-icons.css">
-    <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="~/assets/icon/icofont/css/icofont.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="~/assets/icon/font-awesome/css/font-awesome.min.css">
-    <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+    <title>Login - Kitabi</title>
 </head>
-<body themebg-pattern="theme1">
-    <section class="login-block">
-        <!-- Container-fluid starts -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <form id="account" method="post" class="md-float-material form-material">
-                        <div class="auth-box card">
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form method="post" class="sign-in-form">
 
-                            <div class="card-block">
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <h3 class="text-center">Sign In</h3>
-                                        <div asp-validation-summary="All" class="text-danger text-center"></div>
-                                    </div>
-                                </div>
+                    <h2 class="title">Sign in</h2>
+                    <div asp-validation-summary="All" style="color:red"></div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" asp-for="Input.Email"/>
+                    </div>
 
-
-
-                                <div class="form-group form-primary">
-                                    <input asp-for="Input.Email" class="form-control" placeholder="Your Email" />
-                                    <span class="form-bar"></span>
-                                    <label class="float-label"></label>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Password" asp-for="Input.Password"/>
+                    </div>
 
 
-                                </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                        <label class="form-check-label" for="flexCheckChecked" asp-for="Input.RememberMe">
+                            Remember Me
+                        </label>
+                    </div>
 
+                    <input type="submit" value="Login" class="btn solid" />
 
-
-
-
-                                <div class="form-group form-primary">
-                                    <input asp-for="Input.Password" class="form-control" placeholder="Password" />
-                                    <span class="form-bar"></span>
-                                    <label class="float-label"></label>
-
-
-                                </div>
-
-
-
-
-
-                                <div class="row m-t-25 text-left">
-                                    <div class="checkbox col-12">
-                                        <label asp-for="Input.RememberMe">
-                                            <input asp-for="Input.RememberMe" />
-                                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                                        </label>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="row m-t-30">
-                                    <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20" value="Sign in" id="submit">
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group">
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- end of col-sm-12 -->
+                    <p class="social-text">Or Sign in with social platforms</p>
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </form>
             </div>
-            <!-- end of row -->
         </div>
-        <!-- end of container-fluid -->
-    </section>
-    @section Scripts {
-        <partial name="_ValidationScriptsPartial" />
-    }
-    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
 
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>New here ?</h3>
+                    <p>
+                        In the event that you are not a member yet on our website, you can join us now,
+                        click on sign up button and enter your data to enjoy our services.
+                    </p>
+
+                    <a href="/Account/Register/customer" class="btn transparent" id="sign-up-btn">Sign up</a>
+                </div>
+                <img src="image/log.svg" class="image" alt="" />
+            </div>
+        </div>
+    </div>
+    <script src="~/js/CustomerJsFiles/ssign.js"></script>
 </body>
+</html>
+

@@ -12,13 +12,13 @@ namespace App.Core.Repositories
     public class BaseRepo<TEntity> where TEntity : class
     {
         private readonly KitabiContext DbContext;
-
         protected DbSet<TEntity> DbSet;
         public BaseRepo(KitabiContext context)
         {
             DbContext = context;
             DbSet = DbContext.Set<TEntity>();
         }
+
         public IQueryable<TEntity> GetAll()
         {
             IQueryable<TEntity> entities = DbSet;
@@ -46,9 +46,18 @@ namespace App.Core.Repositories
         }
         public void Add(TEntity entity)
         {
-            DbContext.Set<TEntity>().Add(entity);
+            try
+            {
+                DbContext.Set<TEntity>().Add(entity);
 
-            Save();
+                Save();
+            }
+            catch (Exception e)
+            {
+                var s = e.Message;
+                throw;
+            }
+           
         }
         public void Delete(int  Id)
         {

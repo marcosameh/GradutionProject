@@ -1,10 +1,70 @@
 ﻿@page
-@model IndexModel
+@model App.UI.Pages.defaultModel
+@using App.UI.Configurations;
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Home Page";
 }
+<style>
+    .btnt {
+        margin-top: 2rem;
+        display: inline-block;
+        padding: 0.9rem 9rem;
+        border-radius: 5.5rem;
+        color: #fff;
+        background: var(--blue);
+        font-size: 1.7rem;
+        cursor: pointer;
+        font-weight: 500;
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        .btnt:hover {
+            background: var(--dark-color);
+        }
+</style>
+<!-- reviews section starts  -->
+<!-- reviews section starts  -->
+<section class="reviews" id="reviews">
+
+    <h1 class="heading"> <span>publishing Bookstores</span> </h1>
+
+    <div class="swiper reviews-slider">
+        <div class="swiper-wrapper">
+            @if (Model.Bookstores.Any())
+            {
+                @foreach (var store in Model.Bookstores)
+                {
+                   
+
+                    <div class="swiper-slide box">
+                        <a href="@store.UrlName/index">
+                            <img src="/Photos/librarian/@store.Logo" alt="">
+                            <h3><eq-highlight-text value="@store.Name" text="@Model.SearchValue"></eq-highlight-text></h3>
+                            <p> <eq-highlight-text value="@store.Address" text="@Model.SearchValue"></eq-highlight-text></p>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </a>
+
+                        <a href="@store.UrlName/index" class="btnt">VISIT</a>
+
+                    </div>
+
+                }
+            }
+            else
+            {
+                <h2>No Related BookStores</h2>
+            }
+        </div>
+
+
+        </div>
+    </section>
+
+
+    <!-- reviews section ends -->
+    <!-- reviews section ends -->

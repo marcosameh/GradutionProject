@@ -1,0 +1,169 @@
+﻿@page  "{id:int:min(1)}"
+@model App.UI.Pages.Books.UpdateModel
+@{
+    Layout = "/Pages/Shared/LibrarianLayout.cshtml";
+    ViewBag.Title = "Update Book";
+
+}
+<div class="card">
+    <div class="card-header">
+        <h3>Do you want to update Book ?</h3>
+    </div>
+    <div class="card-block">
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Name</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.Name" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.Name"></span>
+                </div>
+
+            </div>
+            <input type="hidden" asp-for="Book.Id" />
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Url</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.UrlName" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.UrlName"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Copy Year </label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.CopyYear" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.CopyYear"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Number Of Copies </label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.NumberOfCopies" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.NumberOfCopies"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Author Name</label>
+                <div class="col-sm-10">
+
+                    <select class=" dropdown dropdown-primary" asp-for="Book.AuthorId">
+                        <option>Choose Author</option>
+                        @foreach (var author in Model.Authors)
+                        {
+                            <option value="@author.Id">@author.Name</option>
+                        }
+                    </select>
+                    <span class="text-danger" asp-validation-for="Book.AuthorId"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Price</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.Price" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.Price"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Offer</label>
+                <div class="col-sm-5">
+                    <input type="text" id="offer" asp-for="Book.Offer" class="form-control">
+                </div>
+                <div class="col-sm-5">
+                    <select class=" dropdown dropdown-primary" id="Currency">
+
+                        <option value="EGP">EGP</option>
+                        <option value="%">%</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Description</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="Book.Description" class="form-control">
+                    <span class="text-danger" asp-validation-for="Book.Description"></span>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Photo</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" asp-for="Book.PhotoFile" id="uploadedfile">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Pdf</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" asp-for="Book.PdfFile" id="uploadedfile">
+                    <span class="text-danger" asp-validation-for="Book.PdfFile"></span>
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Book Audio</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" asp-for="Book.AudioFile" id="uploadedfile">
+                    <span class="text-danger" asp-validation-for="Book.AudioFile"></span>
+
+                </div>
+            </div>
+            <input type="hidden" asp-for="Book.Id" />
+
+            <input type="hidden" asp-for="Book.Photo" />
+            <input type="hidden" asp-for="Book.PdfUrl" />
+            <input type="hidden" asp-for="Book.AduioUrl" />
+            <input type="hidden" asp-for="Book.UrlName" />
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Is Active</label>
+                <div class="col-sm-10">
+                    <input class="form-check-input" type="checkbox" asp-for="Book.IsActive" id="checkbox1" checked>
+
+                </div>
+            </div>
+            <div class="formform-group row">
+                <label class="col-sm-2 col-form-label">Book Categories</label><br /><br />
+
+                <div class="form-group row">
+                    @foreach (var item in Model.BookCategories)
+                    {
+                        foreach (var item2 in Model.SelectedCategory)
+                        {
+                            if (item.Id == item2.CategoryId)
+                            {
+                                <div class="col">
+
+                                    <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1" checked>
+                                    <span>
+                                        @item.CategoryName
+                                    </span>
+                                </div>
+                                continue;
+                            }
+
+
+
+                        }
+                        <div class="col">
+
+                            <input class="form-check-input" value="@item.Id" type="checkbox" name="CategoryIds" id="checkbox1">
+                            <span>
+                                @item.CategoryName
+                            </span>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+
+            <div class="text-right">
+                <button class="btn btn-out-dashed waves-effect waves-light btn-primary btn-square" type="submit">Update Book</button>
+            </div>
+        </form>
+
+    </div>
+</div>
