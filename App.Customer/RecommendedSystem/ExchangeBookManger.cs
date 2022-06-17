@@ -85,7 +85,10 @@ namespace App.Customer.RecommendedSystem
         {
             return  BooksForExchangeRepo.GetMany(book => book.IsActive == true).ToList();
         }
-
+        public IQueryable<BooksForExchange> GetWaitingBooks()
+        {
+            return BooksForExchangeRepo.GetMany(book => book.IsActive == false);
+        }
     }
    
 }

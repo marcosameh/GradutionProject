@@ -731,7 +731,6 @@ D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\customer\b
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Add.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\delete.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Edit.cshtml.g.cs
-D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\Iist.cshtml.g.cs
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.dll
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\ref\App.UI.dll
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.pdb
@@ -993,3 +992,5 @@ D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.Views.pdb
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.csproj.CopyComplete
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cache
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Books\WaitingBooks.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\WaitingBooks.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\list.cshtml.g.cs

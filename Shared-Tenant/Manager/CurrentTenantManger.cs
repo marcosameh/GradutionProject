@@ -62,6 +62,11 @@ namespace SharedTenant.Manager
             }
             return RelatedBookStores;
         }
+        public void AddBookStore(BookStores bookStores)
+        {
+            SharedtenantContext.BookStores.Add(bookStores);
+            SharedtenantContext.SaveChanges();
+        }
        
     }
 }
