@@ -53,4 +53,11 @@
     <None Include="wwwroot\image\svg\master.svg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Pages\Books\waiting-book-details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using System.Linq;
 using Korzh.EasyQuery.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace SharedTenant.Manager
 {
@@ -47,6 +48,20 @@ namespace SharedTenant.Manager
         {
             return SharedtenantContext.BookStores.Where(b=>b.EndSubscriptionDate>=System.DateTime.Now);
         }
+
+        public BookStores GetBookStore(int Id)
+        {
+            return SharedtenantContext.BookStores.Where(x => x.Id == Id).FirstOrDefault();
+        }
+        public void DeleteBookstore(int Id)
+        {
+            SharedtenantContext.BookStores.Remove(GetBookStore(Id));
+        }
+        public void EditBookStore(BookStores Bookstore)
+        {
+            SharedtenantContext.Entry(Bookstore).State = EntityState.Modified;
+            SharedtenantContext.SaveChanges();
+        }
         public IQueryable<string> GetDomins()
         {
             return SharedtenantContext.BookStores.Select(x => x.Domain);
@@ -64,6 +79,7 @@ namespace SharedTenant.Manager
         }
         public void AddBookStore(BookStores bookStores)
         {
+        
             SharedtenantContext.BookStores.Add(bookStores);
             SharedtenantContext.SaveChanges();
         }

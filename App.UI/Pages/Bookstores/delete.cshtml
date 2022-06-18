@@ -1,4 +1,78 @@
-﻿@page
+﻿@page "{id:int:min(1)}"
 @model App.UI.Pages.Bookstores.deleteModel
 @{
+     Layout = "/Pages/Shared/AdminLayout.cshtml";
+    ViewBag.Title = "Delete BookStore";
 }
+<div class="card ">
+    <div class="card-header">
+        <h3 class="text-danger">Are You Sure you want to delete this data</h3>
+    </div>
+    <div class="card-block ">
+
+        <form method="post"  enctype="multipart/form-data" id="form">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">BookStore Name</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Name" class="form-control" readonly>
+                    <span class="text-danger" asp-validation-for="BookStore.Name"></span>
+                </div>
+
+            </div>
+           
+           
+            <input type="hidden" asp-for="BookStore.Email" class="form-control">
+                   <input type="hidden" asp-for="BookStore.Password" class="form-control">
+                   <span class="text-danger" asp-validation-for="BookStore.ConfirmPassword"></span>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Address" class="form-control" readonly>
+                    <span class="text-danger" asp-validation-for="BookStore.Address" ></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">UrlName</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.UrlName" class="form-control" readonly>
+                    <span class="text-danger" asp-validation-for="BookStore.UrlName"></span>
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Domian</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Domain" class="form-control" readonly>
+                    <span class="text-danger" asp-validation-for="BookStore.Domain"></span>
+                </div>
+            </div> 
+            
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Connection String</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.ConnectionString" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.ConnectionString"></span>
+                </div>
+            </div>
+            
+            
+            <input type="hidden" asp-for="BookStore.Id" />
+
+
+          
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">EndSubscriptionDate</label>
+                <div class="col-sm-10">
+                    <input type="date" asp-for="BookStore.EndSubscriptionDate" class="form-control" readonly>
+                    <span class="text-danger" asp-validation-for="BookStore.EndSubscriptionDate"></span>
+                </div>
+            </div>
+           
+
+            <div class="text-right">
+                <button class="btn btn-out-dashed waves-effect waves-light btn-danger btn-square" type="submit">Delete BookStore</button>
+            </div>
+        </form>
+
+    </div>
+</div>

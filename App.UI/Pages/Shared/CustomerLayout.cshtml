@@ -70,7 +70,7 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     @*<div id="logout-btn" class="fa-solid fa-right-from-bracket"></div>*@
-                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    <form class="form-inline" asp-page="/Account/Logout" asp-route-returnUrl="/Account/Login" method="post">
                         <a href="/upload/book" class="fa-solid fa-file-arrow-up"></a>
                         <a href="/my/wishlist" class="fas fa-heart"></a>
                         <a href="/@Global.UrlName/cart" class="fas fa-shopping-cart cart">  <span class="count"> 10 </span> </a>

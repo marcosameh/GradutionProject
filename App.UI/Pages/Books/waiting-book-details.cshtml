@@ -1,0 +1,119 @@
+﻿@page
+@model App.UI.Pages.Books.waiting_book_detailsModel
+@using App.UI.Configurations
+@using Microsoft.AspNetCore.Identity
+@using SharedTenant.Domain
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    Layout = "/Pages/Shared/AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="/css/CustomerCssFiles/cbookdesc.css">
+<link rel="stylesheet" href="/limonte-sweetalert2/sweetalert2.css">
+<input type="hidden" value="@Model.BookDetails.ExchageBookId" id='bookId'>
+<section class="bookdesc">
+
+    <div class="container ">
+        <div class="row">
+
+            <div class=" col-md-4 coverbook">
+                <img src="@Model.BookDetails.PhotoPath" alt="">
+            </div>
+
+
+            <div class=" col-md-8 content">
+
+                <h1 class="bookname"> @Model.BookDetails.Name </h1>
+
+
+                
+
+
+                <div class="own">
+                    <div class="element">
+                        <span>Owner Email : </span>
+                        <span class="owner">  @Model.OwnerName  </span>
+                    </div>
+                    <div class="element">
+                        <span>Phone : </span>
+                        <span class="phone">   @Model.OwnerPhoneNum </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about">
+
+                    <h2> About book </h2>
+                    <p class="description">
+                        @Model.BookDetails.Description
+                    </p>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div class="butns">
+           
+            
+            @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
+            {
+                <audio controls>
+
+                    <source src="/audio/books/@Model.BookDetails.AduioUrl" type="audio/mpeg">
+
+                </audio>
+            }
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+    </div>
+
+</section>
+
+<section class="aboutauthor">
+
+    <div class="about">
+        <h1 class="heading"> <span>Author</span> </h1>
+    </div>
+
+    <div class="cont">
+        <a class="card">
+            <div class="row">
+                <div class="icon-container">
+                    <div class="loading-icon">
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="name">@Model.BookDetails.AuthorName</div>
+
+                </div>
+            </div>
+
+        </a>
+    </div>
+
+</section>
+
+
+
+<script src="/limonte-sweetalert2/sweetalert2.min.js"></script>

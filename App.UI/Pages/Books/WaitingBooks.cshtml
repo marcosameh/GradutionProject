@@ -10,37 +10,39 @@
 <link href="~/Css/Profile.css" rel="stylesheet" />
 <link href="~/Css/Posts.css" rel="stylesheet" />
 
-<a href="/Post/ApproveAll" class="btn btn-primary font-weight-bold" id="button">Approve ALL Posts <i class="fa fa-check-circle"></i></a>
-    
-            @foreach (var book in Model.WaitingBooks)
+<a asp-page-handler="ApproveAll" class="btn btn-primary font-weight-bold" id="button">Approve ALL Posts <i class="fa fa-check-circle"></i></a>
+@if (Model.WaitingBooks.Any())
+{
+    @foreach (var book in Model.WaitingBooks)
 
-            {
-            
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="/photos/books/@book.Photo" alt="Card image cap">
-    <div class="card-body">
-        <p class="text-center"><i class="title">@book.Name</i></p>
-        <p class="text-center"><i class="title">@book.AuthorName</i></p>
+    {
 
-        <a asp-page="waitingbooksdetials" class="text-c-blue" style="font-size:15px;">More Info</a>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/photos/books/@book.Photo" alt="Card image cap">
+            <div class="card-body">
+                <p class="text-center"><i class="title">@book.Name</i></p>
+                <p class="text-center"><i class="title">@book.AuthorName</i></p>
+
+                <a asp-page="waiting-book-details" asp-route-Id="@book.ExchageBookId" class="text-c-blue" style="font-size:15px;">More Info</a>
 
 
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <a href="/Post/Approve/@book.UrlName" class="btn btn-primary">Approve <i class="fa fa-check-circle"></i></a>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <a asp-page-handler="Approve" asp-route-UrlName="@book.UrlName" class="btn btn-primary">Approve <i class="fa fa-check-circle"></i></a>
+                </div>
+
+                <div class="col-6">
+                    <a asp-page-handler="Delete" asp-route-UrlName="@book.UrlName"class="btn btn-danger">Remove <i class="fa fa-times"></i></a>
+                </div>
+            </div>
         </div>
 
-        <div class="col-6">
-            <a href="/Post/Remove/@book.UrlName" class="btn btn-danger">Remove <i class="fa fa-times"></i></a>
-        </div>
-    </div>
-</div>
 
-
-            }
+    }}
 
 
 
-           
-           
+
+
+

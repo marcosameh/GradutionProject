@@ -13,6 +13,7 @@ namespace App.Customer.RecommendedSystem
 {
     public class ExchangeBookManger
     {
+        private readonly SharedtenantContext context;
         private readonly IMapper mapper;
         private SharedtenantBaseRebo<BooksForExchange> BooksForExchangeRepo;
         private SharedtenantBaseRebo<ExchangeBookCategoryList> CategoryListRepo;
@@ -22,6 +23,7 @@ namespace App.Customer.RecommendedSystem
             BooksForExchangeRepo = new SharedtenantBaseRebo<BooksForExchange>(context);
             CategoryListRepo = new SharedtenantBaseRebo<ExchangeBookCategoryList>(context);
             CategoryRepo = new SharedtenantBaseRebo<ExchangBookCategory>(context);
+            this.context = context;
             this.mapper = mapper;
         }
         public BookForExchangeVM GetBookByID( int ID)
@@ -88,6 +90,38 @@ namespace App.Customer.RecommendedSystem
         public IQueryable<BooksForExchange> GetWaitingBooks()
         {
             return BooksForExchangeRepo.GetMany(book => book.IsActive == false);
+        }
+
+        public void ApproveAll()
+        {
+            var Books = BooksForExchangeRepo.GetMany(x => x.IsActive == false).ToList();
+            foreach (var item in Books)
+            {
+                item.IsActive = true;
+
+            }
+            foreach (var item in Books)
+            {
+                BooksForExchangeRepo.Edit(item);
+            }
+        }
+        public BooksForExchange GetBook(string UrlName)
+        {
+            return BooksForExchangeRepo.GetOne(x => x.UrlName == UrlName);
+        }
+        public void Approve(string UrlName)
+        {
+            var Books = GetBook(UrlName);
+          Books.IsActive = true;
+            
+                BooksForExchangeRepo.Edit(Books);
+           
+        }
+        public void Delete(string UrlName)
+        {
+            var Book = GetBook(UrlName);
+            context.BooksForExchange.Remove(Book);
+            context.SaveChanges();
         }
     }
    

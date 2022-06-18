@@ -994,3 +994,4 @@ D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\App.UI.genruntimeconfig.cach
 D:\Clients\GradutionProject\App.UI\obj\Debug\net5.0\Razor\Pages\Books\WaitingBooks.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\WaitingBooks.cshtml.g.cs
 D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Bookstores\list.cshtml.g.cs
+D:\Clients\GraduationProject\Code\App.UI\obj\Debug\net5.0\Razor\Pages\Books\waiting-book-details.cshtml.g.cs

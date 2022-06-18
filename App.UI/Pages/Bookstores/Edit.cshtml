@@ -1,4 +1,109 @@
-﻿@page
+﻿
+@page "{id:int:min(1)}"
 @model App.UI.Pages.Bookstores.EditModel
 @{
+    Layout = "/Pages/Shared/AdminLayout.cshtml";
+    ViewBag.Title = "Edit BookStore";
+}
+
+
+<!-- Basic Form Inputs card start -->
+<div class="card ">
+    <div class="card-header">
+        <h3>Add New Book</h3>
+    </div>
+    <div class="card-block ">
+
+        <form method="post"  enctype="multipart/form-data" id="form">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">BookStore Name</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Name" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.Name"></span>
+                </div>
+
+            </div>
+           
+           
+            <input type="hidden" asp-for="BookStore.Email" class="form-control">
+                   <input type="hidden" asp-for="BookStore.Password" class="form-control">
+                   <span class="text-danger" asp-validation-for="BookStore.ConfirmPassword"></span>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Address" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.Address"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">UrlName</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.UrlName" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.UrlName"></span>
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Domian</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.Domain" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.Domain"></span>
+                </div>
+            </div> 
+            
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Connection String</label>
+                <div class="col-sm-10">
+                    <input type="text" asp-for="BookStore.ConnectionString" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.ConnectionString"></span>
+                </div>
+            </div>
+            
+            
+            <input type="hidden" asp-for="BookStore.Id" />
+
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Logo</label>
+                <div class="col-sm-10">
+                    <input type="file" class="form-control" asp-for="BookStore.PhotoFile" id="uploadedfile">
+                    <input type="hidden" id="photo" asp-for="BookStore.Logo" />
+                    
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">EndSubscriptionDate</label>
+                <div class="col-sm-10">
+                    <input type="date" asp-for="BookStore.EndSubscriptionDate" class="form-control">
+                    <span class="text-danger" asp-validation-for="BookStore.EndSubscriptionDate"></span>
+                </div>
+            </div>
+           
+
+            <div class="text-right">
+                <button class="btn btn-out-dashed waves-effect waves-light btn-danger btn-square" type="submit">Edit BookStore</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<!-- Basic Form Inputs card end -->
+
+@section Scripts {
+
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+   <script>
+        $(document).ready(function () {
+
+            $('#uploadedfile').change(function () {
+                if ($('#uploadedfile').val != null) {
+
+                    $("#photo").val("22203");
+                }
+
+            });
+            </Script>
+}
 }
