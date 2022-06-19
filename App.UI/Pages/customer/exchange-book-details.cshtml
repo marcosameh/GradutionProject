@@ -62,60 +62,70 @@
 
                 </div>
 
+                <div class="about">
+                    <h2> book categories </h2>
+                    @foreach (var item in Model.BookCategories)
+                    {
+                        <a href="#" class="btnt cart-btn" id="btn">@item.Categroy.CategoryName</a>
+
+                    }
+
+                </div>
+
+            </div>
+            
+
+        </div>
+        <br />
+        <br />
+
+            <div class="butns">
+                @if (SignInManager.IsSignedIn(User))
+                {
+
+
+
+
+                    @if (Model.wishid == 0)
+                    {
+                        <a href="#" class="icon" id="btnwish"><i class="fa-regular fa-heart-circle-plus"></i>   Add to your watchlist</a>
+                    }
+                    else
+                    {
+                        <a href="/my/wishlist/@Model.wishid" id="btnwishREMOVE" class="icon"><i class="fa-regular fa-heart-circle-minus"></i>   Remove From your watchlist</a>
+
+                    }
+
+                }
+                else
+                {
+                    <a href="#" class="icon" id="btnwish2"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
+
+                }
+                @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
+                {
+                    <audio controls>
+
+                        <source src="/audio/books/@Model.BookDetails.AduioUrl" type="audio/mpeg">
+
+                    </audio>
+                }
+
+
+
+
+
+
 
 
             </div>
 
 
-        </div>
-
-        <div class="butns">
-            @if (SignInManager.IsSignedIn(User))
-            {
-
-
-
-
-                @if (Model.wishid == 0)
-                {
-                    <a href="#" class="icon" id="btnwish"><i class="fa-regular fa-heart-circle-plus"></i>   Add to your watchlist</a>
-                }
-                else
-                {
-                    <a href="/my/wishlist/@Model.wishid" id="btnwishREMOVE" class="icon"><i class="fa-regular fa-heart-circle-minus"></i>   Remove From your watchlist</a>
-
-                }
-
-            }
-            else
-            {
-                <a href="#" class="icon" id="btnwish2"><i class="fa-regular fa-heart-circle-plus"></i>   Add to watchlist</a>
-
-            }
-            @if (!string.IsNullOrEmpty(Model.BookDetails.AduioUrl))
-            {
-                <audio controls>
-
-                    <source src="/audio/books/@Model.BookDetails.AduioUrl" type="audio/mpeg">
-
-                </audio>
-            }
-
-
-
-
 
 
 
 
         </div>
-
-
-
-
-
-
-    </div>
 
 </section>
 

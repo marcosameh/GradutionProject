@@ -104,7 +104,7 @@ namespace App.Librarian.Managers
         public List<BookVM> GetfeaturedBooks()
         {
 
-            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true, book => book.Author).Take(take).ToList();
+            var Book = BookRepo.GetMany(book => book.Offer != null && book.IsActive == true && book.Offer!=0, book => book.Author).Take(take).ToList();
             return mapper.Map<List<BookVM>>(Book);
         }
         public List<BookVM> GetMostSellingBook()

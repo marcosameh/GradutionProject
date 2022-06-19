@@ -102,7 +102,7 @@
 
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
-            @foreach (var Book in Model.NewArrivals.Take(10))
+            @foreach (var Book in Model.NewArrivals.Take(4))
             {
                 <a href="/@Global.UrlName/book-details/@Book.Id" class="swiper-slide box">
                     <div class="image">
@@ -129,7 +129,7 @@
     </div>
     <div class="swiper arrivals-slider">
         <div class="swiper-wrapper">
-            @foreach (var Book in Model.NewArrivals.Skip(10).Take(10))
+            @foreach (var Book in Model.NewArrivals.Skip(4).Take(4))
             {
                 <a href="/@Global.UrlName/book-details/@Book.Id" class="swiper-slide box">
                     <div class="image">

@@ -72,6 +72,10 @@ namespace App.Customer.RecommendedSystem
         {
             return CategoryRepo.GetAll().ToList();
         }
+        public List<ExchangeBookCategoryList> GetBookCategories(int bookid)
+        {
+            return CategoryListRepo.GetMany(book=>book.BookId==bookid,category=> category.Categroy).ToList();
+        }
         public List<BooksForExchange> GetAllBooksByUser(string username)
         {
             return BooksForExchangeRepo.GetMany(book=>book.OwnerId.Equals(username)).ToList();

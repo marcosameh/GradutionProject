@@ -20,6 +20,7 @@ namespace App.UI.Pages.customer
         private readonly ExchangeBookManger bookManger;
         private readonly RecommenedBooksManger recommenedBooksManger;
         private readonly UserManager<ApplicationUser> userManger;
+        public List<ExchangeBookCategoryList> BookCategories;
         public BookForExchangeVM BookDetails;
         public string OwnerName { get; set; }
         public string OwnerPhoneNum { get; set; }
@@ -44,6 +45,7 @@ namespace App.UI.Pages.customer
         public async Task OnGet(int id)
         {
             BookDetails = bookManger.GetBookByID(id);
+            BookCategories = bookManger.GetBookCategories(id);
             var BookOwner = await userManger.FindByIdAsync(BookDetails.OwnerId);
             OwnerName = BookOwner.Email;
             OwnerPhoneNum = BookOwner.PhoneNumber;

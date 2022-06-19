@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj": {}
+    "D:\\1- Project\\New folder\\GradutionProject\\App.Admin\\App.Admin.csproj": {}
   },
   "projects": {
-    "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj": {
+    "D:\\1- Project\\New folder\\GradutionProject\\App.Admin\\App.Admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj",
+        "projectUniqueName": "D:\\1- Project\\New folder\\GradutionProject\\App.Admin\\App.Admin.csproj",
         "projectName": "App.Admin",
-        "projectPath": "D:\\Clients\\GraduationProject\\Code\\App.Admin\\App.Admin.csproj",
-        "packagesPath": "C:\\Users\\M\\.nuget\\packages\\",
-        "outputPath": "D:\\Clients\\GraduationProject\\Code\\App.Admin\\obj\\",
+        "projectPath": "D:\\1- Project\\New folder\\GradutionProject\\App.Admin\\App.Admin.csproj",
+        "packagesPath": "C:\\Users\\Peter\\.nuget\\packages\\",
+        "outputPath": "D:\\1- Project\\New folder\\GradutionProject\\App.Admin\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\M\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Peter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

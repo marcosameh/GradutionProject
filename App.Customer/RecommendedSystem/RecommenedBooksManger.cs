@@ -61,7 +61,8 @@ namespace App.Customer.RecommendedSystem
             }
             else
             {
-                var NewBooksOccurance = CategoryListRepo.GetAll().Take(NumBooks).ToList();
+                var NewBooksOccurance = CategoryListRepo.GetAll().
+                    Take(NumBooks).ToList();
 
                 foreach (var book in NewBooksOccurance)
 
@@ -116,7 +117,7 @@ namespace App.Customer.RecommendedSystem
 
         public void SetRecommenedBooks(string userid)
         {
-            int NumBooks = 5;
+            int NumBooks = 10;
             // Mutiblication phase
             DeployCustomer_Category__Book_Rate(userid, NumBooks);
 
@@ -127,6 +128,7 @@ namespace App.Customer.RecommendedSystem
 
         public List<CustomerRecomendedBook> GetRecommenedBooks(string userid,int NumBooks=0)
         {
+            SetRecommenedBooks(userid);
             // Books Page
             if (NumBooks==0)
                 return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid, book => book.Book).OrderByDescending(rate => rate.LoveRate).ToList();

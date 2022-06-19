@@ -32,7 +32,6 @@ namespace App.UI.Pages.customer
             var userid = userManger.GetUserId(HttpContext.User);
                 if(userid != null)
             {
-                recommenedBooksManger.SetRecommenedBooks(userid);
                 recomendedBooks = recommenedBooksManger.GetRecommenedBooks(userid, 0);
 
             }
