@@ -24,25 +24,30 @@ namespace App.UI.Pages.customer
         private readonly BookManager bookManger;
        public RecommenedBooksManger recommenedBooksManger { get; set; }
         private readonly UserManager<ApplicationUser> userManger;
+        private readonly BookCategoryListManager categoryListManager;
         public WishlistCRUD wishlistCRUD;
         public int wishid;
         public BookVM BookDetails;
         public List<BookVM> MostSellingBooks;
         public List<CustomerRecomendedBook> recomendedBooks;
+        public List<string> bookCategories;
         public List<BookCategoryList> BooksBasedOnCategory;
         public book_detailsModel(BookManager bookManger,
             RecommenedBooksManger recommenedBooksManger,
             UserManager<ApplicationUser> userManger,
+            BookCategoryListManager categoryListManager,
             WishlistCRUD wishlistCRUD)
         {
             this.bookManger = bookManger;
             this.recommenedBooksManger = recommenedBooksManger;
             this.userManger = userManger;
+            this.categoryListManager = categoryListManager;
             this.wishlistCRUD = wishlistCRUD;
         }
         public void OnGet(int Id)
         {
             BookDetails = bookManger.GetBookById(Id);
+            bookCategories = categoryListManager.GetBookCategories(Id);
             MostSellingBooks = bookManger.GetMostSellingBook();
             BooksBasedOnCategory = bookManger.GetAllBookFromSameCategory(Id);
             var userid = userManger.GetUserId(HttpContext.User);

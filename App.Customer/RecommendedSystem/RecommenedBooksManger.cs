@@ -131,9 +131,9 @@ namespace App.Customer.RecommendedSystem
             SetRecommenedBooks(userid);
             // Books Page
             if (NumBooks==0)
-                return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid, book => book.Book).OrderByDescending(rate => rate.LoveRate).ToList();
+                return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid && model.Book.IsActive == true, book => book.Book).OrderByDescending(rate => rate.LoveRate).ToList();
             // Book Details Page
-            return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid ,book=>book.Book).OrderByDescending(rate=>rate.LoveRate).Take(NumBooks).ToList();
+            return CustomerRecomendedBookRepo.GetMany(model => model.CustomerId == userid && model.Book.IsActive==true ,book=>book.Book).OrderByDescending(rate=>rate.LoveRate).Take(NumBooks).ToList();
         }
         public bool CustomerRegisterFavouriteCategories(string userid)
         {

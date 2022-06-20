@@ -78,6 +78,12 @@
                         </section>
 
                         <div class="btns-group">
+                            @if (string.IsNullOrEmpty( Model.handler) )
+                            {
+                                <a href="/index" class="btn btn-next"> Skip </a>
+
+                            }
+
                             <a href="#" class="btn btn-next" id="categorybtn"> Next </a>
                         </div>
 

@@ -25,7 +25,11 @@ namespace App.Librarian.Managers
         }
 
       
+        public List<string> GetBookCategories(int bookid)
+        {
+            return context.BookCategoryList.Where(book => book.BookId == bookid).Select(book=>book.Category.CategoryName).ToList();
 
+        }
 
 
     }

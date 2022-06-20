@@ -18,7 +18,7 @@ namespace App.UI.Pages.customer
     public class exchange_book_detailsModel : PageModel
     {
         private readonly ExchangeBookManger bookManger;
-        private readonly RecommenedBooksManger recommenedBooksManger;
+        public RecommenedBooksManger recommenedBooksManger;
         private readonly UserManager<ApplicationUser> userManger;
         public List<ExchangeBookCategoryList> BookCategories;
         public BookForExchangeVM BookDetails;

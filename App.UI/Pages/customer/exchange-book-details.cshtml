@@ -158,8 +158,8 @@
     <h1 class="heading"> <span>Books from same category</span> </h1>
 
     <div class="swiper Trend-slider">
-
-            <div class="swiper-wrapper">
+        @if (Model.BooksBasedOnCategory.Count != 0)
+        {<div class="swiper-wrapper">
                 @foreach (var item in Model.BooksBasedOnCategory)
                 {
 
@@ -183,10 +183,25 @@
 
                 }
 
+
+
+
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-     
+
+
+<div class="swiper-button-next"></div>
+
+
+<div class="swiper-button-prev"></div>
+        }
+        else { 
+    <center>
+        <h1 style="font-size: xxx-large; color: #114766">Books Not Available Yet</h1>
+        <h2>Please Wait Until We Recieve New Books</h2>
+
+    </center>
+        }
+
 
     </div>
 
@@ -200,54 +215,79 @@
     <div class="swiper Trend-slider">
         @if (SignInManager.IsSignedIn(User))
         {
-            <div class="swiper-wrapper">
-                @foreach (var item in Model.recomendedBooks)
+            if (Model.recommenedBooksManger.CustomerRegisterFavouriteCategories(UserManager.GetUserId(User)))
+            {
+                if (Model.recomendedBooks.Count != 0)
                 {
+                    <div class="swiper-wrapper">
+                        @foreach (var item in Model.recomendedBooks)
+                        {
 
-                    <div class="swiper-slide box">
-                        <div class="icons">
-                            <a href="/exchange/book-details/@item.BookId" class="fas fa-search"></a>
-                        </div>
-                        <div class="image">
-                            <a href="/exchange/book-details/@item.BookId">
-                                <img src="/photos/books/@item.Book.Photo" alt="">
-                            </a>
-                        </div>
-                        <div class="content">
-                            <a href="/exchange/book-details/@item.BookId">
+                            <div class="swiper-slide box">
+                                <div class="icons">
+                                    <a href="/exchange/book-details/@item.BookId" class="fas fa-search"></a>
+                                </div>
+                                <div class="image">
+                                    <a href="/exchange/book-details/@item.BookId">
+                                        <img src="/photos/books/@item.Book.Photo" alt="">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <a href="/exchange/book-details/@item.BookId">
 
-                                <h3>@item.Book.Name</h3>
-                            </a>
-                            <a href="/exchange/book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
-                        </div>
+                                        <h3>@item.Book.Name</h3>
+                                    </a>
+                                    <a href="/exchange/book-details/@item.BookId" class="btn" style=" width: -webkit-fill-available;">DETAILS</a>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+
+
+
+
+
                     </div>
 
+
+
+                    <div class="swiper-button-next"></div>
+
+
+                    <div class="swiper-button-prev"></div>
                 }
+                else
+                {
+                    <center>
+                        <h1 style="font-size: xxx-large; color: #114766">Books Not Available Yet</h1>
+                        <h2>Please Wait Until We Recieve New Books</h2>
+
+                    </center>
+                }
+            }
+            else
+            {
+                <center>
+                    <h1 style="font-size: xxx-large; color: #114766">Help Us Serve You Better</h1>
+                    <h2>Register Your Favourite Categories</h2>
+                    <a href="/Account/Register/recommended-categories/@UserManager.GetUserId(User)" class="btnt">Register Favourite Categories</a>
+
+                </center>
+            }
 
 
-
-
-
-
-
-
-            </div>
-
-
-
-            <div class="swiper-button-next"></div>
-
-
-            <div class="swiper-button-prev"></div>
         }
         else
         {
-            <center>
-                <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
-                <h2>Please login to get recommended books</h2>
-                <a href="/account/login" class="btnt">Login</a>
+        <center>
+            <h1 style="font-size: xxx-large; color: #114766">No Recommended Books For You</h1>
+            <h2>Please login to get recommended books</h2>
+            <a href="/account/login" class="btnt">Login</a>
 
-            </center>
+        </center>
         }
 
     </div>

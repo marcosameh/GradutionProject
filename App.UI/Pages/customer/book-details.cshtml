@@ -60,7 +60,15 @@
                     </p>
 
                 </div>
+                <div class="about">
+                    <h2> book categories </h2>
+                    @foreach (var item in Model.bookCategories)
+                    {
+                        <a href="#" class="btnt cart-btn" >@item</a>
 
+                    }
+
+                </div>
 
 
             </div>
@@ -336,6 +344,7 @@
     $(function () {
         $("#btn").click(function () {
             var Id = $('#bookId').val();
+            console.log(Id);
             $.ajax({
 
                 url: '?handler=AddToCart',

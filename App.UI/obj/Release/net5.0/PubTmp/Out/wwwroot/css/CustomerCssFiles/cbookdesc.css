@@ -455,6 +455,24 @@ section{
     text-decoration: line-through;
 }
 
+.content .own {
+    font-size:  2.2rem;
+    padding-left: 15px;
+}
+
+
+.content .own .element{
+    margin-bottom: 5px;
+}
+
+.content .own .element .owner{
+    font-weight: 300;
+}
+
+.content .own .element .phone{
+    font-weight: 300;
+}
+
 .content .stars{
     font-size: 2rem;
     color: var(--black);

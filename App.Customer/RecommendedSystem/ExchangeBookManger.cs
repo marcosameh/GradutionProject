@@ -78,13 +78,13 @@ namespace App.Customer.RecommendedSystem
         }
         public List<BooksForExchange> GetAllBooksByUser(string username)
         {
-            return BooksForExchangeRepo.GetMany(book=>book.OwnerId.Equals(username)).ToList();
+            return BooksForExchangeRepo.GetMany(book=>book.OwnerId.Equals(username )&& book.IsActive==true).ToList();
         }
 
         public List<ExchangeBookCategoryList> GetAllBookFromSameCategory(int Bookid)
         {
             int CategoryId = (int)CategoryListRepo.GetMany(book => book.BookId == Bookid).Select(category=>category.CategroyId).FirstOrDefault();
-            var result = CategoryListRepo.GetMany(book => book.CategroyId == CategoryId, book => book.Book).OrderByDescending(last=>last.Id).Take(10).ToList();
+            var result = CategoryListRepo.GetMany(book => book.CategroyId == CategoryId && book.Book.IsActive == true, book => book.Book).OrderByDescending(last=>last.Id).Take(10).ToList();
             return result;
         }
         public List<BooksForExchange> GetAllExchangeBook()
